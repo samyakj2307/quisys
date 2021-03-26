@@ -1,48 +1,72 @@
-.inputField{
-    width: 250px;
-    height: 48px;
-    left: 24px;
-    top: 141px;
+.signInBox {
     background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
-    box-shadow: inset -4px -4px 12px rgba(253, 255, 255, 0.8), inset 4px 4px 12px rgba(187, 195, 206, 0.6);
+    box-shadow: -16px -16px 40px rgba(253, 255, 255, 0.8), 16px 16px 40px rgba(187, 195, 206, 0.6);
     border-radius: 16px;
-    border: None;
+    width: fit-content;
+    padding: 25px;
+
 }
 
-.inputField::placeholder{
-    font-family: Montserrat, serif;
-    text-align: left;
-    padding-left: 20px;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 16px;
-    letter-spacing: 1px;
-    color: #90A4AE;
+.googleIcon {
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
 
-p{
+.googleBackground {
+    background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
+    box-shadow: -4px -4px 12px rgba(253, 255, 255, 0.8), 4px 4px 12px rgba(187, 195, 206, 0.6);
+    border-radius: 48px;
+    width: 48px;
+    height: 48px;
+    margin: auto;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.welcomeText {
+    text-align: center;
     font-family: Montserrat;
     font-style: normal;
     font-weight: bold;
     font-size: 16px;
     line-height: 21px;
-    /* identical to box height */
-
-    text-align: center;
     letter-spacing: 1px;
-
-    /* blueGrey600 */
-
     color: #546E7A;
 }
 
-.SignInButton{
+.SignInButton {
+    text-align: center;
     width: 113px;
     height: 48px;
-    left: 94px;
-    top: 285px;
-    background: rgba(149, 117, 205, 0.56);
-    filter: blur(24px);
+    background: #9574CD;
+    box-shadow: -4px -4px 12px rgba(253, 255, 255, 0.8), 4px 4px 12px rgba(187, 195, 206, 0.6);
     border-radius: 16px;
+
+    font-family: Montserrat, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    margin-bottom: 10px;
+}
+
+.divContainer {
+    text-align: center;
+    font-family: Montserrat, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    color: #546E7A;
+    margin: 10px;
+}
+
+a {
+    text-decoration: none;
 }

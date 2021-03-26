@@ -6,8 +6,11 @@ function Page1() {
     return (<div className="divi">
         <img src={logo1} alt="quisy"/>
         <h1>LOGIN</h1>
-            <button type="submit"><p>Login as Teacher</p></button><br/>
-            <button type="submit"><p>Login as Student</p></button>
+
+        <button type="submit" >
+            <p>Login as Teacher</p></button>
+        <br/>
+        <button type="submit"><p>Login as Student</p></button>
     </div>)
 }
 

@@ -1,9 +1,9 @@
 import React from "react";
-import './SignInBox.css';
+import './InputBox.css';
 
 function InputBox(props) {
     return (
-        <div>
+        <div className={"divInput"}>
             <input className={"inputField"} type={props.inputType} placeholder={props.placeholderText}/>
         </div>
     );
