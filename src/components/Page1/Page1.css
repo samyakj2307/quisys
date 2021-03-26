@@ -1,0 +1,68 @@
+.divi {
+    height: auto;
+    background-image: url("backgroundImage.png");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+
+}
+
+button {
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 337px;
+    height: 63px;
+    left: 408px;
+    top: 319px;
+    border-radius: 100px;
+    background: rgba(149, 117, 205, 0.74);
+    border: none;
+    margin-top: 25px;
+}
+
+p {
+    width: 252px;
+    height: 37px;
+    left: 449px;
+    top: 33px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 37px;
+    color: white;
+    margin: auto;
+}
+
+h1 {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 184px;
+    height: 85px;
+    left: 484px;
+    top: 19px;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 70px;
+    line-height: 85px;
+    margin-top: 45px;
+    color: #000000;
+
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 286px;
+    height: 96px;
+    left: 433px;
+    top: 51px;
+    border-radius: 21px;
+
+}
