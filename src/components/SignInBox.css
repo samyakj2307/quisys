@@ -46,3 +46,19 @@ p{
     filter: blur(24px);
     border-radius: 16px;
 }
+
+.divContainer {
+    text-align: center;
+    font-family: Montserrat, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    color: #546E7A;
+    margin: 10px;
+}
+
+a {
+    text-decoration: none;
+}

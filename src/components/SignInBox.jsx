@@ -15,6 +15,13 @@ function SignInBox() {
                 placeholderText = "Password"
             />
             <button className={"SignInButton"}>Sign In</button>
+
+            <div className={"divContainer"}>
+                <h7>New here?</h7>
+                <a href="">Create an account</a>
+                <br/>
+                <a href="">Forgot your password?</a>
+            </div>
         </div>
     )
 }
