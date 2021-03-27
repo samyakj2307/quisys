@@ -1,0 +1,13 @@
+.mainContainer{
+    height: 100vh;
+    width: 100vw;
+    background-color: #E6EEF8;
+}
+
+.boxContainer{
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

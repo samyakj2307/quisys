@@ -1,5 +1,5 @@
 import React from "react";
-import LoginPage from "./LoginPage/LoginPage";
+import LoginPage from "../LoginPage/LoginPage";
 
 function FacultyLogin() {
     return (

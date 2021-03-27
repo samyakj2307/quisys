@@ -6,9 +6,6 @@ import {Container, Row, Col} from "react-bootstrap";
 import LoginPage from "../LoginPage/LoginPage";
 import {Link} from "react-router-dom";
 
-function handleTeacherClick() {
-    // ReactDOM.render(<LoginPage/>, );
-}
 
 function HomePage() {
     return (
@@ -19,9 +16,7 @@ function HomePage() {
                     <Row>
                         <Col>
                             <Link to={"/FacultyLogin"}>
-                                <button className={"LoginPageButton"} type="submit" onClick={handleTeacherClick}>Login
-                                    as Teacher
-                                </button>
+                                <button className={"LoginPageButton"} type="submit">Login as Teacher</button>
                             </Link>
                         </Col>
                     </Row>
