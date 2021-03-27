@@ -1,17 +1,40 @@
-.divi {
-    height:100vh;
-    background-image: url("backgroundImage.png");
-    background-position:center;
+.backgroundDivision {
+    z-index: -1;
+    height: 100vh;
+    background-image: url("../../images/backgroundImage.png");
+    background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
     overflow: hidden;
+    transform: scale(1.5);
+    padding: 0;
+    margin: 0;
+
 }
 
-button {
+.mainDivision {
+    margin: 0;
+    padding: 50px;
+    z-index: 2;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(5px);
+    text-align: center;
+    transform: scale(0.75);
+}
 
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+.buttonContainer{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+Container{
+    height: 100%;
+}
+
+.LoginPageButton {
     width: 337px;
     height: 63px;
     left: 408px;
@@ -20,43 +43,31 @@ button {
     background: rgba(149, 117, 205, 0.77);
     border: none;
     margin-top: 25px;
-    cursor:pointer;
+    cursor: pointer;
 
-}
-button:hover{opacity:0.9;}
-
-p {
-    width: 252px;
-    height: 37px;
-    left: 449px;
-    top: 33px;
+    font-family: Montserrat, serif;
     font-style: normal;
     font-weight: normal;
-    font-size: 20px;
+    font-size: 30px;
     line-height: 37px;
-    color: white;
-    margin: auto;
+    color: #FFFFFF;
+
 }
 
-h1 {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 184px;
-    height: 85px;
-    left: 484px;
-    top: 19px;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 70px;
-    line-height: 85px;
-    margin-top: 45px;
-    color: #000000;
+button:hover {
+    opacity: 0.75;
+}
 
+button:active {
+    outline: none;
+    border: none;
+}
+
+button:focus {
+    outline: 0;
 }
 
 img {
-    margin-top:35px;
     display: block;
     margin-left: auto;
     margin-right: auto;

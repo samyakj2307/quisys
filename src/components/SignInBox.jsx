@@ -5,12 +5,12 @@ import InputBox from "./InputBox";
 import './SignInBox.css';
 
 function SignInBox(props) {
-    const emailtext = props.userDetails + "Email";
+    const emailtext = props.userDetails + " Email";
     return (
         <div className={"signInBox"}>
             <p className={"welcomeText"}>Welcome Back</p>
             <div className={"googleBackground"}>
-                <img className={"googleIcon"} src={googleIcon}/>
+                <img src={googleIcon}/>
             </div>
             <InputBox
                 inputType="email"
@@ -20,9 +20,11 @@ function SignInBox(props) {
                 inputType="password"
                 placeholderText="Password"
             />
+            <div className={"signInButtonContainer"}>
             <button className={"SignInButton"}>Sign In</button>
+            </div>
 
-            <div className={"divContainer"}>
+            <div className={"signUpTextContainer"}>
                 <h7>New here?</h7>
                 <a href="">Create an account</a>
                 <br/>

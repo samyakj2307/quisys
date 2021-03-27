@@ -7,12 +7,15 @@
 
 }
 
-.googleIcon {
-    width: 24px;
-    height: 24px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+.welcomeText {
+    text-align: center;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    letter-spacing: 1px;
+    color: #546E7A;
 }
 
 .googleBackground {
@@ -26,15 +29,19 @@
     margin-bottom: 20px;
 }
 
-.welcomeText {
+.googleBackground img{
+    width: 24px;
+    height: 24px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.signInButtonContainer{
+    width: 100%;
     text-align: center;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 16px;
-    line-height: 21px;
-    letter-spacing: 1px;
-    color: #546E7A;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .SignInButton {
@@ -44,6 +51,7 @@
     background: #9574CD;
     box-shadow: -4px -4px 12px rgba(253, 255, 255, 0.8), 4px 4px 12px rgba(187, 195, 206, 0.6);
     border-radius: 16px;
+    border: none;
 
     font-family: Montserrat, serif;
     font-style: normal;
@@ -52,10 +60,9 @@
     line-height: 16px;
     letter-spacing: 1px;
     color: #FFFFFF;
-    margin-bottom: 10px;
 }
 
-.divContainer {
+.signUpTextContainer {
     text-align: center;
     font-family: Montserrat, serif;
     font-style: normal;
@@ -66,7 +73,6 @@
     color: #546E7A;
     margin: 10px;
 }
-
-a {
+.signUpTextContainer a{
     text-decoration: none;
 }
