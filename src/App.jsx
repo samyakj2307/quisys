@@ -1,12 +1,20 @@
 import React from "react";
-import SignInBox from "./components/SignInBox";
-import Page1 from "./components/Page1/Page1";
-import FacultyLogin from "./components/FacultyLogin/FacultyLogin";
+import {Route,Link} from "react-router-dom";
+import HomePage from "./components/HomePage/HomePage";
+import LoginPage from "./components/LoginPage/LoginPage";
+import StudentLogin from "./components/StudentLogin";
+import FacultyLogin from "./components/FacultyLogin";
 
 function App() {
-    return (<Page1/>);
+    return (
+        <div>
+            <Route exact path={"/"} component={HomePage}/>
+            <Route exact path={"/StudentLogin"} component={StudentLogin}/>
+            <Route exact path={"/FacultyLogin"} component={FacultyLogin}/>
+        </div>
+    );
     // return (<SignInBox/>);
-    //return (<FacultyLogin/>);
+    //return (<LoginPage/>);
 }
 
 export default App;

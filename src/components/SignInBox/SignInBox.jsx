@@ -1,7 +1,7 @@
 import React from "react";
-import '../index.css';
-import googleIcon from './Vector.png';
-import InputBox from "./InputBox";
+import '../../index.css';
+import googleIcon from '../../images/Vector.png';
+import InputBox from "../InputBox/InputBox";
 import './SignInBox.css';
 
 function SignInBox(props) {

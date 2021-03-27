@@ -1,16 +1,16 @@
 import React from "react";
-import SignInBox from "../SignInBox";
-import "./FacultyLogin.css";
+import SignInBox from "../SignInBox/SignInBox";
+import "./LoginPage.css";
 
-function FacultyLogin() {
+function LoginPage(props) {
     return (
         <div className={"mainContainer"}>
             <div className={"boxContainer"}>
                 <SignInBox
-                    userDetails={"Faculty"}/>
+                    userDetails={props.userType}/>
             </div>
         </div>
     )
 }
 
-export default FacultyLogin;
+export default LoginPage;
