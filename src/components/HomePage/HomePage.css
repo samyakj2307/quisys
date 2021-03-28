@@ -1,18 +1,18 @@
-.backgroundDivision {
+.backgroundDivisionHomePage {
     z-index: -1;
     height: 100vh;
     background-image: url("../../images/backgroundImage.png");
     background-position: center;
-    background-size: contain;
+    background-size: cover;
     background-repeat: no-repeat;
     overflow: hidden;
-    transform: scale(1.5);
+
     padding: 0;
     margin: 0;
 
 }
 
-.mainDivision {
+.mainDivisionHomePage {
     margin: 0;
     padding: 50px;
     z-index: 2;
@@ -20,21 +20,21 @@
     background: rgba(0, 0, 0, 0);
     backdrop-filter: blur(5px);
     text-align: center;
-    transform: scale(0.75);
 }
 
-.buttonContainer{
+.buttonContainerHomePage{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
 
 }
+
 Container{
     height: 100%;
 }
 
-.LoginPageButton {
+.HomePageButton {
     width: 337px;
     height: 63px;
     left: 408px;

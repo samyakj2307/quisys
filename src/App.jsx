@@ -1,10 +1,12 @@
 import React from "react";
-import {Route,Link} from "react-router-dom";
+import {Route} from "react-router-dom";
 import HomePage from "./components/HomePage/HomePage";
 import StudentLogin from "./components/Student/StudentLogin";
 import FacultyLogin from "./components/Faculty/FacultyLogin";
 import StudentSignUp from "./components/Student/StudentSignUp";
 import FacultySignUp from "./components/Faculty/FacultySignUp";
+import FacultyQuestionBox from "./components/FacultyQuestionPaperPage/FacultyQuestionBox/FacultyQuestionBox";
+import SignInBox from "./components/SignInPage/SignInBox/SignInBox";
 
 function App() {
     return (
@@ -16,8 +18,8 @@ function App() {
             <Route exact path={"/FacultySignUp"} component={FacultySignUp}/>
         </div>
     );
-    //return (<SignUpPage/>);
-    //return (<LoginPage/>);
+    //return (<SignInBox/>);
+    //return (<FacultyQuestionBox/>);
 }
 
 export default App;

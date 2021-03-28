@@ -1,6 +1,6 @@
 import React from "react";
-import googleIcon from '../../images/Vector.png';
-import InputBox from "../InputBox/InputBox";
+import googleIcon from '../../../images/Vector.png';
+import InputBox from "../../InputBox/InputBox";
 import './SignUpBox.css';
 
 function SignUpBox(props) {

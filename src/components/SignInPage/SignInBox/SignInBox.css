@@ -1,13 +1,12 @@
-.signUpBox {
+.signInBox {
     background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
     box-shadow: -16px -16px 40px rgba(253, 255, 255, 0.8), 16px 16px 40px rgba(187, 195, 206, 0.6);
     border-radius: 16px;
     width: fit-content;
     padding: 25px;
-
 }
 
-.welcomeText {
+.welcomeTextSignInPage {
     text-align: center;
     font-family: Montserrat;
     font-style: normal;
@@ -37,14 +36,14 @@
     display: block;
 }
 
-.signUpButtonContainer{
+.signInButtonContainer{
     width: 100%;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
 }
 
-.SignUpButton {
+.SignInButton {
     text-align: center;
     width: 113px;
     height: 48px;
@@ -60,4 +59,24 @@
     line-height: 16px;
     letter-spacing: 1px;
     color: #FFFFFF;
+}
+
+.linksTextContainer {
+    text-align: center;
+    font-family: Montserrat, serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 13px;
+    line-height: 20px;
+    text-align: center;
+    color: #546E7A;
+    margin: 10px;
+}
+.linksTextContainer a{
+    text-decoration: none;
+}
+
+.signUpLinkContainer{
+    margin-top: 20px;
+    margin-bottom: 5px;
 }

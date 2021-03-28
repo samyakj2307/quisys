@@ -1,0 +1,46 @@
+.mainContainerQuestionBox{
+    background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
+    box-shadow: -16px -16px 40px rgba(253, 255, 255, 0.8), 16px 16px 40px rgba(187, 195, 206, 0.6);
+    border-radius: 16px;
+    width: 100%;
+    padding: 25px;
+    height: fit-content;
+    text-align: center;
+}
+
+
+.questionTextBox{
+    background: #FFFFFF;
+    border: 4px solid #9575CD;
+    border-radius: 10px;
+    resize: none;
+    width: 85%;
+    margin: 0 0 20px;
+
+    font-family: Montserrat,sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 37px;
+    letter-spacing: 1px;
+    color: black;
+}
+
+.questionTextBox::placeholder{
+    color: #90A4AE;
+}
+
+
+.radioButtonContainer{
+    margin-bottom: 20px;
+    margin-left: 7.5%;
+}
+
+.typeOfAnswers{
+    font-family: Montserrat,sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 37px;
+    color: #000000;
+}

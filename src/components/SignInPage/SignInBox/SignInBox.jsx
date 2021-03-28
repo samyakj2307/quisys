@@ -1,17 +1,17 @@
 import React from "react";
-import '../../index.css';
-import googleIcon from '../../images/Vector.png';
-import InputBox from "../InputBox/InputBox";
+import '../../../index.css';
+import googleIcon from '../../../images/Vector.png';
+import InputBox from "../../InputBox/InputBox";
 import './SignInBox.css';
-import {Link} from "react-router-dom";
+
 
 function SignInBox(props) {
     const user = props.userDetails;
     const emailtext = user + " Email";
-    const urlString = "/"+user+"SignUp";
+    const urlString = "/" + user + "SignUp";
     return (
         <div className={"signInBox"}>
-            <p className={"welcomeText"}>Welcome Back</p>
+            <p className={"welcomeTextSignInPage"}>Welcome Back</p>
             <div className={"googleBackground"}>
                 <img src={googleIcon}/>
             </div>
@@ -24,15 +24,14 @@ function SignInBox(props) {
                 placeholderText="Password"
             />
             <div className={"signInButtonContainer"}>
-            <button className={"SignInButton"}>Sign In</button>
+                <button className={"SignInButton"}>Sign In</button>
             </div>
 
-            <div className={"signUpTextContainer"}>
-                <h7>New here?</h7>
-                <Link to={urlString}>
-                <a href="">Create an account</a>
-                </Link>
-                <br/>
+            <div className={"linksTextContainer"}>
+                <div className={"signUpLinkContainer"}>
+                    <h7>New here?</h7>
+                    <a href={urlString}>Create an account</a>
+                </div>
                 <a href="">Forgot your password?</a>
             </div>
         </div>

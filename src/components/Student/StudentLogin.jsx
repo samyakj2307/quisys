@@ -1,9 +1,9 @@
 import React from "react";
-import LoginPage from "../LoginPage/LoginPage";
+import SignInPage from "../SignInPage/SignInPage";
 
 function StudentLogin(){
     return (
-        <LoginPage
+        <SignInPage
             userType={"Student"}/>
     )
 

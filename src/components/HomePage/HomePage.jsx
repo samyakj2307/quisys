@@ -1,22 +1,22 @@
 import React from "react";
 import logo1 from "../../images/quisysLogo.png";
 import './HomePage.css';
-import '../LoginPage/LoginPage';
+import '../SignInPage/SignInPage';
 import {Container, Row, Col} from "react-bootstrap";
-import LoginPage from "../LoginPage/LoginPage";
+import SignInPage from "../SignInPage/SignInPage";
 import {Link} from "react-router-dom";
 
 
 function HomePage() {
     return (
-        <div className={"backgroundDivision"}>
-            <div className="mainDivision">
-                <img src={logo1} alt="quisys Logo"/>
-                <Container className={"buttonContainer"}>
+        <div className={"backgroundDivisionHomePage"}>
+            <div className="mainDivisionHomePage">
+                <img src={logo1} alt="quisys Logo" height={111} width={300}/>
+                <Container className={"buttonContainerHomePage"}>
                     <Row>
                         <Col>
                             <Link to={"/FacultyLogin"}>
-                                <button className={"LoginPageButton"} type="submit">Login as Teacher</button>
+                                <button className={"HomePageButton"} type="submit">Login as Teacher</button>
                             </Link>
                         </Col>
                     </Row>
@@ -24,7 +24,7 @@ function HomePage() {
                     <Row>
                         <Col>
                             <Link to={"/StudentLogin"}>
-                                <button className={"LoginPageButton"} type="submit">Login as Student</button>
+                                <button className={"HomePageButton"} type="submit">Login as Student</button>
                             </Link>
                         </Col>
                     </Row>
