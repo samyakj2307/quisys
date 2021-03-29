@@ -1,11 +1,11 @@
 import React from "react";
-import SignInBox from "./SignInBox/SignInBox";
-import "./SignInPage.css";
+import SignInBox from "./SignInBox";
+import "../../index.css"
 
 function SignInPage(props) {
     return (
-        <div className={"mainContainerSignInPage"}>
-            <div className={"boxContainerSignInPage"}>
+        <div className={"mainContainerSignIn-UpPage"}>
+            <div className={"boxContainerSignIn-UpPage"}>
                 <SignInBox
                     userDetails={props.userType}/>
             </div>

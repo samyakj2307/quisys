@@ -6,7 +6,6 @@ import FacultyLogin from "./components/Faculty/FacultyLogin";
 import StudentSignUp from "./components/Student/StudentSignUp";
 import FacultySignUp from "./components/Faculty/FacultySignUp";
 import FacultyQuestionBox from "./components/FacultyQuestionPaperPage/FacultyQuestionBox/FacultyQuestionBox";
-import SignInBox from "./components/SignInPage/SignInBox/SignInBox";
 
 function App() {
     return (
@@ -18,8 +17,7 @@ function App() {
             <Route exact path={"/FacultySignUp"} component={FacultySignUp}/>
         </div>
     );
-    //return (<SignInBox/>);
-    //return (<FacultyQuestionBox/>);
+    // return (<FacultyQuestionBox/>);
 }
 
 export default App;

@@ -4,7 +4,137 @@ body {
   margin: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* SignIn-SignUp Page */
+
+.mainContainerSignIn-UpPage{
+  height: 100vh;
+  width: 100vw;
+  background-color: #E6EEF8;
+}
+
+.boxContainerSignIn-UpPage{
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.signIn-UpBox {
+  background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
+  box-shadow: -16px -16px 40px rgba(253, 255, 255, 0.8), 16px 16px 40px rgba(187, 195, 206, 0.6);
+  border-radius: 16px;
+  width: fit-content;
+  padding: 25px;
+}
+
+
+
+.welcomeText {
+  text-align: center;
+  font-family: Montserrat;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 21px;
+  letter-spacing: 1px;
+  color: #546E7A;
+}
+
+.inputField {
+  width: 250px;
+  height: 40px;
+  text-align: left;
+  padding-left: 20px;
+  background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
+  box-shadow: inset -4px -4px 12px rgba(253, 255, 255, 0.8), inset 4px 4px 12px rgba(187, 195, 206, 0.6);
+  border-radius: 16px;
+  margin: 10px;
+  border: none;
+  text-decoration: none;
+
+
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  letter-spacing: 1px;
+}
+.inputField:focus{
+  border: none;
+  outline: none;
+}
+
+.inputField::placeholder {
+  color: #90A4AE;
+}
+
+.inputFieldContainer{
+  text-align: center;
+}
+
+.googleBackground {
+  background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
+  box-shadow: -4px -4px 12px rgba(253, 255, 255, 0.8), 4px 4px 12px rgba(187, 195, 206, 0.6);
+  border-radius: 48px;
+  width: 48px;
+  height: 48px;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.googleBackground img{
+  width: 24px;
+  height: 24px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.signIn-UpButtonContainer{
+  width: 100%;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.signIn-UpButton{
+  text-align: center;
+  width: 113px;
+  height: 48px;
+  background: #9574CD;
+  box-shadow: -4px -4px 12px rgba(253, 255, 255, 0.8), 4px 4px 12px rgba(187, 195, 206, 0.6);
+  border-radius: 16px;
+  border: none;
+
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 1px;
+  color: #FFFFFF;
+}
+
+
+.linksTextContainer {
+  text-align: center;
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 13px;
+  line-height: 20px;
+  text-align: center;
+  color: #546E7A;
+  margin: 10px;
+}
+.linksTextContainer a{
+  text-decoration: none;
+}
+
+.signUpLinkContainer{
+  margin-top: 20px;
+  margin-bottom: 5px;
 }
