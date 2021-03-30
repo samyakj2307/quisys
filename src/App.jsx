@@ -6,7 +6,6 @@ import FacultyLogin from "./components/Faculty/FacultyLogin";
 import StudentSignUp from "./components/Student/StudentSignUp";
 import FacultySignUp from "./components/Faculty/FacultySignUp";
 import FacultyQuestionPaperPage from "./components/FacultyQuestionPaperPage/FacultyQuestionPaperPage";
-import FacultyQuestionBox from "./components/FacultyQuestionPaperPage/FacultyQuestionBox/FacultyQuestionBox";
 
 function App() {
     return (
@@ -19,7 +18,6 @@ function App() {
             <Route exact path={"/SetQuestionPaper"} component={FacultyQuestionPaperPage}/>
         </div>
     );
-    // return (<FacultyQuestionBox/>);
 }
 
 export default App;

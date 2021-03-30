@@ -1,6 +1,7 @@
 let QuestionPaper = [
     {
         question:"",
+        textAnswer: "",
         options:"",
         ansMode:""
     }

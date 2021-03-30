@@ -37,7 +37,7 @@ function SignUpBox(props) {
         <div className={"signIn-UpBox"}>
             <p className={"welcomeText"}>{heading}</p>
             <div className={"googleBackground"}>
-                <img src={googleIcon}/>
+                <img src={googleIcon} alt={"Google Sign Up"}/>
             </div>
             <div className={"inputFieldContainer"}>
                 <input

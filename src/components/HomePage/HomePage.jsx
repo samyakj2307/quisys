@@ -3,7 +3,6 @@ import logo1 from "../../images/quisysLogo.png";
 import './HomePage.css';
 import '../SignInPage/SignInPage';
 import {Container, Row, Col} from "react-bootstrap";
-import SignInPage from "../SignInPage/SignInPage";
 import {Link} from "react-router-dom";
 
 

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import {FormControlLabel, RadioGroup, TextareaAutosize, Typography} from '@material-ui/core';
 import "./FacultyQuestionBox.css"
 import StyledRadioButton from "./StyledRadioButton";
@@ -6,6 +6,7 @@ import {createStyles} from "@material-ui/core/styles";
 import {Col, Container, Row} from "react-bootstrap";
 import "../../../QuestionPaper";
 import minusButton from "../../../images/minus.svg"
+import plusSign from "../../../images/Group 27.svg";
 
 
 const styles = createStyles({
@@ -27,9 +28,12 @@ function FacultyQuestionBox(props) {
 
     const [currentQuestion, setCurrentQuestion] = React.useState({
         question: "",
+        textAnswer: "",
         options: "",
         ansMode: ""
     });
+
+    const [isText,setIsText] = React.useState(false);
 
 
     function handleCurrentQuestionChange(event) {
@@ -48,11 +52,41 @@ function FacultyQuestionBox(props) {
         props.onDelete(propQno);
     }
 
+    function handleRadio(event){
+        const radioValue = event.target.value;
+        console.log(radioValue);
+        if(radioValue==="Text"){
+            setIsText(true);
+        }else {
+            setIsText(false)
+        }
+    }
+
+    function renderAnswerBox(){
+        return (
+            <TextareaAutosize
+                name={"textAnswer"}
+                className={"answerTextBox"}
+                rowsMin={3}
+                placeholder={"Answer (Optional)"}/>
+        )
+    }
+
+    function renderOptions(){
+        return (
+            <TextareaAutosize
+                name={"option1"}
+                className={"optionsTextBox"}
+                rowsMin={1}
+                placeholder={"Option 1"}/>
+        )
+    }
+
     return (
         <Container className={"mainContainerQuestionBox"}>
             <Row>
                 <Col>
-                    <button onClick={deleteQuestion} className={"deleteQuestion"}><img src={minusButton}/></button>
+                    <button onClick={deleteQuestion} className={"deleteQuestion"}><img src={minusButton} alt={"Delete Question"}/></button>
                 </Col>
             </Row>
             <Row>
@@ -67,7 +101,7 @@ function FacultyQuestionBox(props) {
                 </Col>
             </Row>
             <Row className={"radioButtonContainer"}>
-                <RadioGroup aria-label="Type of Answer" row={true}>
+                <RadioGroup aria-label="Type of Answer" row={true} onChange={handleRadio} defaultValue={"Choice"}>
                     <Col>
                         <FormControlLabel
                             className={"typeOfAnswers"}
@@ -85,6 +119,15 @@ function FacultyQuestionBox(props) {
                             label={<Typography style={styles.formControlLabel}>Text</Typography>}/>
                     </Col>
                 </RadioGroup>
+            </Row>
+            <Row className={"answerBoxContainer"}>
+                <Col md={6}>
+                    {isText ? renderAnswerBox() : renderOptions()}
+
+                </Col>
+                <Col md={6}>
+                    <button className={"addOptionButton"}><img src={plusSign} alt={"Add Option"}/></button>
+                </Col>
             </Row>
         </Container>
 
