@@ -1,97 +1,73 @@
-import React, {Component} from 'react';
+import React, {useContext, useState} from 'react';
 import './StudentQuestionPaperPage.css';
 import Question from './QuestionBox/QuestionBox';
-import Answer from './AnswerBox/AnswerBox';
-export default class Quiz extends Component {
-    // initializing the local state
-    state = {
-        questions: {
-            1: 'FULL FORM OF HTML ?',
-            2: 'FULL FORM OF EMAIL ?',
-            3: 'FULL FORM OF RAM ?'
-        },
-        answers: {
-            1: {
-                1: 'HyperText Markup Lang',
-                2: 'kjbiwd',
-                3: 'qwerty'
-            },
-            2: {
-                1: 'Electronic Mail',
-                2: 'kjbiwd',
-                3: 'qwerty'
-            },
-            3: {
-                1: 'Random Access Memory',
-                2: 'kjbiwd',
-                3: 'qwerty'
-            }
-        },
-        correctAnswers: {
-            1: '1',
-            2: '1',
-            3: '1'
-        },
-        correctAnswer: 0,
-        clickedAnswer: 0,
-        step: 1,
-        score:0
-    }
+import AnswerBox from "./AnswerBox/AnswerBox";
+import {Col, Container, Row} from "react-bootstrap";
+import {StudentQuestionAnswerContext} from "../../context/StudentQuestionAnswerContext";
 
-    checkAnswer = answer => {
-        const {correctAnswers, step, score} = this.state;
-        if(answer === correctAnswers[step]){
-            this.setState({
-                score: score+1,
-                correctAnswer:correctAnswers[step],
-                clickedAnswer:answer
-            });
-        }else{
-            this.setState({
-                correctAnswer:0,
-                clickedAnswer:answer
+function StudentQuestionPaperPage() {
+
+    const [questionAnswer, setQuestionAnswer] = useContext(StudentQuestionAnswerContext);
+    const [currentQuestionNumber, setCurrentQuestionNumber] = useState(0);
+
+    const questionArray = Array.from({length: questionAnswer.length}, (_, index) => index + 1);
+
+    function handleNext() {
+        if (currentQuestionNumber < (questionAnswer.length - 1)) {
+            setCurrentQuestionNumber(prevState => {
+                return (prevState + 1);
             })
         }
     }
 
-    nextStep = step => {
-        this.setState({
-            step: step+1,
-            correctAnswer: 0,
-            clickedAnswer:0
-        });
+    function handlePrevious() {
+        if (currentQuestionNumber > 0) {
+            setCurrentQuestionNumber(prevState => {
+                return (prevState - 1);
+            })
+        }
     }
-    render(){
-        let {questions,answers,clickedAnswer,correctAnswer,step, score} = this.state;
-        return(
-            <div className="Content">
-                { step <= Object.keys(questions).length ?
-                    (<>
-                        <Question
-                            question={questions[step]}
-                        />
-                        <Answer
-                            answer={answers[step]}
-                            step={step}
-                            checkAnswer={this.checkAnswer}
-                            correctAnswer={correctAnswer}
-                            clickedAnswer={clickedAnswer}
-                        />
-                        <button
-                            className="NextStep"
-                            onClick={() => this.nextStep(step)}
-                        >
-                            Next
-                        </button>
-                    </>) : (
-                        <div className="finalPage">
-                            <h2>THANK YOU FOR ATTENDING!</h2>
-                            <p>YOUR SCORE IS: {score}/{Object.keys(questions).length}</p>
-                            <button className="homePage">Return to Home Page</button>
-                        </div>
-                    )
-                }
-            </div>
-        );
+
+    function goToQuestion(event) {
+        const value = event.target.id;
+        let qNo = value - 1;
+        setCurrentQuestionNumber(qNo)
+
     }
+
+
+    return (
+        <Container className="Content">
+            <Row>
+                <Col>
+                    {questionArray.map(number => {
+                        return (
+                            <button key={number} id={number} className={"questionNumbers"} onClick={goToQuestion}>
+                                {number}
+                            </button>
+                        )
+                    })}
+                </Col>
+            </Row>
+            <Row>
+                <Col className={"QuestionAnswerContainer"}>
+                    <Question
+                        question={questionAnswer[currentQuestionNumber].question}
+                    />
+                    <AnswerBox
+                        questionNo={currentQuestionNumber}
+                        options={questionAnswer[currentQuestionNumber].options}
+                        isTextField={questionAnswer[currentQuestionNumber].isText}
+                    />
+                </Col>
+                <Col>
+                    <button onClick={handlePrevious} className="NextStep">Previous</button>
+                    <button onClick={handleNext} className="NextStep">Next</button>
+                </Col>
+            </Row>
+        </Container>
+    );
+
 }
+
+export default StudentQuestionPaperPage;

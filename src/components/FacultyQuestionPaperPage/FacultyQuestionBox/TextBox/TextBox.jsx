@@ -1,10 +1,10 @@
 import React, {useContext, useState} from "react";
 import {TextareaAutosize} from "@material-ui/core";
-import {QuestionContext} from "../../../../context/QuestionContext"
+import {FacultyQuestionContext} from "../../../../context/FacultyQuestionContext"
 
 
 function TextBox(props) {
-    const [questions, setQuestions] = useContext(QuestionContext);
+    const [questions, setQuestions] = useContext(FacultyQuestionContext);
     const propQno = props.id;
     const currentQuestion = questions[propQno];
 

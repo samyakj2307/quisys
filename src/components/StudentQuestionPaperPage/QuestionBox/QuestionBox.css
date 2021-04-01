@@ -1,18 +1,16 @@
-.Content h1{
-    margin:15px 0;
-    font-size: 25px;
-    font-weight: bold;
-    color: black;
-    text-transform:none;
-    text-shadow: none;
-    text-align:center;
-    padding-top: 30px;
-}
-.QnBox{
-    width: 800px;
-    height: 110px;
+.questionContainer{
+    background: #FFFFFF;
     border-radius: 10px;
-    background-color: white;
-    margin-bottom: 20px;
-    border:4px solid  #9575CD;
+    width: 45%;
+    margin: 10px;
+    padding: 10px;
+
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+
+    color: #000000;
+
 }

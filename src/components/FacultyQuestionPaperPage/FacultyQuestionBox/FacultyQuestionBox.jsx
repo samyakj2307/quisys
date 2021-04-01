@@ -6,7 +6,7 @@ import {createStyles} from "@material-ui/core/styles";
 import {Col, Container, Row} from "react-bootstrap";
 import minusButton from "../../../images/minus.svg"
 import OptionBox from "./OptionBox/OptionBox";
-import {QuestionContext} from "../../../context/QuestionContext"
+import {FacultyQuestionContext} from "../../../context/FacultyQuestionContext"
 import TextBox from "./TextBox/TextBox";
 
 
@@ -24,7 +24,7 @@ const styles = createStyles({
 
 
 function FacultyQuestionBox(props) {
-    const [questions, setQuestions] = useContext(QuestionContext);
+    const [questions, setQuestions] = useContext(FacultyQuestionContext);
     const propQno = props.id;
     const currentQuestion = questions[propQno];
 

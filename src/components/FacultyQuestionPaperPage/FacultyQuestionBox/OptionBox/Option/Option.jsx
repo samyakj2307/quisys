@@ -2,10 +2,10 @@ import React, {useContext} from "react";
 import {TextareaAutosize} from "@material-ui/core";
 import "./Option.css"
 import minusSign from "../../../../../images/minusOption.svg";
-import {QuestionContext} from "../../../../../context/QuestionContext";
+import {FacultyQuestionContext} from "../../../../../context/FacultyQuestionContext";
 
 function Option(props) {
-    const [questions, setQuestions] = useContext(QuestionContext);
+    const [questions, setQuestions] = useContext(FacultyQuestionContext);
     const propQno = props.qNo;
     const propOptionNo = props.id;
     const currentOptionValue = questions[propQno].options[propOptionNo];

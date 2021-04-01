@@ -3,11 +3,11 @@ import {Col, Container, Row} from "react-bootstrap";
 import FacultyQuestionBox from "./FacultyQuestionBox/FacultyQuestionBox";
 import "./FacultyQuestionPaperPage.css"
 import plusSign from "../../images/Group 27.svg";
-import {QuestionContext} from "../../context/QuestionContext"
+import {FacultyQuestionContext} from "../../context/FacultyQuestionContext"
 
 function FacultyQuestionPaperPage() {
-    // Imported Questions List from QuestionContext.js
-    const [questions, setQuestions] = useContext(QuestionContext);
+    // Imported Questions List from FacultyQuestionContext.js
+    const [questions, setQuestions] = useContext(FacultyQuestionContext);
     const [examName, setExamName] = useState("");
 
     // Adding Questions

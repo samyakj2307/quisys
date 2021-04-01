@@ -2,11 +2,11 @@ import React, {useContext} from "react";
 import "./OptionBox.css"
 import Option from "./Option/Option";
 import plusSign from "../../../../images/Group 27.svg"
-import {QuestionContext} from "../../../../context/QuestionContext";
+import {FacultyQuestionContext} from "../../../../context/FacultyQuestionContext";
 
 
 function OptionBox(props) {
-    const [questions, setQuestions] = useContext(QuestionContext);
+    const [questions, setQuestions] = useContext(FacultyQuestionContext);
     const propQno = props.id;
     const currentQuestion = questions[propQno];
     let currentOptions = questions[propQno].options;
@@ -32,7 +32,7 @@ function OptionBox(props) {
                 return index !== id;
             });
         });
-        // TODO Delete Option From Main COntext Array;
+        // TODO Delete Option From Main Context Array;
     }
 
 

@@ -1,6 +1,6 @@
 import React, {useState, createContext} from "react";
 
-export const QuestionContext = createContext();
+export const FacultyQuestionContext = createContext();
 
 export function QuestionProvider(props) {
     const [questions, setQuestions] = useState([{
@@ -11,8 +11,8 @@ export function QuestionProvider(props) {
     }
     ])
 
-    return <QuestionContext.Provider value={[questions, setQuestions]}>
+    return <FacultyQuestionContext.Provider value={[questions, setQuestions]}>
         {props.children}
-    </QuestionContext.Provider>
+    </FacultyQuestionContext.Provider>
 
 }

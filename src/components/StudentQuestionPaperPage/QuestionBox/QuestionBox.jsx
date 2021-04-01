@@ -1,7 +1,12 @@
 import React from 'react';
 import './QuestionBox.css';
+
 const Question = (props) => {
-    return(<div class="QnBox"><h1>{props.question}</h1></div>);
+    return (
+        <div className={"questionContainer"}>
+            {props.question}
+        </div>
+    )
 }
 
 export default Question;
