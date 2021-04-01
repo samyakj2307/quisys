@@ -15,22 +15,64 @@ body {
 }
 
 
-.addQuestionButton {
+.addButton {
     background: #E6EEF8;
     border: 4px solid #9575CD;
     box-sizing: border-box;
     box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.56), inset 4px 4px 12px rgba(187, 195, 206, 0.6), inset -4px -4px 12px rgba(253, 255, 255, 0.8);
-    border-radius: 0 20px 20px 20px;
-    transform: rotate(45deg);
-    padding: 0;
-    margin-top: 40px;
     cursor: pointer;
-
 }
 
-.addQuestionButton img {
+.facultyAddButton {
+    padding: 0;
+    margin-top: 40px;
+    transform: rotate(45deg);
+    border-radius: 0 20px 20px 20px;
+}
+
+.facultyAddButton img {
     width: 50px;
     height: 50px;
     transform: rotate(-45deg);
     padding: 7px;
+}
+
+.quizDataInput{
+    border: 2px solid #9575CD;
+    margin: 20px 20px 10px;
+    padding: 10px;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: black;
+}
+
+.quizDataInput::placeholder {
+    color: #90A4AE;
+}
+
+.quizDataInput:focus{
+    outline: none;
+    border: 3px solid #9575CD;
+}
+
+label{
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: black;
+    padding: 10px;
+}
+
+.ExamHeading{
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: bolder;
+    font-size: 30px;
+    letter-spacing: 1px;
+    color: black;
 }

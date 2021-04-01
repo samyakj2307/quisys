@@ -1,62 +1,69 @@
-import React from "react";
+import React, {useContext, useState} from "react";
+import {Col, Container, Row} from "react-bootstrap";
 import FacultyQuestionBox from "./FacultyQuestionBox/FacultyQuestionBox";
 import "./FacultyQuestionPaperPage.css"
-import questionArray from "../../QuestionPaper";
 import plusSign from "../../images/Group 27.svg";
+import {QuestionContext} from "../../context/QuestionContext"
 
 function FacultyQuestionPaperPage() {
+    // Imported Questions List from QuestionContext.js
+    const [questions, setQuestions] = useContext(QuestionContext);
+    const [examName, setExamName] = useState("");
 
-    const [questions, setQuestions] = React.useState(questionArray)
-
-    function handleChange(newValue, index) {
-        return (setQuestions((prevQuestionArrayValue) => {
-                prevQuestionArrayValue[index] = newValue;
-                return prevQuestionArrayValue;
-            })
-        )
-    }
-
+    // Adding Questions
     function addQuestionBox() {
-        setQuestions(prevState => {
-                return [
-                    ...prevState,
-                    {
-                        question: "",
-                        options: "",
-                        ansMode: ""
-                    }
-                ]
-            }
-        )
+        setQuestions((prevState) => {
+            return [...prevState, {
+                question: "",
+                isText: false,
+                textAnswer: "",
+                options: []
+            }]
+        })
     }
 
-    function deleteCurrentQuestion(id) {
-        setQuestions(prevQuestions => {
-            return prevQuestions.filter((noteItem, index) => {
-                return index !== id;
-            });
-        });
+    function handleExamNameChange(event){
+        const value = event.target.value;
+        setExamName(value);
+
     }
 
     return (
-        <div className={"mainQuestionContainer"}>
-            <div className={"facultyQuestionBoxContainer"}>
+        <Container className={"mainQuestionContainer"}>
+            <Row>
+                <Col>
+                    <p className={"ExamHeading"}>{examName} Exam</p>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <input className={"quizDataInput"} placeholder={"Exam Name"} type={"text"} onChange={handleExamNameChange} value={examName}/>
+                    <input className={"quizDataInput"} placeholder={"Duration(In Minutes)"} type={"number"} min={"1"}/>
+                    <br/>
+                    <label>Date <input className={"quizDataInput"} placeholder={"Exam Date"} type={"date"}/>
+                    </label>
+                    <label>Start Time
+                    <input className={"quizDataInput"} placeholder={"Exam Start Timing"} type={"time"}/>
+                    </label>
+                    <label>End Time
+                    <input className={"quizDataInput"} placeholder={"Exam End Timing"} type={"time"}/>
+                    </label>
+                </Col>
+            </Row>
+
+            <Row className={"facultyQuestionBoxContainer"}>
                 {
                     questions.map((questionItem, qno) => {
-                        return (
-                            <FacultyQuestionBox
-                                key={qno}
-                                id={qno}
-                                myQuestion={questionItem}
-                                onChange={handleChange}
-                                onDelete={deleteCurrentQuestion}/>)
+                        return (<FacultyQuestionBox key={qno} id={qno}/>)
                     })
                 }
-            </div>
-            <button
-                className={"addQuestionButton"}
-                onClick={addQuestionBox}><img src={plusSign} alt={"Add Question"}/></button>
-        </div>
+            </Row>
+            <Row>
+                <button
+                    className={"facultyAddButton addButton"}
+                    onClick={addQuestionBox}><img src={plusSign} alt={"Add Question"}/></button>
+            </Row>
+        </Container>
     )
 }
 

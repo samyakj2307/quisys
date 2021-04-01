@@ -1,12 +1,13 @@
-import React from "react";
+import React, {useContext, useState} from "react";
 import {FormControlLabel, RadioGroup, TextareaAutosize, Typography} from '@material-ui/core';
 import "./FacultyQuestionBox.css"
 import StyledRadioButton from "./StyledRadioButton";
 import {createStyles} from "@material-ui/core/styles";
 import {Col, Container, Row} from "react-bootstrap";
-import "../../../QuestionPaper";
 import minusButton from "../../../images/minus.svg"
-import plusSign from "../../../images/Group 27.svg";
+import OptionBox from "./OptionBox/OptionBox";
+import {QuestionContext} from "../../../context/QuestionContext"
+import TextBox from "./TextBox/TextBox";
 
 
 const styles = createStyles({
@@ -23,62 +24,61 @@ const styles = createStyles({
 
 
 function FacultyQuestionBox(props) {
+    const [questions, setQuestions] = useContext(QuestionContext);
     const propQno = props.id;
-    const propQuestion = props.myQuestion;
+    const currentQuestion = questions[propQno];
 
-    const [currentQuestion, setCurrentQuestion] = React.useState({
-        question: "",
-        textAnswer: "",
-        options: "",
-        ansMode: ""
-    });
-
-    const [isText,setIsText] = React.useState(false);
+    const [isText, setIsText] = useState(currentQuestion.isText);
 
 
     function handleCurrentQuestionChange(event) {
-        const {name, value} = event.target;
-        setCurrentQuestion((prevQuestion) => {
-            return {
-                ...prevQuestion,
-                [name]: value,
-            };
+        currentQuestion.question = event.target.value;
+        setQuestions((prevQuestions) => {
+            prevQuestions[propQno] = currentQuestion;
+            return (prevQuestions);
         });
-        props.onChange(currentQuestion, propQno);
 
     }
 
     function deleteQuestion() {
-        props.onDelete(propQno);
+        setQuestions(prevQuestions => {
+            return prevQuestions.filter((questionItem, index) => {
+                return index !== propQno;
+            });
+        });
     }
 
-    function handleRadio(event){
+    function handleRadio(event) {
         const radioValue = event.target.value;
-        console.log(radioValue);
-        if(radioValue==="Text"){
-            setIsText(true);
-        }else {
-            setIsText(false)
+        let bool;
+        if (radioValue === "Text") {
+            bool = true;
+        } else {
+            bool = false;
         }
+        setIsText(bool);
+        setQuestions((prevQuestions) => {
+            if (bool) {
+                prevQuestions[propQno].options = [];
+            } else {
+                prevQuestions[propQno].textAnswer = "";
+            }
+            prevQuestions[propQno].isText = bool;
+            return (prevQuestions);
+        });
     }
 
-    function renderAnswerBox(){
-        return (
-            <TextareaAutosize
-                name={"textAnswer"}
-                className={"answerTextBox"}
-                rowsMin={3}
-                placeholder={"Answer (Optional)"}/>
-        )
+    function renderTextBox() {
+        return (<TextBox id={propQno}/>)
     }
 
-    function renderOptions(){
+    function renderOptions() {
         return (
-            <TextareaAutosize
-                name={"option1"}
-                className={"optionsTextBox"}
-                rowsMin={1}
-                placeholder={"Option 1"}/>
+            <div>
+                <OptionBox id={propQno}/>
+                <br/>
+            </div>
+
         )
     }
 
@@ -86,7 +86,10 @@ function FacultyQuestionBox(props) {
         <Container className={"mainContainerQuestionBox"}>
             <Row>
                 <Col>
-                    <button onClick={deleteQuestion} className={"deleteQuestion"}><img src={minusButton} alt={"Delete Question"}/></button>
+                    <button onClick={deleteQuestion}
+                            className={"deleteQuestion"}>
+                        <img src={minusButton} alt={"Delete Question"}/>
+                    </button>
                 </Col>
             </Row>
             <Row>
@@ -97,11 +100,12 @@ function FacultyQuestionBox(props) {
                         rowsMin={2}
                         placeholder={"Question"}
                         onChange={handleCurrentQuestionChange}
-                        value={currentQuestion.question}/>
+                    />
                 </Col>
             </Row>
             <Row className={"radioButtonContainer"}>
-                <RadioGroup aria-label="Type of Answer" row={true} onChange={handleRadio} defaultValue={"Choice"}>
+                <RadioGroup aria-label="Type of Answer" row={true} onChange={handleRadio}
+                            value={isText ? "Text" : "Choice"}>
                     <Col>
                         <FormControlLabel
                             className={"typeOfAnswers"}
@@ -122,11 +126,7 @@ function FacultyQuestionBox(props) {
             </Row>
             <Row className={"answerBoxContainer"}>
                 <Col md={6}>
-                    {isText ? renderAnswerBox() : renderOptions()}
-
-                </Col>
-                <Col md={6}>
-                    <button className={"addOptionButton"}><img src={plusSign} alt={"Add Option"}/></button>
+                    {isText ? renderTextBox() : renderOptions()}
                 </Col>
             </Row>
         </Container>
