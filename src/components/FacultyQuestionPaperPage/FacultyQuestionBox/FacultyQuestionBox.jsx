@@ -78,7 +78,6 @@ function FacultyQuestionBox(props) {
                 <OptionBox id={propQno}/>
                 <br/>
             </div>
-
         )
     }
 
@@ -98,7 +97,7 @@ function FacultyQuestionBox(props) {
                         name={"question"}
                         className={"questionTextBox"}
                         rowsMin={2}
-                        placeholder={"Question"}
+                        placeholder={"Question "+(propQno+1)}
                         onChange={handleCurrentQuestionChange}
                     />
                 </Col>

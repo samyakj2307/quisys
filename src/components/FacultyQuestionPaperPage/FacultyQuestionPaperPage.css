@@ -8,7 +8,7 @@ body {
 }
 
 .facultyQuestionBoxContainer {
-    width: 80%;
+    width: 69%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
@@ -64,7 +64,7 @@ label{
     font-weight: normal;
     font-size: 20px;
     letter-spacing: 1px;
-    color: black;
+    color: white;
     padding: 10px;
 }
 
@@ -75,4 +75,12 @@ label{
     font-size: 30px;
     letter-spacing: 1px;
     color: black;
+}
+
+.examDetails{
+    background-color: #9574CD;
+}
+
+.durationBox{
+    width: 200px;
 }

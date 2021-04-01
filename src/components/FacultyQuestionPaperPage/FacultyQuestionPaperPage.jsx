@@ -30,16 +30,11 @@ function FacultyQuestionPaperPage() {
 
     return (
         <Container className={"mainQuestionContainer"}>
-            <Row>
-                <Col>
-                    <p className={"ExamHeading"}>{examName} Exam</p>
-                </Col>
-            </Row>
-            <Row>
+            <Row className={"examDetails"}>
                 <Col>
                     <input className={"quizDataInput"} placeholder={"Exam Name"} type={"text"} onChange={handleExamNameChange} value={examName}/>
-                    <input className={"quizDataInput"} placeholder={"Duration(In Minutes)"} type={"number"} min={"1"}/>
-                    <br/>
+                    <input className={"quizDataInput durationBox"} placeholder={"Duration(Mins)"} type={"number"} min={"1"}/>
+
                     <label>Date <input className={"quizDataInput"} placeholder={"Exam Date"} type={"date"}/>
                     </label>
                     <label>Start Time
@@ -48,6 +43,11 @@ function FacultyQuestionPaperPage() {
                     <label>End Time
                     <input className={"quizDataInput"} placeholder={"Exam End Timing"} type={"time"}/>
                     </label>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <p className={"ExamHeading"}>{examName} Exam</p>
                 </Col>
             </Row>
 
