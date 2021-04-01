@@ -10,3 +10,7 @@
     width: 40%;
     border:2px solid #FFFFFF;
 }
+.Options:hover{
+    border:2px solid #9575CD;
+
+}
