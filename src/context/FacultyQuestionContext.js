@@ -9,7 +9,7 @@ export function QuestionProvider(props) {
         textAnswer: "",
         options: []
     }
-    ])
+    ]);
 
     return <FacultyQuestionContext.Provider value={[questions, setQuestions]}>
         {props.children}

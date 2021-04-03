@@ -11,6 +11,7 @@ const styles = createStyles({
         fontFamily: "Montserrat",
         fontSize: '15px',
         fontStyle: "normal",
+        textAlign: "justify",
         fontWeight: "normal",
         lineHeight: "18px",
         color: "#000000",

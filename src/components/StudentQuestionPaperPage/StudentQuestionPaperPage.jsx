@@ -1,9 +1,10 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext, useState,useEffect} from 'react';
 import './StudentQuestionPaperPage.css';
 import Question from './QuestionBox/QuestionBox';
 import AnswerBox from "./AnswerBox/AnswerBox";
 import {Col, Container, Row} from "react-bootstrap";
 import {StudentQuestionAnswerContext} from "../../context/StudentQuestionAnswerContext";
+import quisysLogo from "../../images/quisysLogo.png"
 
 function StudentQuestionPaperPage() {
 
@@ -37,7 +38,10 @@ function StudentQuestionPaperPage() {
 
 
     return (
-        <Container className="Content">
+        <Container fluid={"md"}>
+            <Row>
+                <img src={quisysLogo}/>
+            </Row>
             <Row>
                 <Col>
                     {questionArray.map(number => {
@@ -48,21 +52,25 @@ function StudentQuestionPaperPage() {
                         )
                     })}
                 </Col>
-            </Row>
-            <Row>
-                <Col className={"QuestionAnswerContainer"}>
-                    <Question
-                        question={questionAnswer[currentQuestionNumber].question}
-                    />
-                    <AnswerBox
-                        questionNo={currentQuestionNumber}
-                        options={questionAnswer[currentQuestionNumber].options}
-                        isTextField={questionAnswer[currentQuestionNumber].isText}
-                    />
-                </Col>
-                <Col>
-                    <button onClick={handlePrevious} className="NextStep">Previous</button>
-                    <button onClick={handleNext} className="NextStep">Next</button>
+
+                <Col className="Content">
+
+                    <Row>
+                        <Question
+                            question={questionAnswer[currentQuestionNumber].question}
+                        />
+                        <AnswerBox
+                            questionNo={currentQuestionNumber}
+                            options={questionAnswer[currentQuestionNumber].options}
+                            isTextField={questionAnswer[currentQuestionNumber].isText}
+                        />
+                    </Row>
+                    <Row className={"ButtonContainer"}>
+                        <Col>
+                            <button onClick={handlePrevious} id={"previous"}>Previous</button>
+                            <button onClick={handleNext} id={"next"}>Next</button>
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
         </Container>

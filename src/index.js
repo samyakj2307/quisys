@@ -3,5 +3,16 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
+import {FacultyLoginDataProvider} from "./context/FacultyLoginContext";
+import {StudentLoginDataProvider} from "./context/StudentLoginContext";
 
-ReactDOM.render(<BrowserRouter><App/></BrowserRouter>, document.getElementById('root'));
+ReactDOM.render(<BrowserRouter>
+        <FacultyLoginDataProvider>
+            <StudentLoginDataProvider>
+            <App/>
+        </StudentLoginDataProvider>
+        </FacultyLoginDataProvider>
+    </BrowserRouter>,
+    document.getElementById('root')
+);
+
