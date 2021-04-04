@@ -39,16 +39,24 @@ function StudentQuestionPaperPage() {
 
     return (
         <Container fluid={"md"}>
-            <Row>
-                <img src={quisysLogo}/>
+            <Row className={"row1"}>
+
+                      <img className={"image_quisys"} src={quisysLogo}/>
+
+                      <h2> QUIZ-1</h2>
+
+                      <h3>Temp Student <br /> temp.student@vitstudent.ac.in</h3>
+
             </Row>
-            <Row>
+            <Row className={"row2"}>
                 <Col>
                     {questionArray.map(number => {
                         return (
-                            <button key={number} id={number} className={"questionNumbers"} onClick={goToQuestion}>
-                                {number}
-                            </button>
+
+                                <button key={number} id={number} className={"questionNumbers"} onClick={goToQuestion}>
+                                    {number}
+                                </button>
+
                         )
                     })}
                 </Col>
@@ -56,6 +64,7 @@ function StudentQuestionPaperPage() {
                 <Col className="Content">
 
                     <Row>
+                        <h4>QuestionNo-</h4>
                         <Question
                             question={questionAnswer[currentQuestionNumber].question}
                         />

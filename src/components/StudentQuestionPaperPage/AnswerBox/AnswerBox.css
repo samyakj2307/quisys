@@ -5,9 +5,9 @@
 .Options{
     background: #FFFFFF;
     border-radius: 10px;
-    margin: 10px 0;
+    margin: 7px 0;
 
-    width: 40%;
+    width: 55%;
     border:2px solid #FFFFFF;
 }
 .Options:hover{
