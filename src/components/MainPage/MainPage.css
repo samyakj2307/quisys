@@ -1,0 +1,123 @@
+.Container1 {
+    width: 100vw;
+    height: 100%;
+    margin: auto;
+    padding: 0;
+    text-align: center;
+}
+
+.secondContainer {
+    margin-top: 90px;
+}
+
+/*NavBar*/
+.NavBarContainer {
+    margin: 20px 10px 20px;
+}
+
+.LogoContainer{
+text-align: left;
+}
+.quisysLogo {
+    width: 150px;
+    height: 55.5px;
+    top: 3px;
+    left: 10px;
+    display: inline;
+
+}
+
+.CourseName {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    display: inline;
+    margin: 0 auto;
+}
+
+.userDetails {
+    text-align: right;
+    display: inline;
+}
+
+h4 {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    text-align: left;
+    padding-bottom: 10px;
+}
+
+.AllClass {
+    margin-top: 30px;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 25px;
+    text-align: center;
+    padding-bottom: 10px;
+}
+
+.PendingQuizzesContainer {
+
+    border-left: 2px solid black;
+    padding-left: 30px;
+
+}
+
+.LogoutBtn {
+    background-color: #9575CD;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 15px 5px;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    filter: drop-shadow(5px 5px 0.25rem #9575CD);
+}
+
+.joinClassContainer {
+    text-align: center;
+}
+
+.JoinClass {
+    background-color: #9575CD;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 15px 30px;
+
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+    filter: drop-shadow(5px 5px 0.25rem #9575CD);
+    margin-top: 10px;
+}
+
+a {
+    margin-top: 30px;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 10px;
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: none;
+}

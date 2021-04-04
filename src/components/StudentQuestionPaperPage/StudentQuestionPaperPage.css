@@ -1,5 +1,73 @@
-.ButtonContainer{
+body{
+    background-color: #E6EEF8;
 }
+.PageContainer{
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+/*NavBar*/
+.NavBarContainer{
+    margin: 20px 10px 20px;
+}
+
+.quisysLogo {
+    width: 150px;
+    height: 55.5px;
+    top: 3px;
+    left: 10px;
+    display: inline;
+
+}
+
+.quizName{
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    display: inline;
+    margin: 0 auto;
+}
+
+.userDetails{
+    text-align: right;
+    display: inline;
+}
+
+
+/*QuestionGoTO*/
+
+.questionNumbers {
+    box-shadow: 0px 0px 0px transparent;
+    text-shadow: 0px 0px 0px transparent;
+    background: rgba(242, 242, 242, 0.6);
+    border: 1px solid #000000;
+    box-sizing: border-box;
+    border-radius: 7px;
+    padding: 7px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.questionNumbers:hover {
+}
+
+.questionNumbers:active {
+    outline: none;
+    border: none;
+}
+
+.questionNumbers:focus {
+    outline: 0;
+}
+
+
+/*QuestionAnswers*/
+
+
 .ButtonContainer button {
     background-color: #9575CD;
     border: 0;
@@ -16,15 +84,16 @@
     color: #FFFFFF;
     margin-bottom: 30px;
 }
-#previous{
-margin-right:200px;
+
+#previous {
+    margin-right: 200px;
 }
 
 .finalPage {
     text-align: center;
 }
 
-.finalPage h2, p {
+.finalPage h2, .finalPage p {
     text-align: center;
     margin: 15px 0;
     font-size: 25px;
@@ -48,64 +117,20 @@ margin-right:200px;
     border: 2px solid purple;
 }
 
-.questionNumbers {
-    background: rgba(242, 242, 242, 0.6);
-    border: 1px solid #000000;
-    box-sizing: border-box;
-    border-radius: 7px;
-    padding: 7px;
-    width: 30px;
-    height: 30px;
-}
-
-.questionNumbers:focus {
-    outline: none;
-}
-.QnNoBox{
+.QnNoBox {
 
 }
 
-.Content {
+.QuestionOptionContainer {
+    height: 80vh;
     border-left: 2px solid black;
-    margin-left: 25%;
     padding-left: 60px;
 
 }
-row1{
-    position: relative;
-    margin-bottom: 20px;
-}
-.image_quisys {
-    position: absolute;
-    width: 130px;
-    height: 65px;
-    top:3px;
-    left:10px;
 
-}
-h2{
-    postion:absolute;
-    height: 40px;
-    left: 265px;
-    top: 22px;
-    font-family: Montserrat;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 30px;
-    margin-left: 45%;
 
-}
-h3{
-    position: absolute;
-    width: 238px;
-    height: 40px;
-    left: 487px;
-    top: 3px;
-    margin-left: 50%;
-    text-align: right;
-}
-h4{
-    font-family: Montserrat;
+h4 {
+    font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 30px;

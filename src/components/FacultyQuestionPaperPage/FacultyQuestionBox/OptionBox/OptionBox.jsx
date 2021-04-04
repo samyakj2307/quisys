@@ -23,7 +23,7 @@ function OptionBox(props) {
             prevQuestion[propQno].value = currentQuestion;
             return prevQuestion;
         });
-        setOptions(currentOptions)
+        setOptions([...options,{id: tempID, value: ""}])
     }
 
     function handleOptionDelete(id) {

@@ -1,8 +1,9 @@
-import React, {useContext, useState,useEffect} from 'react';
-import './StudentQuestionPaperPage.css';
+import React, {useContext, useState} from 'react';
 import Question from './QuestionBox/QuestionBox';
 import AnswerBox from "./AnswerBox/AnswerBox";
 import {Col, Container, Row} from "react-bootstrap";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import "./StudentQuestionPaperPage.css";
 import {StudentQuestionAnswerContext} from "../../context/StudentQuestionAnswerContext";
 import quisysLogo from "../../images/quisysLogo.png"
 
@@ -38,33 +39,36 @@ function StudentQuestionPaperPage() {
 
 
     return (
-        <Container fluid={"md"}>
-            <Row className={"row1"}>
-
-                      <img className={"image_quisys"} src={quisysLogo}/>
-
-                      <h2> QUIZ-1</h2>
-
-                      <h3>Temp Student <br /> temp.student@vitstudent.ac.in</h3>
+        <Container fluid={"md"} className={"PageContainer"}>
+            <Row className={"NavBarContainer"}>
+                <Col>
+                    <img className={"quisysLogo"} src={quisysLogo}/>
+                </Col>
+                <Col>
+                    <p className={"quizName"}>QUIZ-1</p>
+                </Col>
+                <Col>
+                    <p className={"userDetails"}>Temp Student <br/> temp.student@vitstudent.ac.in</p>
+                </Col>
 
             </Row>
-            <Row className={"row2"}>
-                <Col>
+            <Row className={"MainContainer"}>
+                <Col md={3}>
                     {questionArray.map(number => {
                         return (
 
-                                <button key={number} id={number} className={"questionNumbers"} onClick={goToQuestion}>
-                                    {number}
-                                </button>
+                            <button key={number} id={number} className={"questionNumbers"} onClick={goToQuestion}>
+                                {number}
+                            </button>
 
                         )
                     })}
                 </Col>
 
-                <Col className="Content">
+                <Col className="QuestionOptionContainer" md={9}>
 
                     <Row>
-                        <h4>QuestionNo-</h4>
+                        <h4>Question No- {currentQuestionNumber + 1}</h4>
                         <Question
                             question={questionAnswer[currentQuestionNumber].question}
                         />

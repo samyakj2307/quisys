@@ -10,6 +10,8 @@ import {QuestionAnswerProvider} from "./context/StudentQuestionAnswerContext"
 import StudentQuestionPaperPage from "./components/StudentQuestionPaperPage/StudentQuestionPaperPage";
 import StudentLogin from "./components/Student/StudentLogin";
 import {LoginContext} from "./context/LoginContext";
+import ListComponent from "./components/MainPage/ListComponent/ListComponent";
+import MainPage from "./components/MainPage/MainPage";
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
             <Switch>
                 {/*HomePage*/}
                 <Route exact path={"/"} component={HomePage}/>
+                <Route exact path={"/MainPage"} component={MainPage}/>
+                <Route exact path={"/List"} component={ListComponent}/>
 
                 {/*FacultyLogin*/}
                 <Route exact path="/FacultyLogin">
@@ -52,6 +56,7 @@ function App() {
                 </Route>
             </Switch>
         </div>
+
     );
 }
 

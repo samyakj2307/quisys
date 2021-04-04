@@ -15,13 +15,14 @@ function FacultyQuestionPaperPage() {
     function addQuestionBox() {
         const TempID = uuid();
         setQuestions((prevState) => {
+            const optionID = uuid();
             return [...prevState, {
                 id: TempID,
                 value: {
                     question: "",
                     isText: false,
                     textAnswer: "",
-                    options: []
+                    options: [{id: optionID, value: ""}]
                 }
             }]
         })
