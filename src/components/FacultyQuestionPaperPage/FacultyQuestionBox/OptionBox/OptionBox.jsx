@@ -3,36 +3,44 @@ import "./OptionBox.css"
 import Option from "./Option/Option";
 import plusSign from "../../../../images/Group 27.svg"
 import {FacultyQuestionContext} from "../../../../context/FacultyQuestionContext";
+import {uuid} from "uuidv4";
 
 
 function OptionBox(props) {
     const [questions, setQuestions] = useContext(FacultyQuestionContext);
-    const propQno = props.id;
-    const currentQuestion = questions[propQno];
-    let currentOptions = questions[propQno].options;
+    const propQno = props.index;
+    const currentQuestion = questions[propQno].value;
+    let currentOptions = currentQuestion.options;
 
     const [options, setOptions] = React.useState(currentOptions);
 
 
     function addOption() {
-        setOptions(prevState => {
-            return [...prevState, ""]
-        })
-        setQuestions((prevState) => {
-            currentOptions = [...currentOptions, ""]
-            currentQuestion["options"] = currentOptions;
-            prevState[propQno] = currentQuestion;
-            return prevState;
-        })
+        const tempID = uuid();
+        setQuestions((prevQuestion) => {
+            let tempOptions = [...currentOptions, {id: tempID, value: ""}]
+            currentQuestion.options = tempOptions;
+            prevQuestion[propQno].value = currentQuestion;
+            return prevQuestion;
+        });
+        setOptions(currentOptions)
     }
 
     function handleOptionDelete(id) {
+
+        setQuestions(prevQuestions => {
+            prevQuestions[propQno].value.options = prevQuestions[propQno].value.options.filter((optionItem, index) => {
+                return optionItem.id !== id;
+            });
+            return prevQuestions;
+
+        });
+
         setOptions(prevOptions => {
             return prevOptions.filter((optionItem, index) => {
-                return index !== id;
+                return optionItem.id !== id;
             });
         });
-        // TODO Delete Option From Main Context Array;
     }
 
 
@@ -42,12 +50,12 @@ function OptionBox(props) {
                 options.map((currentOption, index) => {
                     return (
                         <Option
-                            key={index}
+                            key={currentOption.id}
                             qNo={propQno}
-                            id={index}
-                            // onChange={handleOptionsChange}
+                            id={currentOption.id}
+                            index={index}
                             onDelete={handleOptionDelete}
-                            value={currentOption}
+                            value={currentOption.value}
                         />
                     )
                 })

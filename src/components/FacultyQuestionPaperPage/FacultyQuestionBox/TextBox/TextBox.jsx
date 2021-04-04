@@ -5,8 +5,8 @@ import {FacultyQuestionContext} from "../../../../context/FacultyQuestionContext
 
 function TextBox(props) {
     const [questions, setQuestions] = useContext(FacultyQuestionContext);
-    const propQno = props.id;
-    const currentQuestion = questions[propQno];
+    const propQno = props.index;
+    const currentQuestion = questions[propQno].value;
 
     const [textAnswer, setTextAnswer] = useState(currentQuestion.textAnswer);
 
@@ -14,7 +14,7 @@ function TextBox(props) {
         const value = event.target.value;
         setTextAnswer(value);
         setQuestions((prevQuestions) => {
-            prevQuestions[propQno].textAnswer = value;
+            prevQuestions[propQno].value.textAnswer = value;
             return (prevQuestions);
         });
     }

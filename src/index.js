@@ -3,15 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import {BrowserRouter} from "react-router-dom";
-import {FacultyLoginDataProvider} from "./context/FacultyLoginContext";
-import {StudentLoginDataProvider} from "./context/StudentLoginContext";
+import {LoginDataProvider} from "./context/LoginContext";
 
 ReactDOM.render(<BrowserRouter>
-        <FacultyLoginDataProvider>
-            <StudentLoginDataProvider>
+        <LoginDataProvider>
             <App/>
-        </StudentLoginDataProvider>
-        </FacultyLoginDataProvider>
+        </LoginDataProvider>
     </BrowserRouter>,
     document.getElementById('root')
 );

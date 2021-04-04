@@ -40,6 +40,7 @@
   },
   "devDependencies": {
     "@material-ui/core": "^4.11.3",
-    "clsx": "^1.1.1"
+    "clsx": "^1.1.1",
+    "uuidv4": "^6.2.7"
   }
 }

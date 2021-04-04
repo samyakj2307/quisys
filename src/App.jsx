@@ -8,14 +8,14 @@ import FacultyQuestionPaperPage from "./components/FacultyQuestionPaperPage/Facu
 import {QuestionProvider} from "./context/FacultyQuestionContext"
 import {QuestionAnswerProvider} from "./context/StudentQuestionAnswerContext"
 import StudentQuestionPaperPage from "./components/StudentQuestionPaperPage/StudentQuestionPaperPage";
-import {FacultyLoginContext} from "./context/FacultyLoginContext";
-import {StudentLoginContext} from "./context/StudentLoginContext";
 import StudentLogin from "./components/Student/StudentLogin";
+import {LoginContext} from "./context/LoginContext";
 
 function App() {
 
-    const [facultyIsLoggedIn, setFacultyIsLoggedIn] = useContext(FacultyLoginContext);
-    const [studentIsLoggedIn, setStudentIsLoggedIn] = useContext(StudentLoginContext);
+    const {Faculty, Student} = useContext(LoginContext);
+    const [facultyIsLoggedIn, setFacultyIsLoggedIn] = Faculty;
+    const [studentIsLoggedIn, setStudentIsLoggedIn] = Student;
 
     return (
         <div>

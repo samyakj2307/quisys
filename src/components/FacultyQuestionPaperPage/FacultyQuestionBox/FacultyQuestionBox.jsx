@@ -25,16 +25,17 @@ const styles = createStyles({
 
 function FacultyQuestionBox(props) {
     const [questions, setQuestions] = useContext(FacultyQuestionContext);
-    const propQno = props.id;
-    const currentQuestion = questions[propQno];
+    const Id = props.id;
+    const qNo = props.index;
+    const currentQuestion = questions[qNo].value;
 
     const [isText, setIsText] = useState(currentQuestion.isText);
 
 
     function handleCurrentQuestionChange(event) {
-        currentQuestion.question = event.target.value;
+        const value = event.target.value;
         setQuestions((prevQuestions) => {
-            prevQuestions[propQno] = currentQuestion;
+            prevQuestions[props.index].value.question = currentQuestion;
             return (prevQuestions);
         });
 
@@ -42,8 +43,8 @@ function FacultyQuestionBox(props) {
 
     function deleteQuestion() {
         setQuestions(prevQuestions => {
-            return prevQuestions.filter((questionItem, index) => {
-                return index !== propQno;
+            return prevQuestions.filter((questionItem) => {
+                return questionItem.id !== props.id;
             });
         });
     }
@@ -58,24 +59,25 @@ function FacultyQuestionBox(props) {
         }
         setIsText(bool);
         setQuestions((prevQuestions) => {
+            let question = prevQuestions[qNo].value;
             if (bool) {
-                prevQuestions[propQno].options = [];
+                question.options = [];
             } else {
-                prevQuestions[propQno].textAnswer = "";
+                question.textAnswer = "";
             }
-            prevQuestions[propQno].isText = bool;
+            prevQuestions[qNo].value.isText = bool;
             return (prevQuestions);
         });
     }
 
     function renderTextBox() {
-        return (<TextBox id={propQno}/>)
+        return (<TextBox index={props.index}/>)
     }
 
     function renderOptions() {
         return (
             <div>
-                <OptionBox id={propQno}/>
+                <OptionBox index={props.index}/>
                 <br/>
             </div>
         )
@@ -97,7 +99,7 @@ function FacultyQuestionBox(props) {
                         name={"question"}
                         className={"questionTextBox"}
                         rowsMin={2}
-                        placeholder={"Question "+(propQno+1)}
+                        placeholder={"Question " + (qNo + 1)}
                         onChange={handleCurrentQuestionChange}
                     />
                 </Col>

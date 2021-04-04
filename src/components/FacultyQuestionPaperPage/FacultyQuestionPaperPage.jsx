@@ -4,6 +4,7 @@ import FacultyQuestionBox from "./FacultyQuestionBox/FacultyQuestionBox";
 import "./FacultyQuestionPaperPage.css"
 import plusSign from "../../images/Group 27.svg";
 import {FacultyQuestionContext} from "../../context/FacultyQuestionContext"
+import {uuid} from "uuidv4";
 
 function FacultyQuestionPaperPage() {
     // Imported Questions List from FacultyQuestionContext.js
@@ -12,12 +13,16 @@ function FacultyQuestionPaperPage() {
 
     // Adding Questions
     function addQuestionBox() {
+        const TempID = uuid();
         setQuestions((prevState) => {
             return [...prevState, {
-                question: "",
-                isText: false,
-                textAnswer: "",
-                options: []
+                id: TempID,
+                value: {
+                    question: "",
+                    isText: false,
+                    textAnswer: "",
+                    options: []
+                }
             }]
         })
     }
@@ -54,7 +59,11 @@ function FacultyQuestionPaperPage() {
             <Row className={"facultyQuestionBoxContainer"}>
                 {
                     questions.map((questionItem, qno) => {
-                        return (<FacultyQuestionBox key={qno} id={qno}/>)
+                        return (<FacultyQuestionBox
+                            key={questionItem.id}
+                            id={questionItem.id}
+                            index={qno}
+                        />)
                     })
                 }
             </Row>

@@ -2,16 +2,16 @@ import React, {useContext, useState} from "react";
 import '../../index.css';
 import googleIcon from '../../images/Vector.png';
 import loginInfo from "../../LoginInfo";
-import {FacultyLoginContext} from "../../context/FacultyLoginContext";
-import {StudentLoginContext} from "../../context/StudentLoginContext"
+import {LoginContext} from "../../context/LoginContext";
 
 function SignInBox(props) {
     const user = props.userDetails;
     const emailText = user + " Email";
     const urlString = "/" + user + "SignUp";
 
-    const [facultyIsLoggedIn, setFacultyIsLoggedIn] = useContext(FacultyLoginContext);
-    const [studentIsLoggedIn, setStudentIsLoggedIn] = useContext(StudentLoginContext);
+    const {Faculty, Student} = useContext(LoginContext);
+    const [facultyIsLoggedIn, setFacultyIsLoggedIn] = Faculty;
+    const [studentIsLoggedIn, setStudentIsLoggedIn] = Student;
     const [inputEmail, setInputEmail] = useState("");
     const [inputPassword, setInputPassword] = useState("");
 
@@ -30,9 +30,9 @@ function SignInBox(props) {
         console.log(LoginDetails.email);
         console.log(LoginDetails.password);
         if (inputEmail === LoginDetails.email && inputPassword === LoginDetails.password) {
-            if(user==="Faculty"){
+            if (user === "Faculty") {
                 setFacultyIsLoggedIn(true);
-            }else {
+            } else {
                 setStudentIsLoggedIn(true);
             }
         }
