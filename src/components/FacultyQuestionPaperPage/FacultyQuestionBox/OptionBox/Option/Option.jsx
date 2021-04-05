@@ -3,6 +3,7 @@ import {TextareaAutosize} from "@material-ui/core";
 import "./Option.css"
 import minusSign from "../../../../../images/minusOption.svg";
 import {FacultyQuestionContext} from "../../../../../context/FacultyQuestionContext";
+import {Col, Container, Row} from "react-bootstrap";
 
 function Option(props) {
     const qNo = props.qNo;
@@ -29,20 +30,24 @@ function Option(props) {
     }
 
     return (
-        <div className={"optionContainer"}>
-            <TextareaAutosize
-                className={"optionsTextBox"}
-                rowsMin={1}
-                placeholder={"Option " + (optionIndex + 1)}
-                value={currentValue}
-                onChange={handleChange}
-            />
-            <button
-                onClick={removeOption}
-                className={" addButton removeOptionButton"}>
-                <img src={minusSign} alt={"Remove Option"}/>
-            </button>
-        </div>
+        <Container className={"optionContainer"}>
+            <Row style={{width:"fit-content", marginLeft: "40px"}}>
+                <Col>
+                    <button
+                        onClick={removeOption}
+                        className={" addButton removeOptionButton"}>
+                        <img src={minusSign} alt={"Remove Option"}/>
+                    </button>
+                    <TextareaAutosize
+                        className={"optionsTextBox"}
+                        rowsMin={1}
+                        placeholder={"Option " + (optionIndex + 1)}
+                        value={currentValue}
+                        onChange={handleChange}
+                    />
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

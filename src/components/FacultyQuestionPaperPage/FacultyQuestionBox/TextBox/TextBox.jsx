@@ -1,6 +1,7 @@
 import React, {useContext, useState} from "react";
 import {TextareaAutosize} from "@material-ui/core";
 import {FacultyQuestionContext} from "../../../../context/FacultyQuestionContext"
+import {Col, Container, Row} from "react-bootstrap";
 
 
 function TextBox(props) {
@@ -20,13 +21,19 @@ function TextBox(props) {
     }
 
     return (
-        <TextareaAutosize
-            name={"textAnswer"}
-            className={"answerTextBox"}
-            rowsMin={3}
-            onChange={handleTextChange}
-            placeholder={"Answer (Optional)"}
-            value={textAnswer}/>
+        <Container>
+            <Row>
+                <Col style={{marginLeft: "70px"}}>
+                    <TextareaAutosize
+                        name={"textAnswer"}
+                        className={"answerTextBox"}
+                        rowsMin={3}
+                        onChange={handleTextChange}
+                        placeholder={"Answer (Optional)"}
+                        value={textAnswer}/>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

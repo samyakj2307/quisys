@@ -1,15 +1,16 @@
-body{
+body {
     background-color: #E6EEF8;
 }
-.PageContainer{
+
+.PageContainer {
     width: 100%;
-    height: 100%;
+    height:100%;
     margin: auto;
     text-align: center;
 }
 
 /*NavBar*/
-.NavBarContainer{
+.NavBarContainer {
     margin: 20px 10px 20px;
 }
 
@@ -22,7 +23,7 @@ body{
 
 }
 
-.quizName{
+.quizName {
     font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -31,7 +32,7 @@ body{
     margin: 0 auto;
 }
 
-.userDetails{
+.userDetails {
     text-align: right;
     display: inline;
 }
@@ -39,34 +40,51 @@ body{
 
 /*QuestionGoTO*/
 
+.questionNumbersContainer {
+}
+
+
 .questionNumbers {
-    box-shadow: 0px 0px 0px transparent;
-    text-shadow: 0px 0px 0px transparent;
-    background: rgba(242, 242, 242, 0.6);
-    border: 1px solid #000000;
+    background-color: #E6EEF8;
+    border-left: 2px solid  #9575CD;
+    border-top: 2px solid  #9575CD;
+    outline: none;
+
     box-sizing: border-box;
-    border-radius: 7px;
-    padding: 7px;
-    width: 30px;
-    height: 30px;
+    /*border-radius: 7px;*/
+    padding: 15px;
+    width: 50px;
+    height: 50px;
     text-align: center;
+    border-collapse: collapse;
+
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    display: inline;
+    margin: 0 auto;
 }
 
 .questionNumbers:hover {
+    background-color: #C9EFF3;
 }
 
 .questionNumbers:active {
     outline: none;
-    border: none;
+    border-left: 2px solid  #9575CD;
+    border-top: 2px solid  #9575CD;
 }
 
 .questionNumbers:focus {
-    outline: 0;
+    outline: none;
 }
 
-
 /*QuestionAnswers*/
-
+.ButtonContainer {
+    text-align: left;
+    padding-left: 40px
+}
 
 .ButtonContainer button {
     background-color: #9575CD;
@@ -83,10 +101,6 @@ body{
     letter-spacing: 1px;
     color: #FFFFFF;
     margin-bottom: 30px;
-}
-
-#previous {
-    margin-right: 200px;
 }
 
 .finalPage {
@@ -121,13 +135,20 @@ body{
 
 }
 
+.TimerQuestionNumber {
+    padding: 0 30px;
+}
+
 .QuestionOptionContainer {
     height: 80vh;
     border-left: 2px solid black;
-    padding-left: 60px;
-
+    text-align: center;
+    padding-left: 40px;
 }
 
+.MainContainer {
+    margin-top: 50px;
+}
 
 h4 {
     font-family: Montserrat, sans-serif;
@@ -135,8 +156,3 @@ h4 {
     font-weight: normal;
     font-size: 30px;
 }
-
-
-/*h2{*/
-/*    border: 1px solid black;*/
-/*}*/

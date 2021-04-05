@@ -1,14 +1,48 @@
 import React from 'react';
 import './MainPage.css';
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Row, Container} from "react-bootstrap";
+import Modal from 'react-bootstrap/Modal'
 import quisysLogo from "../../images/quisysLogo.png";
 import ListComp from "./ListComponent/ListComponent";
 
 function MainPage() {
 
+    function PopUp(props) {
+        return (
+            <Modal
+                {...props}
+                size="md"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+                animation={true}>
+                <div style={{backgroundColor: "#E6EEF8"}}>
+                    <Modal.Header closeButton>
+                        <Modal.Title id="contained-modal-title-vcenter">
+                            Make a New Class
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body s className={"ModalBody"}>
+                        <h5>Enter the Name of the Class:</h5>
+                        <input className="PopUpNameField" type={"text"}/>
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <button onClick={props.onHide} className={"AddClassButton"}>Add Class</button>
+                    </Modal.Footer>
+                </div>
+            </Modal>
+        );
+    }
+
+
+    const [modalShow, setModalShow] = React.useState(false);
+
     function logout() {
         localStorage.clear();
         window.location.href = '/';
+    }
+
+    function addClass() {
+        return setModalShow(true);
     }
 
     return (
@@ -35,7 +69,7 @@ function MainPage() {
                 <Col md={3} className={"joinClassContainer"}>
                     <Row>
                         <Col>
-                            <button className={"JoinClass"}>Make a New Class</button>
+                            <button className={"CreateClass"} onClick={addClass}>Make a New Class</button>
                         </Col>
                     </Row>
                     <Row>
@@ -59,6 +93,10 @@ function MainPage() {
                     <ListComp/>
                 </Col>
             </Row>
+            <PopUp
+                show={modalShow}
+                onHide={() => setModalShow(false)}
+            />
         </Container>
 
     );

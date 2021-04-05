@@ -20,12 +20,76 @@ export function QuestionAnswerProvider(props) {
             optionSelected: ""
         },
         {
+            question: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+            isText: false,
+            options: ["Hey there, I'm Swapna Sambhav Nayak. Everyone calls me 'Bhaiya'. I am Pro Bhaiya.", 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', 'It was popularised in the 1960s with the release of Letraset sheets containing', 'Scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. '],
+            textAnswer: "",
+            optionSelected: ""
+        },
+        {
+            question: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+            isText: false,
+            options: ["Hey there, I'm Swapna Sambhav Nayak. Everyone calls me 'Bhaiya'. I am Pro Bhaiya.", 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', 'It was popularised in the 1960s with the release of Letraset sheets containing', 'Scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. '],
+            textAnswer: "",
+            optionSelected: ""
+        },
+        {
+            question: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+            isText: false,
+            options: ["Hey there, I'm Swapna Sambhav Nayak. Everyone calls me 'Bhaiya'. I am Pro Bhaiya.", 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', 'It was popularised in the 1960s with the release of Letraset sheets containing', 'Scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. '],
+            textAnswer: "",
+            optionSelected: ""
+        },
+        {
+            question: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+            isText: false,
+            options: ["Hey there, I'm Swapna Sambhav Nayak. Everyone calls me 'Bhaiya'. I am Pro Bhaiya.", 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', 'It was popularised in the 1960s with the release of Letraset sheets containing', 'Scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. '],
+            textAnswer: "",
+            optionSelected: ""
+        },
+        {
             question: "FULL FORM OF EMAIL ?",
             isText: true,
             options: ['Electronic Mail', 'Akkad Bakkad Bambe Booo', 'qwerty'],
             textAnswer: "",
             optionSelected: ""
 
+        },
+        {
+            question: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+            isText: false,
+            options: ["Hey there, I'm Swapna Sambhav Nayak. Everyone calls me 'Bhaiya'. I am Pro Bhaiya.", 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', 'It was popularised in the 1960s with the release of Letraset sheets containing', 'Scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. '],
+            textAnswer: "",
+            optionSelected: ""
+        },
+        {
+            question: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+            isText: false,
+            options: ["Hey there, I'm Swapna Sambhav Nayak. Everyone calls me 'Bhaiya'. I am Pro Bhaiya.", 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', 'It was popularised in the 1960s with the release of Letraset sheets containing', 'Scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. '],
+            textAnswer: "",
+            optionSelected: ""
+        },
+        {
+            question: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+            isText: false,
+            options: ["Hey there, I'm Swapna Sambhav Nayak. Everyone calls me 'Bhaiya'. I am Pro Bhaiya.", 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', 'It was popularised in the 1960s with the release of Letraset sheets containing', 'Scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. '],
+            textAnswer: "",
+            optionSelected: ""
+        },
+        {
+            question: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+            isText: false,
+            options: ["Hey there, I'm Swapna Sambhav Nayak. Everyone calls me 'Bhaiya'. I am Pro Bhaiya.", 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', 'It was popularised in the 1960s with the release of Letraset sheets containing', 'Scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. '],
+            textAnswer: "",
+            optionSelected: ""
+        },
+
+        {
+            question: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. ",
+            isText: false,
+            options: ["Hey there, I'm Swapna Sambhav Nayak. Everyone calls me 'Bhaiya'. I am Pro Bhaiya.", 'Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', 'It was popularised in the 1960s with the release of Letraset sheets containing', 'Scrambled it to make a type specimen book.Lorem Ipsum is simply dummy text of the printing and typesetting industry. '],
+            textAnswer: "",
+            optionSelected: ""
         },
         {
             question: "FULL FORM OF RAM ?",

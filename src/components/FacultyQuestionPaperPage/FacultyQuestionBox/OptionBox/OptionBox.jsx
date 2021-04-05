@@ -1,5 +1,6 @@
 import React, {useContext} from "react";
 import "./OptionBox.css"
+import {Col, Container, Row} from "react-bootstrap"
 import Option from "./Option/Option";
 import plusSign from "../../../../images/Group 27.svg"
 import {FacultyQuestionContext} from "../../../../context/FacultyQuestionContext";
@@ -23,7 +24,7 @@ function OptionBox(props) {
             prevQuestion[propQno].value = currentQuestion;
             return prevQuestion;
         });
-        setOptions([...options,{id: tempID, value: ""}])
+        setOptions([...options, {id: tempID, value: ""}])
     }
 
     function handleOptionDelete(id) {
@@ -45,24 +46,42 @@ function OptionBox(props) {
 
 
     return (
-        <div>
-            {
-                options.map((currentOption, index) => {
-                    return (
-                        <Option
-                            key={currentOption.id}
-                            qNo={propQno}
-                            id={currentOption.id}
-                            index={index}
-                            onDelete={handleOptionDelete}
-                            value={currentOption.value}
+        <Container>
+            <Row>
+                <Col>
+                    {
+                        options.map((currentOption, index) => {
+                            return (
+                                <Row>
+                                    <Col>
+                                        <Option
+                                            key={currentOption.id}
+                                            qNo={propQno}
+                                            id={currentOption.id}
+                                            index={index}
+                                            onDelete={handleOptionDelete}
+                                            value={currentOption.value}
+                                        />
+                                    </Col>
+                                </Row>
+                            )
+                        })
+                    }
+                </Col>
+            </Row>
+            <Row>
+                <Col style={{marginLeft:"70px"}}>
+                    <button
+                        onClick={addOption}
+                        className={" addButton addOptionButton"}>
+                        <img
+                            src={plusSign}
+                            alt={"Add Option"}
                         />
-                    )
-                })
-            }
-            <button onClick={addOption} className={" addButton addOptionButton"}><img src={plusSign}
-                                                                                      alt={"Add Option"}/></button>
-        </div>
+                    </button>
+                </Col>
+            </Row>
+        </Container>
     )
 }
 

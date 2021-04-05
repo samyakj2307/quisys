@@ -104,29 +104,27 @@ function FacultyQuestionBox(props) {
                     />
                 </Col>
             </Row>
-            <Row className={"radioButtonContainer"}>
-                <RadioGroup aria-label="Type of Answer" row={true} onChange={handleRadio}
-                            value={isText ? "Text" : "Choice"}>
-                    <Col>
-                        <FormControlLabel
-                            className={"typeOfAnswers"}
-                            id={"choice"}
-                            value="Choice"
-                            control={<StyledRadioButton/>}
-                            label={<Typography style={styles.formControlLabel}>Choice</Typography>}/>
-                    </Col>
-                    <Col>
-                        <FormControlLabel
-                            className={"typeOfAnswers"}
-                            id={"text"}
-                            value="Text"
-                            control={<StyledRadioButton/>}
-                            label={<Typography style={styles.formControlLabel}>Text</Typography>}/>
-                    </Col>
-                </RadioGroup>
+            <Row>
+                <Col className={"radioButtonContainer"}>
+                    <RadioGroup aria-label="Type of Answer" row={true} onChange={handleRadio}
+                                value={isText ? "Text" : "Choice"}>
+                            <FormControlLabel
+                                className={"typeOfAnswers"}
+                                id={"choice"}
+                                value="Choice"
+                                control={<StyledRadioButton/>}
+                                label={<Typography style={styles.formControlLabel}>Choice</Typography>}/>
+                            <FormControlLabel
+                                className={"typeOfAnswers"}
+                                id={"text"}
+                                value="Text"
+                                control={<StyledRadioButton/>}
+                                label={<Typography style={styles.formControlLabel}>Text</Typography>}/>
+                    </RadioGroup>
+                </Col>
             </Row>
-            <Row className={"answerBoxContainer"}>
-                <Col md={6}>
+            <Row>
+                <Col className={"answerBoxContainer"}>
                     {isText ? renderTextBox() : renderOptions()}
                 </Col>
             </Row>

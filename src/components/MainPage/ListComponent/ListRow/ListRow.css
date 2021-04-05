@@ -11,10 +11,10 @@
 
 .ListComponentButton{
     background: #9574CD;
-    box-shadow: -4px -4px 12px rgba(253, 255, 255, 0.8), 4px 4px 12px rgba(187, 195, 206, 0.6);
-    border-radius: 16px;
+    /*box-shadow: -4px -4px 12px rgba(253, 255, 255, 0.8), 4px 4px 12px rgba(187, 195, 206, 0.6);*/
+    border-radius: 10px;
     border: none;
-    padding: 5px 15px;
+    padding: 10px;
     margin-right: 10px;
 
     font-family: Montserrat, sans-serif;

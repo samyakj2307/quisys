@@ -2,9 +2,7 @@
     background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
     box-shadow: -16px -16px 40px rgba(253, 255, 255, 0.8), 16px 16px 40px rgba(187, 195, 206, 0.6);
     border-radius: 16px;
-    width: 100%;
     padding: 25px;
-    height: fit-content;
     text-align: center;
     margin-top: 50px;
     margin-bottom: 50px;
@@ -56,8 +54,9 @@
 
 
 .radioButtonContainer {
+    text-align: center;
+    margin-left: 80px;
     margin-bottom: 20px;
-    margin-left: 7.5%;
 }
 
 .typeOfAnswers {
@@ -71,7 +70,6 @@
 
 .answerBoxContainer{
     text-align: left;
-    margin-left: 7.5%;
 }
 
 .answerTextBox {
