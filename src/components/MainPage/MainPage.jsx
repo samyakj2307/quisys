@@ -38,7 +38,7 @@ function MainPage() {
 
     function logout() {
         localStorage.clear();
-        window.location.href = '/';
+         window.location.href= '/';
     }
 
     function addClass() {
