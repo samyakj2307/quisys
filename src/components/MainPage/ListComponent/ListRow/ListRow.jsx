@@ -7,12 +7,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 function ListRow(props) {
 
     return (
-        <Container className={"listRowContainer"}>
+        <div className={"listRowContainer"}>
             <Row>
-                <Col md={4}>
-                    <p>
+                <Col md={4} className={"SubjectRowNames"}>
+
                         {props.index+1}. {props.examName}
-                    </p>
+
                 </Col>
                 <Col md={4} className={"DateTime"}>
                     <Row>
@@ -33,7 +33,7 @@ function ListRow(props) {
                     </Col>
                 </Col>
             </Row>
-        </Container>
+        </div>
     );
 }
 

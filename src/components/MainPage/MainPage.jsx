@@ -4,6 +4,7 @@ import {Col, Row, Container} from "react-bootstrap";
 import Modal from 'react-bootstrap/Modal'
 import quisysLogo from "../../images/quisysLogo.png";
 import ListComp from "./ListComponent/ListComponent";
+import {Link, useHistory} from 'react-router-dom';
 
 function MainPage() {
 
@@ -35,10 +36,10 @@ function MainPage() {
 
 
     const [modalShow, setModalShow] = React.useState(false);
-
+    const history=useHistory();
     function logout() {
         localStorage.clear();
-         window.location.href= '/';
+         history.push('/'); //TODO  TO USE useHistory()
     }
 
     function addClass() {
@@ -48,19 +49,19 @@ function MainPage() {
     return (
         <Container className={"Container1"}>
             <Row className={"NavBarContainer"}>
-                <Col className={"LogoContainer"}>
+                <Col className={"LogoContainer"} >
                     <img className={"quisysLogo"} src={quisysLogo}/>
                 </Col>
                 <Col>
-                    <p className={"CourseName"}>IPWT</p>
+                    <p className={"CourseName"} >IPWT</p>
                 </Col>
-                <Col>
+                <Col style={{textAlign:"right"}}>
                     <Row>
-                        <Col className={"userDetails"}>
-                            <p>Temp Faculty <br/> temp.faculty@vitstudent.ac.in</p>
+                        <Col className={"userDetails"} >
+                            Temp Faculty <br/> temp.faculty@vitstudent.ac.in
                         </Col>
-                        <Col>
-                            <button onClick={logout} className={"LogoutBtn"}>Logout</button>
+                        <Col >
+                            <button onClick={logout} className={"LogoutBtn"} >Logout</button>
                         </Col>
                     </Row>
                 </Col>
@@ -69,7 +70,7 @@ function MainPage() {
                 <Col md={3} className={"joinClassContainer"}>
                     <Row>
                         <Col>
-                            <button className={"CreateClass"} onClick={addClass}>Make a New Class</button>
+                            <button className={"CreateClass"} onClick={addClass}>New Class</button>
                         </Col>
                     </Row>
                     <Row>
@@ -89,8 +90,23 @@ function MainPage() {
                     </Row>
                 </Col>
                 <Col md={9} className="PendingQuizzesContainer">
-                    <h4>Scheduled Quizzes</h4>
-                    <ListComp/>
+                    <Row>
+                        <Col>
+                            <h4>Scheduled Quizzes</h4>
+                        </Col>
+                        <Col style={{textAlign:"right"}}>
+                            <Link to={"/SetQuestionPaper"}>
+                                <button className={"CreateClass NewQuizButton"} >New Quiz</button>
+                            </Link>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                            <ListComp/>
+                        </Col>
+                    </Row>
+
+
                 </Col>
             </Row>
             <PopUp

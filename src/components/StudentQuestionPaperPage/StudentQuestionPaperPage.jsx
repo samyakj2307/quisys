@@ -39,7 +39,7 @@ function StudentQuestionPaperPage() {
 
 
     return (
-        <div className={"PageContainer"}>
+        <Container className={"PageContainer"}>
             <Row className={"NavBarContainer"}>
                 <Col style={{textAlign: "left"}}>
                     <img className={"quisysLogo"} src={quisysLogo}/>
@@ -99,13 +99,14 @@ function StudentQuestionPaperPage() {
                                 </Col>
                                 <Col>
                                     <button onClick={handleNext} id={"next"}>Next</button>
+                                    {/*TODO make a submit button at the end*/}
                                 </Col>
                             </Row>
                         </Col>
                     </Row>
                 </Col>
             </Row>
-        </div>
+        </Container>
     );
 
 }

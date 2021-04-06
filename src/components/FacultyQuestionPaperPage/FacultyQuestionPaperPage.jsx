@@ -1,10 +1,11 @@
 import React, {useContext, useState} from "react";
-import {Col, Row} from "react-bootstrap";
+import {Col, Container, Row} from "react-bootstrap";
 import FacultyQuestionBox from "./FacultyQuestionBox/FacultyQuestionBox";
 import "./FacultyQuestionPaperPage.css"
 import plusSign from "../../images/Group 27.svg";
 import {FacultyQuestionContext} from "./FacultyQuestionContext"
 import {v4 as uuid} from "uuid";
+import quisysLogo from "../../images/quisysLogo.png";
 
 function FacultyQuestionPaperPage() {
     // Imported Questions List from FacultyQuestionContext.js

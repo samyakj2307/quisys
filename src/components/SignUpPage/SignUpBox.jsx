@@ -10,7 +10,8 @@ function SignUpBox(props) {
 
     let history = useHistory();
 
-    const [details, setDetails] = useContext(FacultyContext);
+    const [facultyDetails, setFacultyDetails] = useContext(FacultyContext);
+    const [studentDetails, setStudentDetails] = useContext(StudentContext);
     const user = props.userDetails;  //"Faculty" or "Student"
     const heading = user + " SignUp"
     const nameText = user + " Name";
@@ -27,22 +28,53 @@ function SignUpBox(props) {
 
 
     function handleSignUp() {
-        if (user === "Faculty") {
-            const tempID = uuid();
-            setDetails(prevDetails => {
-                const newDetail = {
-                    facultyId: tempID,
-                    facultyDetails: {
-                        name: inputName,
-                        email: inputEmail,
-                        password: inputPassword
+        if(inputName===""){
+            document.getElementById("nameFieldId").classList.add("errorField");
+        }else if(inputEmail===""){
+            document.getElementById("nameFieldId").classList.remove("errorField");
+            document.getElementById("emailFieldId").classList.add("errorField");
+        }
+        else if(inputPassword===""){
+            document.getElementById("nameFieldId").classList.remove("errorField");
+            document.getElementById("emailFieldId").classList.remove("errorField");
+            document.getElementById("passwordFieldId").classList.add("errorField");
+        }
+        else if(inputRePass===""){
+            document.getElementById("nameFieldId").classList.remove("errorField");
+            document.getElementById("emailFieldId").classList.remove("errorField");
+            document.getElementById("passwordFieldId").classList.remove("errorField");
+            document.getElementById("rePasswordFieldId").classList.add("errorField");
+        }
+        else if(emailIsValid && passwordIsValid && repeatPasswordIsValid) {
+            if (user === "Faculty") {
+                const tempID = uuid();
+                setFacultyDetails(prevFacultyDetails => {
+                    const newDetail = {
+                        facultyId: tempID,
+                        facultyDetails: {
+                            name: inputName,
+                            email: inputEmail,
+                            password: inputPassword
+                        }
                     }
-                }
-                return [...prevDetails, newDetail];
-            });
-            history.push("/FacultyLogin");
-        } else {
-            history.push("/StudentLogin");
+                    return [...prevFacultyDetails, newDetail];
+                });
+                history.push("/FacultyLogin");
+            } else {
+                const tempID = uuid();
+                setStudentDetails(prevStudentDetails => {
+                    const newStudentDetail = {
+                        studentId: tempID,
+                        studentDetails: {
+                            name: inputName,
+                            email: inputEmail,
+                            password: inputPassword
+                        }
+                    }
+                    return [...prevStudentDetails, newStudentDetail];
+                });
+                history.push("/StudentLogin");
+            }
         }
 
     }
@@ -103,7 +135,7 @@ function SignUpBox(props) {
                     <p className={"welcomeText"}>{heading}</p>
                 </Col>
             </Row>
-            <Row style={{textAlign: "center"}} className={"rowClass"}>
+            <Row style={{textAlign: "center"}} className={"rowClass GoogleIconContainer"}>
                 <Col>
                     <img className={"googleIconImage"} src={googleIcon} alt={"Google Sign Up"}/>
                 </Col>
@@ -111,6 +143,7 @@ function SignUpBox(props) {
             <Row className={"rowClass"}>
                 <Col style={{textAlign: "center"}}>
                     <input
+                        id={"nameFieldId"}
                         className={"inputField"}
                         type={"name"}
                         placeholder={nameText}
@@ -121,6 +154,7 @@ function SignUpBox(props) {
             <Row className={"rowClass"}>
                 <Col style={{textAlign: "center"}}>
                     <input
+                        id={"emailFieldId"}
                         className={"inputField"}
                         type={"email"}
                         placeholder={emailText}
@@ -142,6 +176,7 @@ function SignUpBox(props) {
             <Row className={"rowClass"}>
                 <Col style={{textAlign: "center"}}>
                     <input
+                        id={"passwordFieldId"}
                         className={"inputField"}
                         type={"password"}
                         placeholder={"Password"}
@@ -163,6 +198,7 @@ function SignUpBox(props) {
             <Row className={"rowClass"}>
                 <Col style={{textAlign: "center"}}>
                     <input
+                        id={"rePasswordFieldId"}
                         className={"inputField"}
                         type={"password"}
                         placeholder={"Repeat Password"}

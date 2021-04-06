@@ -1,8 +1,9 @@
 .listRowContainer{
     background: #FFFFFF;
     border-radius: 10px;
-    padding: 10px 7px;
+    padding: 10px 10px;
     margin-bottom: 10px;
+    margin-top: 12px;
 }
 .buttonContainer{
     text-align: right;
@@ -30,4 +31,12 @@
 .DateTime{
     border-left: 1px dotted black;
     border-right:1px dotted black;
+}
+.SubjectRowNames{
+    text-align: left;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    padding-left:35px;
 }

@@ -19,10 +19,12 @@ export function StudentContextProvider(props) {
                         {
                             examId: "jsdklfsjdflksdj23849238fnsk",
                             examDetails: {
-                                totalQuestions: 10,
-                                attemptedQuestion: 5,
-                                isChecked:false,
-                                marksScored: 0,
+                                examName: "IPWT Quiz-1",
+                                duration: 30,
+                                date: "2021-06-01",
+                                startTime: "05:00",
+                                endTime: "06:00",
+
                             },
                         },
                     ]

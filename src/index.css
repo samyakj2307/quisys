@@ -6,6 +6,11 @@ body {
 
 .rowClass {
     text-align: center;
+
+}
+.GoogleIconContainer{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 .signIn-UpBox {
@@ -82,6 +87,11 @@ body {
     line-height: 16px;
     letter-spacing: 1px;
     color: #FFFFFF;
+}
+.signIn-UpButton:hover{
+    border:none;
+    outline:none;
+    box-shadow: none;
 }
 
 
