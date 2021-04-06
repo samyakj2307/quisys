@@ -11,7 +11,8 @@ function SignInBox(props) {
     const emailText = user + " Email";
     const urlString = "/" + user + "SignUp";
 
-    const [details, setDetails] = useContext(FacultyContext);
+    const [facultyDetails, setFacultyDetails] = useContext(FacultyContext);
+    const [studentDetails, setStudentDetails] = useContext(StudentContext);
 
     const {Faculty, Student} = useContext(LoginContext);
     const [facultyIsLoggedIn, setFacultyIsLoggedIn] = Faculty;
@@ -97,6 +98,7 @@ function SignInBox(props) {
                     document.getElementById("PasswordInputId").classList.remove("errorField");
                 }
 
+            }
         }
     }
 

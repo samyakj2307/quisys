@@ -66,26 +66,40 @@ function FacultyQuestionPaperPage() {
 
     return (
         <div className={"mainQuestionContainer"}>
+            <Row className={"examDetails"} >
+                <Col style={{textAlign: "left"}}>
+                    <img className={"quisysLogo quisysLogo2"} src={quisysLogo}/>
+                </Col>
+                <Col style={{textAlign: "center"}} className={"ExamHeading"}>
+                    {examName} Exam
+                </Col>
+                <Col>
+
+                </Col>
+            </Row>
+
             <Row className={"examDetails"}>
-                <Col style={{textAlign: "center"}}>
+                <Col style={{textAlign: "center"}} className={"ExamHeading InputLabel"}>
+                    Exam Name
                     <input
                         className={"quizDataInput"}
-                        placeholder={"Exam Name"}
+                        placeholder={"Name"}
                         type={"text"}
                         onChange={handleExamNameChange}
                         value={examName}/>
                 </Col>
-                <Col style={{textAlign: "center"}}>
+                <Col style={{textAlign: "center"}} className={"ExamHeading InputLabel"}>
+                    Duration
                     <input
                         onChange={handleDurationChange}
                         className={"quizDataInput durationBox"}
-                        placeholder={"Duration(Mins)"}
+                        placeholder={"Minutes"}
                         type={"number"}
                         min={"1"}
                         value={examDuration}/>
                 </Col>
-                <Col style={{textAlign: "center"}}>
-                    <p>Date</p>
+                <Col style={{textAlign: "center"}} className={"ExamHeading InputLabel"}>
+                    Date
                     <input
                         onChange={handleDateChange}
                         id={"examDate"}
@@ -94,8 +108,8 @@ function FacultyQuestionPaperPage() {
                         type={"date"}
                         value={examDate}/>
                 </Col>
-                <Col style={{textAlign: "center", display: "inline"}}>
-                    <p>Start Time</p>
+                <Col style={{textAlign: "center", display: "inline"}} className={"ExamHeading InputLabel"}>
+                    Start Time
                     <input
                         onChange={handleStartTimeChange}
                         className={"quizDataInput"}
@@ -103,8 +117,8 @@ function FacultyQuestionPaperPage() {
                         type={"time"}
                         value={examStartTime}/>
                 </Col>
-                <Col style={{textAlign: "center", display: "inline-block"}}>
-                    <p>End Time</p>
+                <Col style={{textAlign: "center", display: "inline-block"}} className={"ExamHeading InputLabel"}>
+                    End Time
                     <input
                         onChange={handleEndTimeChange}
                         id={"endTime"}
@@ -112,11 +126,6 @@ function FacultyQuestionPaperPage() {
                         placeholder={"Exam End Timing"}
                         type={"time"}
                         value={examEndTime}/>
-                </Col>
-            </Row>
-            <Row>
-                <Col style={{textAlign: "center"}}>
-                    <p className={"ExamHeading"}>{examName} Exam</p>
                 </Col>
             </Row>
 

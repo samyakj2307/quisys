@@ -16,7 +16,7 @@ function MainPage() {
                 aria-labelledby="contained-modal-title-vcenter"
                 centered
                 animation={true}>
-                <div style={{backgroundColor: "#E6EEF8"}}>
+                <div className={"popUpBoxContainer"}>
                     <Modal.Header closeButton>
                         <Modal.Title id="contained-modal-title-vcenter">
                             Make a New Class

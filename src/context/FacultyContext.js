@@ -8,8 +8,8 @@ export function FacultyContextProvider(props) {
             facultyId: "jdslkjfsdklfjkl232odgjdfnvd",
             facultyDetails: {
                 name: "TempFaculty",
-                email: "temp.faculty@vit.ac.in",
-                password: "Temp@123"
+                email: "t.f@vit.ac.in",
+                password: "1"
             },
             classes: [
                 {

@@ -5,6 +5,7 @@ import '../../index.css'
 import {FacultyContext} from "../../context/FacultyContext";
 import {v4 as uuid} from "uuid";
 import  {useHistory} from 'react-router-dom'
+import {StudentContext} from "../../context/StudentContext";
 
 function SignUpBox(props) {
 

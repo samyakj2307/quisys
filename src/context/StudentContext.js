@@ -26,10 +26,38 @@ export function StudentContextProvider(props) {
                                 endTime: "06:00",
 
                             },
+                            afterAttemptingDetails: {
+                                attemptDetails: {
+                                    totalQuestions: 10,
+                                    attemptedQuestion: 5,
+                                    isChecked: false,
+                                },
+                                allAttemptedQuestions: [
+                                    {
+                                        questionId: "4c7cccb1-5f87-4bsd-ae73-cf73dfc6e04`f",
+                                        value: {
+                                            textAnswer: "",
+                                            optionSelected: {optionId: "nsfksjf3wr34u3"}
+                                        }
+                                    }
+                                ]
+                            },
+                            afterCheckingDetails:{
+                                totalMarksScored: 0,
+                                attemptedQuestions: [
+                                    {
+                                        questionId: "4c7cccb1-5f87-4bsd-ae73-cf73dfc6e04`f",
+                                        value: {
+                                            textAnswer: "",
+                                            optionSelected: {optionId: "nsfksjf3wr34u3"}
+                                        }
+                                    }
+                                ]
+                            }
                         },
                     ]
                 }
-            ]``
+            ]
         }
     ])
 

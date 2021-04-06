@@ -29,6 +29,7 @@ function App() {
                 <Route exact path={"/MainPage"} component={MainPage}/>
 
                 <FacultyContextProvider>
+                    <StudentContextProvider>
                     {/*FacultyLogin*/}
                     <Route exact path="/FacultyLogin">
                         {facultyIsLoggedIn ? <Redirect to="/SetQuestionPaper"/> : <FacultyLogin/>}
@@ -46,10 +47,6 @@ function App() {
                             <Redirect to="/FacultyLogin"/>}
                     </Route>
 
-                </FacultyContextProvider>
-
-                <StudentContextProvider>
-
                     {/*StudentLogin*/}
                     <Route exact path="/StudentLogin">
                         {studentIsLoggedIn ? <Redirect to="/GiveExam"/> : <StudentLogin/>}
@@ -65,6 +62,7 @@ function App() {
                             <Redirect to="/StudentLogin"/>}
                     </Route>
                 </StudentContextProvider>
+                </FacultyContextProvider>
             </Switch>
         </div>
     );
