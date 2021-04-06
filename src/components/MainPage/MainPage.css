@@ -162,3 +162,8 @@ a {
 a:hover {
     text-decoration: none;
 }
+
+p{
+    color:black;
+    text-align:left;
+}

@@ -3,13 +3,13 @@ import React, {createContext, useState} from "react";
 export const FacultyContext = createContext();
 
 export function FacultyContextProvider(props) {
-    const [details, setDetails] = useState([
+    const [facultyDetails, setFacultyDetails] = useState([
         {
             facultyId: "jdslkjfsdklfjkl232odgjdfnvd",
             facultyDetails: {
                 name: "TempFaculty",
-                email: "tempfaculty@vit.ac.in",
-                password: "12345678"
+                email: "temp.faculty@vit.ac.in",
+                password: "Temp@123"
             },
             classes: [
                 {
@@ -50,7 +50,7 @@ export function FacultyContextProvider(props) {
     ])
 
 
-    return <FacultyContext.Provider value={[details, setDetails]}>
+    return <FacultyContext.Provider value={[facultyDetails, setFacultyDetails]}>
         {props.children}
     </FacultyContext.Provider>
 

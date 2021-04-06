@@ -12,7 +12,7 @@ import StudentLogin from "./components/Student/StudentLogin";
 import {LoginContext} from "./context/LoginContext";
 import MainPage from "./components/MainPage/MainPage";
 import {FacultyContextProvider} from "./context/FacultyContext";
-
+import {StudentContextProvider} from "./context/StudentContext";
 
 function App() {
 
@@ -25,30 +25,38 @@ function App() {
             <Switch>
                 {/*HomePage*/}
                 <Route exact path={"/"} component={HomePage}/>
-                <FacultyContextProvider>
-                    <Route exact path={"/MainPage"} component={MainPage}/>
 
+                <Route exact path={"/MainPage"} component={MainPage}/>
+
+                <FacultyContextProvider>
                     {/*FacultyLogin*/}
                     <Route exact path="/FacultyLogin">
                         {facultyIsLoggedIn ? <Redirect to="/SetQuestionPaper"/> : <FacultyLogin/>}
                     </Route>
+
+                    {/*Faculty SignUp*/}
+                    <Route exact path={"/FacultySignUp"} component={FacultySignUp}/>
+
+                    {/*Faculty Set Question Paper*/}
+                    <Route exact path="/SetQuestionPaper">
+                        {facultyIsLoggedIn ?
+                            (<QuestionProvider>
+                                <FacultyQuestionPaperPage/>
+                            </QuestionProvider>) :
+                            <Redirect to="/FacultyLogin"/>}
+                    </Route>
+
+                </FacultyContextProvider>
+
+                <StudentContextProvider>
 
                     {/*StudentLogin*/}
                     <Route exact path="/StudentLogin">
                         {studentIsLoggedIn ? <Redirect to="/GiveExam"/> : <StudentLogin/>}
                     </Route>
 
-                    {/*Faculty SignUp*/}
-                    <Route exact path={"/FacultySignUp"} component={FacultySignUp}/>
-
                     {/*Student SignUp*/}
                     <Route exact path={"/StudentSignUp"} component={StudentSignUp}/>
-
-                    {/*Faculty Set Question Paper*/}
-                    <Route exact path="/SetQuestionPaper">
-                        {facultyIsLoggedIn ? <QuestionProvider><FacultyQuestionPaperPage/></QuestionProvider> :
-                            <Redirect to="/FacultyLogin"/>}
-                    </Route>
 
                     {/*Student Give Question Paper*/}
                     <Route exact path="/GiveExam">
@@ -56,10 +64,9 @@ function App() {
                             <QuestionAnswerProvider><StudentQuestionPaperPage/></QuestionAnswerProvider> :
                             <Redirect to="/StudentLogin"/>}
                     </Route>
-                </FacultyContextProvider>
+                </StudentContextProvider>
             </Switch>
         </div>
-
     );
 
 }
