@@ -3,7 +3,6 @@ body {
 }
 
 .mainQuestionContainer {
-    width: 100%;
     text-align: center;
 }
 
@@ -36,9 +35,9 @@ body {
     padding: 7px;
 }
 
-.quizDataInput{
+.quizDataInput {
     border: 2px solid #9575CD;
-    margin: 20px 20px 10px;
+    margin: 10px 20px 10px;
     padding: 10px;
     font-family: Montserrat, sans-serif;
     font-style: normal;
@@ -52,34 +51,57 @@ body {
     color: #90A4AE;
 }
 
-.quizDataInput:focus{
+.quizDataInput:focus {
     outline: none;
     border: 3px solid #9575CD;
 }
 
-label{
+p {
     font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
-    letter-spacing: 1px;
     color: white;
     padding: 10px;
+    line-height: normal;
+    /*width: fit-content;*/
+    text-align: center;
 }
 
-.ExamHeading{
+.ExamHeading {
     font-family: Montserrat, sans-serif;
     font-style: normal;
     font-weight: bolder;
     font-size: 30px;
+    margin-top: 30px;
     letter-spacing: 1px;
     color: black;
 }
 
-.examDetails{
+.examDetails {
     background-color: #9574CD;
 }
 
-.durationBox{
+.durationBox {
     width: 200px;
+}
+
+.saveQuestionPaper {
+    background-color: #9575CD;
+    border: 0;
+    border-radius: 10px;
+
+    margin: 70px 0 40px;
+    padding: 20px 40px;
+
+    cursor: pointer;
+
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 25px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #FFFFFF;
 }

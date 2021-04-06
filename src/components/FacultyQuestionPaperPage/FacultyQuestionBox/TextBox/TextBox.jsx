@@ -1,6 +1,6 @@
 import React, {useContext, useState} from "react";
 import {TextareaAutosize} from "@material-ui/core";
-import {FacultyQuestionContext} from "../../../../context/FacultyQuestionContext"
+import {FacultyQuestionContext} from "../../FacultyQuestionContext"
 import {Col, Container, Row} from "react-bootstrap";
 
 

@@ -1,136 +1,124 @@
 body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
 }
 
-/* SignIn-SignUp Page */
-
-/*.mainContainerSignIn-UpPage{*/
-/*  height: 100vh;*/
-/*  width: 100vw;*/
-/*  background-color: #E6EEF8;*/
-/*}*/
-
-/*.boxContainerSignIn-UpPage{*/
-/*  margin: 0;*/
-/*  position: absolute;*/
-/*  top: 50%;*/
-/*  left: 50%;*/
-/*  transform: translate(-50%,-50%);*/
-/*}*/
-
-.rowClass{
+.rowClass {
     text-align: center;
 }
 
 .signIn-UpBox {
-  background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
-  box-shadow: -16px -16px 40px rgba(253, 255, 255, 0.8), 16px 16px 40px rgba(187, 195, 206, 0.6);
-  border-radius: 16px;
-  padding: 25px;
-  width: fit-content;
+    background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
+    box-shadow: -16px -16px 40px rgba(253, 255, 255, 0.8), 16px 16px 40px rgba(187, 195, 206, 0.6);
+    border-radius: 16px;
+    padding: 25px;
+    width: fit-content;
 }
-
 
 
 .welcomeText {
-  text-align: center;
-  font-family: Montserrat,sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 21px;
-  letter-spacing: 1px;
-  color: #546E7A;
-  display: inline;
+    text-align: center;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 21px;
+    letter-spacing: 1px;
+    color: #546E7A;
+    display: inline;
 }
 
 .inputField {
-  width: 250px;
-  height: 45px;
-  text-align: left;
-  padding-left: 20px;
-  background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
-  box-shadow: inset -4px -4px 12px rgba(253, 255, 255, 0.8), inset 4px 4px 12px rgba(187, 195, 206, 0.6);
-  border-radius: 16px;
-  margin: 10px;
-  border: none;
-  text-decoration: none;
+    width: 250px;
+    height: 45px;
+    text-align: left;
+    padding-left: 20px;
+    background: linear-gradient(0deg, #E6EEF8, #E6EEF8), #CFD8DC;
+    box-shadow: inset -4px -4px 12px rgba(253, 255, 255, 0.8), inset 4px 4px 12px rgba(187, 195, 206, 0.6);
+    border-radius: 16px;
+    margin: 10px;
+    border: none;
+    text-decoration: none;
 
 
-  font-family: Montserrat, serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 16px;
-  letter-spacing: 1px;
+    font-family: Montserrat, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    letter-spacing: 1px;
 }
-.inputField:focus{
-  border: 2px solid #9574CD;
-  outline: none;
+
+.inputField:focus {
+    border: 2px solid #9574CD;
+    outline: none;
 }
 
 .inputField::placeholder {
-  color: #90A4AE;
+    color: #90A4AE;
 }
 
-.googleIconImage{
-  width: 40px;
-  height: 40px;
-  padding: 7px;
-  box-shadow: -4px -4px 12px rgba(253, 255, 255, 0.8), 4px 4px 12px rgba(187, 195, 206, 0.6);
-}
-.signIn-UpButton{
-  text-align: center;
-  width: 113px;
-  height: 48px;
-  background: #9574CD;
-  box-shadow: -4px -4px 12px rgba(253, 255, 255, 0.8), 4px 4px 12px rgba(187, 195, 206, 0.6);
-  border-radius: 16px;
-  border: none;
-
-  font-family: Montserrat, serif;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 1px;
-  color: #FFFFFF;
+.googleIconImage {
+    width: 40px;
+    height: 40px;
+    padding: 7px;
+    box-shadow: -4px -4px 12px rgba(253, 255, 255, 0.8), 4px 4px 12px rgba(187, 195, 206, 0.6);
 }
 
+.signIn-UpButton {
+    text-align: center;
+    width: 113px;
+    height: 48px;
+    background: #9574CD;
+    box-shadow: -4px -4px 12px rgba(253, 255, 255, 0.8), 4px 4px 12px rgba(187, 195, 206, 0.6);
+    border-radius: 16px;
+    border: none;
 
-.linksTextContainer {
-  text-align: center;
-  font-family: Montserrat, serif;
-  font-style: normal;
-  font-weight: normal;
-  font-size: 13px;
-  line-height: 20px;
-  text-align: center;
-  color: #546E7A;
-  margin: 10px;
-}
-.linksTextContainer a{
-  text-decoration: none;
-}
-
-.signUpLinkContainer{
-  margin-top: 20px;
-  margin-bottom: 5px;
-}
-.errorField{
-  border: 2px solid red;
+    font-family: Montserrat, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 16px;
+    letter-spacing: 1px;
+    color: #FFFFFF;
 }
 
-.errorField:focus{
-  border: 2px solid red;
+
+.linkTextContainer{
+    text-align: center;
+    margin: 10px;
+    font-family: Montserrat, serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 20px;
+    color: black;
 }
 
-.errorText{
-  font-family: Montserrat, serif;
-  font-style: normal;
-  font-weight: normal;
-  color: crimson;
-  font-size: 12px;
+.linkTextContainer a{
+    text-decoration: none;
+    font-family: Montserrat, serif;
+    font-style: italic;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 20px;
+    color: black;
+}
+
+
+.errorField {
+    border: 2px solid red;
+}
+
+.errorField:focus {
+    border: 2px solid red;
+}
+
+.errorText {
+    font-family: Montserrat, serif;
+    font-style: normal;
+    font-weight: normal;
+    color: crimson;
+    font-size: 12px;
 }

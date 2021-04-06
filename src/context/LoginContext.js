@@ -4,8 +4,8 @@ export const LoginContext = createContext();
 
 export function LoginDataProvider(props) {
     //TODO Change both of these to False;;
-    const [facultyIsLoggedIn, setFacultyIsLoggedIn] = useState(true);
-    const [studentIsLoggedIn, setStudentIsLoggedIn] = useState(true);
+    const [facultyIsLoggedIn, setFacultyIsLoggedIn] = useState(false);
+    const [studentIsLoggedIn, setStudentIsLoggedIn] = useState(false);
 
     return <LoginContext.Provider
         value={

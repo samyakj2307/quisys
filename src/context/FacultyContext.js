@@ -27,17 +27,18 @@ export function FacultyContextProvider(props) {
                             },
                             allQuestions: [
                                 {
-                                    id: "4c7cccb1-5f87-4bsd-ae73-cf73dfc6e04`f",
+                                    questionId: "4c7cccb1-5f87-4bsd-ae73-cf73dfc6e04`f",
                                     value: {
                                         question: "",
                                         isText: false,
                                         textAnswer: "",
                                         options: [
                                             {
-                                                id: "nsfksjf3wr34u3",
+                                                optionId: "nsfksjf3wr34u3",
                                                 value: "Sambhav"
                                             }
-                                        ]
+                                        ],
+                                        correctOption: ""
                                     }
                                 }
                             ]

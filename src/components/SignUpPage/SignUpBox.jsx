@@ -4,8 +4,11 @@ import {Col, Container, Row} from "react-bootstrap";
 import '../../index.css'
 import {FacultyContext} from "../../context/FacultyContext";
 import {v4 as uuid} from "uuid";
+import  {useHistory} from 'react-router-dom'
 
 function SignUpBox(props) {
+
+    let history = useHistory();
 
     const [details, setDetails] = useContext(FacultyContext);
     const user = props.userDetails;  //"Faculty" or "Student"
@@ -24,7 +27,7 @@ function SignUpBox(props) {
 
 
     function handleSignUp() {
-        if(user==="Faculty") {
+        if (user === "Faculty") {
             const tempID = uuid();
             setDetails(prevDetails => {
                 const newDetail = {
@@ -37,9 +40,9 @@ function SignUpBox(props) {
                 }
                 return [...prevDetails, newDetail];
             });
-            window.location.href = '/FacultyLogin';
-        }else{
-            window.location.href = '/StudentLogin';
+            history.push("/FacultyLogin");
+        } else {
+            history.push("/StudentLogin");
         }
 
     }
@@ -53,9 +56,9 @@ function SignUpBox(props) {
         const value = event.target.value;
         setInputEmail(value);
         let emailPattern;
-        if(user==="Faculty") {
+        if (user === "Faculty") {
             emailPattern = "[a-z]+[.]+[a-z]+(@vit.ac.in$)";
-        }else{
+        } else {
             emailPattern = "[a-z]+[.]+[a-z]+(@vitstudent.ac.in$)";
         }
         if (value.match(emailPattern)) {
@@ -70,7 +73,7 @@ function SignUpBox(props) {
     function handleInputPasswordChange(event) {
         const value = event.target.value;
         setInputPassword(value);
-        const passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,20}$";
+        const passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,40}$";
         if (value.match(passwordPattern)) {
             setPasswordIsValid(true);
             event.target.classList.remove("errorField");
@@ -84,10 +87,10 @@ function SignUpBox(props) {
     function handleInputRePassChange(event) {
         const value = event.target.value;
         setInputRePass(value);
-        if(value===inputPassword){
+        if (value === inputPassword) {
             setRepeatPasswordIsValid(true);
             event.target.classList.remove("errorField");
-        }else{
+        } else {
             setRepeatPasswordIsValid(false);
             event.target.classList.add("errorField");
         }
@@ -128,11 +131,12 @@ function SignUpBox(props) {
             <Row className={"rowClass"}>
                 {!emailIsValid &&
                 <Col style={{textAlign: "center"}}>
-                    <text
+                    <div
                         className={"errorText"}>
                         Email should be in format of {
-                            user==="Faculty" ? <b><i>abc.xyz@vit.ac.in</i></b> : <b><i><br/>abc.xyz@vitstudent.ac.in</i></b>}
-                    </text>
+                        user === "Faculty" ? <b><i>abc.xyz@vit.ac.in</i></b> :
+                            <b><i><br/>abc.xyz@vitstudent.ac.in</i></b>}
+                    </div>
                 </Col>}
             </Row>
             <Row className={"rowClass"}>
@@ -149,10 +153,10 @@ function SignUpBox(props) {
 
                 {!passwordIsValid &&
                 <Col style={{textAlign: "center"}}>
-                    <text
+                    <div
                         className={"errorText"}>
                         Minimum Length 8 chars having atleast<br/><b><i>[0-9], [a-z], [A-Z], [@#$]</i></b>
-                    </text>
+                    </div>
                 </Col>
                 }
             </Row>
@@ -170,10 +174,10 @@ function SignUpBox(props) {
 
                 {!repeatPasswordIsValid &&
                 <Col style={{textAlign: "center"}}>
-                    <text
+                    <div
                         className={"errorText"}>
                         Password does not match!
-                    </text>
+                    </div>
                 </Col>
                 }
             </Row>

@@ -2,7 +2,7 @@ import React, {useContext} from "react";
 import {TextareaAutosize} from "@material-ui/core";
 import "./Option.css"
 import minusSign from "../../../../../images/minusOption.svg";
-import {FacultyQuestionContext} from "../../../../../context/FacultyQuestionContext";
+import {FacultyQuestionContext} from "../../../FacultyQuestionContext";
 import {Col, Container, Row} from "react-bootstrap";
 
 function Option(props) {

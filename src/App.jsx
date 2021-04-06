@@ -5,7 +5,7 @@ import FacultyLogin from "./components/Faculty/FacultyLogin";
 import StudentSignUp from "./components/Student/StudentSignUp";
 import FacultySignUp from "./components/Faculty/FacultySignUp";
 import FacultyQuestionPaperPage from "./components/FacultyQuestionPaperPage/FacultyQuestionPaperPage";
-import {QuestionProvider} from "./context/FacultyQuestionContext"
+import {QuestionProvider} from "./components/FacultyQuestionPaperPage/FacultyQuestionContext"
 import {QuestionAnswerProvider} from "./context/StudentQuestionAnswerContext"
 import StudentQuestionPaperPage from "./components/StudentQuestionPaperPage/StudentQuestionPaperPage";
 import StudentLogin from "./components/Student/StudentLogin";

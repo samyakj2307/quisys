@@ -6,7 +6,7 @@ import {createStyles} from "@material-ui/core/styles";
 import {Col, Container, Row} from "react-bootstrap";
 import minusButton from "../../../images/minus.svg"
 import OptionBox from "./OptionBox/OptionBox";
-import {FacultyQuestionContext} from "../../../context/FacultyQuestionContext"
+import {FacultyQuestionContext} from "../FacultyQuestionContext"
 import TextBox from "./TextBox/TextBox";
 
 

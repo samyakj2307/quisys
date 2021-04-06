@@ -3,7 +3,7 @@ import "./OptionBox.css"
 import {Col, Container, Row} from "react-bootstrap"
 import Option from "./Option/Option";
 import plusSign from "../../../../images/Group 27.svg"
-import {FacultyQuestionContext} from "../../../../context/FacultyQuestionContext";
+import {FacultyQuestionContext} from "../../FacultyQuestionContext";
 import {uuid} from "uuidv4";
 
 
@@ -19,7 +19,7 @@ function OptionBox(props) {
     function addOption() {
         const tempID = uuid();
         setQuestions((prevQuestion) => {
-            let tempOptions = [...currentOptions, {id: tempID, value: ""}]
+            let tempOptions = [...currentOptions, {optionId: tempID, value: ""}]
             currentQuestion.options = tempOptions;
             prevQuestion[propQno].value = currentQuestion;
             return prevQuestion;
