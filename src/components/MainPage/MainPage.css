@@ -1,3 +1,4 @@
+
 .Container1 {
     width: 100vw;
     height: 100%;
@@ -39,7 +40,6 @@
 
 .userDetails {
     text-align: right;
-    display: inline;
 }
 
 h4 {
