@@ -67,14 +67,13 @@ function FacultyQuestionPaperPage() {
     return (
         <div className={"mainQuestionContainer"}>
             <Row className={"examDetails"} >
-                <Col style={{textAlign: "left"}}>
+                <Col style={{textAlign: "center"}} md={2}>
                     <img className={"quisysLogo quisysLogo2"} src={quisysLogo}/>
                 </Col>
-                <Col style={{textAlign: "center"}} className={"ExamHeading"}>
+                <Col style={{textAlign: "center",padding:"0 5%"}} className={"ExamHeading"} md={8}>
                     {examName} Exam
                 </Col>
-                <Col>
-
+                <Col md={2}>
                 </Col>
             </Row>
 

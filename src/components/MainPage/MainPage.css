@@ -1,4 +1,3 @@
-
 .Container1 {
     width: 100vw;
     height: 100%;
@@ -86,51 +85,10 @@ h4 {
     text-align: center;
     letter-spacing: 1px;
     color: #FFFFFF;
+    margin-left: 10px;
 
 }
 
-/*PopUp Box*/
-.ModalBody{
-    border-top: 1px solid black;
-    border-bottom: 1px solid black ;
-}
-.PopUpContainer {
-
-}
-
-.PopUpNameField {
-    border:2px solid #9575CD;
-    width:54%;
-    margin:auto;
-    border-radius:8px;
-}
-
-.PopUpNameField:hover {
-    cursor: pointer;
-    border: 2px solid #9575CD;
-}
-.PopUpNameField:focus {
-    cursor: pointer;
-    border: 2px solid #9575CD;
-    outline:none
-}
-
-
-.AddClassButton {
-    background-color: #9575CD;
-    border: 0;
-    border-radius: 10px;
-    cursor: pointer;
-    padding: 10px;
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 15px;
-    line-height: 18px;
-    text-align: center;
-    letter-spacing: 1px;
-    color: #FFFFFF;
-}
 
 .joinClassContainer {
     text-align: center;
@@ -177,7 +135,4 @@ a:hover {
 p{
     color:black;
     text-align:left;
-}
-.popUpBoxContainer{
-    background-color: #E6EEF8;
 }

@@ -4,7 +4,7 @@ import "./ListComponent.css"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ListRow from "./ListRow/ListRow";
 
-function ListComponent() {
+function ListComponent(props) {
 
     const QuestionDetails = [
         {
@@ -86,12 +86,14 @@ function ListComponent() {
             {QuestionDetails[0].examDetails.map((questionItem, index) => {
                 return (
                     <ListRow
+                        key={index}
                         index={index}
                         examName={questionItem.Details.examName}
                         examDuration={questionItem.Details.duration}
                         examStartTime={questionItem.Details.startTime}
                         examEndTime={questionItem.Details.endTime}
-                        examDate={questionItem.Details.date}/>
+                        examDate={questionItem.Details.date}
+                        user={props.user}/>
                 );
             })}
         </div>

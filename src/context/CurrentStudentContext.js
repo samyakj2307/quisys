@@ -1,9 +1,9 @@
 import React, {createContext, useState} from "react";
 
-export const StudentContext = createContext();
+export const CurrentStudentContext = createContext();
 
-export function StudentContextProvider(props) {
-    const [studentDetails, setStudentDetails] = useState([
+export function CurrentStudentContextProvider(props) {
+    const [currentStudentDetails, setCurrentStudentDetails] = useState(
         {
             studentId: "jdslkjfsdklfjkl232odgjdfnvd",
             studentDetails: {
@@ -60,9 +60,11 @@ export function StudentContextProvider(props) {
                 }
             ]
         }
-    ])
+    )
 
-    return <StudentContext.Provider value={[studentDetails, setStudentDetails]}>
+
+    return <CurrentStudentContext.Provider value={[currentStudentDetails, setCurrentStudentDetails]}>
         {props.children}
-    </StudentContext.Provider>
+    </CurrentStudentContext.Provider>
+
 }

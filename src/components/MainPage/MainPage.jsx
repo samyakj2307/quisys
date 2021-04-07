@@ -1,76 +1,67 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import './MainPage.css';
-import {Col, Row, Container} from "react-bootstrap";
-import Modal from 'react-bootstrap/Modal'
+import {Col, Container, Row} from "react-bootstrap";
 import quisysLogo from "../../images/quisysLogo.png";
-import ListComp from "./ListComponent/ListComponent";
-import {Link, useHistory} from 'react-router-dom';
+import {useHistory} from 'react-router-dom';
+import PopUp from "./PopUp/PopUp";
+import {LoginContext} from "../../context/LoginContext";
+import ClassComponent from "./ClassComponent/ClassComponent";
+import {CurrentFacultyContext} from "../../context/CurrentFacultyContext";
+import {CurrentStudentContext} from "../../context/CurrentStudentContext";
 
-function MainPage() {
+function MainPage(props) {
+    const {Faculty, Student} = useContext(LoginContext);
+    const [facultyIsLoggedIn, setFacultyIsLoggedIn] = Faculty;
+    const [studentIsLoggedIn, setStudentIsLoggedIn] = Student;
 
-    function PopUp(props) {
-        return (
-            <Modal
-                {...props}
-                size="md"
-                aria-labelledby="contained-modal-title-vcenter"
-                centered
-                animation={true}>
-                <div className={"popUpBoxContainer"}>
-                    <Modal.Header closeButton>
-                        <Modal.Title id="contained-modal-title-vcenter">
-                            Make a New Class
-                        </Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body s className={"ModalBody"}>
-                        <h5>Enter the Name of the Class:</h5>
-                        <input className="PopUpNameField" type={"text"}/>
-                    </Modal.Body>
-                    <Modal.Footer>
-                        <button onClick={props.onHide} className={"AddClassButton"}>Add Class</button>
-                    </Modal.Footer>
-                </div>
-            </Modal>
-        );
-    }
+    const [currentFacultyDetails, setCurrentFacultyDetails] = useContext(CurrentFacultyContext);
+    const [currentStudentDetails, setCurrentStudentDetails] = useContext(CurrentStudentContext);
 
+    const [selectedClassId, setSelectedClassId] = useState("");
 
     const [modalShow, setModalShow] = React.useState(false);
-    const history=useHistory();
+    const history = useHistory();
+
     function logout() {
-        localStorage.clear();
-         history.push('/'); //TODO  TO USE useHistory()
+        if (props.user === "Faculty") {
+            setFacultyIsLoggedIn(false);
+        } else {
+            setStudentIsLoggedIn(false);
+        }
+        //TODO check if wanna use useHistory()
+        // history.push('/');
     }
 
-    function addClass() {
+    function openPopUp() {
         return setModalShow(true);
     }
 
     return (
         <Container className={"Container1"}>
             <Row className={"NavBarContainer"}>
-                <Col className={"LogoContainer"} >
+                <Col className={"LogoContainer"}>
                     <img className={"quisysLogo"} src={quisysLogo}/>
                 </Col>
-                <Col>
-                    <p className={"CourseName"} >IPWT</p>
-                </Col>
-                <Col style={{textAlign:"right"}}>
-                    <Row>
-                        <Col className={"userDetails"} >
-                            Temp Faculty <br/> temp.faculty@vitstudent.ac.in
-                        </Col>
-                        <Col >
-                            <button onClick={logout} className={"LogoutBtn"} >Logout</button>
-                        </Col>
-                    </Row>
+                <Col style={{textAlign: "right"}}>
+                    <div style={{display: "inline-block"}} className={"userDetails"}>
+                        {(props.user === "Faculty") ?
+                            currentFacultyDetails.facultyDetails.name :
+                            currentStudentDetails.studentDetails.name}
+                        <br/>
+                        {(props.user === "Faculty") ?
+                            currentFacultyDetails.facultyDetails.email :
+                            currentStudentDetails.studentDetails.email}
+                    </div>
+                    <div style={{display: "inline-block"}}>
+                        <button onClick={logout} className={"LogoutBtn"}>Logout</button>
+                    </div>
                 </Col>
             </Row>
             <Row className={"secondContainer"}>
                 <Col md={3} className={"joinClassContainer"}>
                     <Row>
                         <Col>
-                            <button className={"CreateClass"} onClick={addClass}>New Class</button>
+                            <button className={"CreateClass"} onClick={openPopUp}>New Class</button>
                         </Col>
                     </Row>
                     <Row>
@@ -80,36 +71,24 @@ function MainPage() {
                     </Row>
                     <Row>
                         <Col>
-                            <a href="" className={"AiClass"}>Artificial Intelligence</a>
+                            <a href="">Artificial Intelligence</a>
                         </Col>
                     </Row>
                     <Row>
                         <Col>
-                            <a href="" className={"IPWTClass"}>IPWT</a>
+                            <a href="">IPWT</a>
                         </Col>
                     </Row>
                 </Col>
                 <Col md={9} className="PendingQuizzesContainer">
-                    <Row>
-                        <Col>
-                            <h4>Scheduled Quizzes</h4>
-                        </Col>
-                        <Col style={{textAlign:"right"}}>
-                            <Link to={"/SetQuestionPaper"}>
-                                <button className={"CreateClass NewQuizButton"} >New Quiz</button>
-                            </Link>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <ListComp/>
-                        </Col>
-                    </Row>
-
-
+                    <ClassComponent
+                        user={props.user}
+                        // classId={classIdSelected}
+                    />
                 </Col>
             </Row>
             <PopUp
+                user={props.user}
                 show={modalShow}
                 onHide={() => setModalShow(false)}
             />

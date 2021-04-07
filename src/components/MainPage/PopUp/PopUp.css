@@ -1,0 +1,40 @@
+.popUpBoxContainer{
+    background-color: #E6EEF8;
+}
+
+.ModalBody{
+    border-top: 1px solid lightgray;
+    border-bottom: 1px solid lightgray;
+}
+.PopUpNameField {
+    border:2px solid #9575CD;
+    width:54%;
+    margin:auto;
+    border-radius:4px;
+}
+
+.PopUpNameField:hover {
+    cursor: pointer;
+    border: 2px solid #9575CD;
+}
+.PopUpNameField:focus {
+    cursor: pointer;
+    border: 2px solid #9575CD;
+    outline:none
+}
+
+.AddClassButton {
+    background-color: #9575CD;
+    border: 0;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 10px;
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+    letter-spacing: 1px;
+    color: #FFFFFF;
+}

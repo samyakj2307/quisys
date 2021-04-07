@@ -8,10 +8,9 @@ export function LoginDataProvider(props) {
     const [studentIsLoggedIn, setStudentIsLoggedIn] = useState(false);
 
     return <LoginContext.Provider
-        value={
-            {
-                Faculty: [facultyIsLoggedIn, setFacultyIsLoggedIn],
-                Student: [studentIsLoggedIn, setStudentIsLoggedIn]
+        value={{
+            Faculty: [facultyIsLoggedIn, setFacultyIsLoggedIn],
+            Student: [studentIsLoggedIn, setStudentIsLoggedIn]
             }
         }>
         {props.children}

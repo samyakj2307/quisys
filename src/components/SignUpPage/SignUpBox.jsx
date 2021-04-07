@@ -56,7 +56,8 @@ function SignUpBox(props) {
                             name: inputName,
                             email: inputEmail,
                             password: inputPassword
-                        }
+                        },
+                        classes: []
                     }
                     return [...prevFacultyDetails, newDetail];
                 });
@@ -70,7 +71,8 @@ function SignUpBox(props) {
                             name: inputName,
                             email: inputEmail,
                             password: inputPassword
-                        }
+                        },
+                        classes: []
                     }
                     return [...prevStudentDetails, newStudentDetail];
                 });

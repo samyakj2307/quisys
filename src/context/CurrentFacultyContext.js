@@ -1,9 +1,9 @@
 import React, {createContext, useState} from "react";
 
-export const FacultyContext = createContext();
+export const CurrentFacultyContext = createContext();
 
-export function FacultyContextProvider(props) {
-    const [facultyDetails, setFacultyDetails] = useState([
+export function CurrentFacultyContextProvider(props) {
+    const [currentFacultyDetails, setCurrentFacultyDetails] = useState(
         {
             facultyId: "jdslkjfsdklfjkl232odgjdfnvd",
             facultyDetails: {
@@ -48,11 +48,11 @@ export function FacultyContextProvider(props) {
                 }
             ]
         }
-    ])
+    )
 
 
-    return <FacultyContext.Provider value={[facultyDetails, setFacultyDetails]}>
+    return <CurrentFacultyContext.Provider value={[currentFacultyDetails, setCurrentFacultyDetails]}>
         {props.children}
-    </FacultyContext.Provider>
+    </CurrentFacultyContext.Provider>
 
 }
