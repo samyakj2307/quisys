@@ -25,7 +25,7 @@ function FacultyViewAnswersheet () {
                     </thead>
                     <tbody>
                     {
-                        studentsList.map((student) => {
+                        examStudentDetails.map((student,index) => {
                             return (
                                 <FacultyTableRow
                                     key={index}

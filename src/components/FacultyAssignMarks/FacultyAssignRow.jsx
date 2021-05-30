@@ -24,8 +24,8 @@ function FacultyAssignRow(props) {
                         </Row>
 
                         <Row className={"row"}>
-                            <Col className={"col1 col-padding"} md={8}>
-                                <h3>Options</h3>
+                            <Col className={"col1 col-padding col2"} md={8}>
+                                <h3><strong>Answered:</strong> {props.question.answered}</h3>
                             </Col>
                             <Col className={"col1 col-padding"} style={{marginLeft: "10px", textAlign: "center"}}>
                                 <input onChange={handleMarksChange} type="number" id="total1" name="total1"/>
