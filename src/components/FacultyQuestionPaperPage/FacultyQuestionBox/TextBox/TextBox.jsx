@@ -7,7 +7,7 @@ import {Col, Container, Row} from "react-bootstrap";
 function TextBox(props) {
     const [questions, setQuestions] = useContext(FacultyQuestionContext);
     const propQno = props.index;
-    const currentQuestion = questions[propQno].value;
+    const currentQuestion = questions[propQno];
 
     const [textAnswer, setTextAnswer] = useState(currentQuestion.textAnswer);
 
@@ -15,7 +15,7 @@ function TextBox(props) {
         const value = event.target.value;
         setTextAnswer(value);
         setQuestions((prevQuestions) => {
-            prevQuestions[propQno].value.textAnswer = value;
+            prevQuestions[propQno].textAnswer = value;
             return (prevQuestions);
         });
     }

@@ -42,7 +42,7 @@ function StudentQuestionPaperPage() {
         <Container className={"PageContainer"}>
             <Row className={"NavBarContainer"}>
                 <Col style={{textAlign: "left"}}>
-                    <img className={"quisysLogo"} src={quisysLogo}/>
+                    <img className={"quisysLogo"} src={quisysLogo} alt={"quisys-logo"}/>
                 </Col>
                 <Col style={{textAlign: "center"}}>
                     <p className={"quizName"}>QUIZ-1</p>

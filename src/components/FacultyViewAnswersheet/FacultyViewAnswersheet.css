@@ -1,0 +1,51 @@
+#studentResponseTable {
+    background-color: #DAE4F6;
+    border: 4.5px solid #9575CD;
+    width: 100%;
+    margin-top: 40px;
+    border-radius: 3.5px;
+}
+
+#NameHeading {
+    color: white;
+    background-color: #9575CD;
+    border: 3.5px solid #9575CD;
+    font-size: large;
+    border-radius: 1.5px;
+    text-align: center;
+}
+
+.checkBtn {
+    width: 85px;
+    height: 55px;
+    color: white;
+    background-color: #9575CD;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 4px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    border: none;
+    stroke: none;
+}
+
+td {
+    border: 2.5px solid #9575CD;
+    text-align: center;
+
+}
+
+.publishBtn {
+    width: 227px;
+    height: 47px;
+    color: white;
+    background-color: #9575CD;
+    border-radius: 10px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-top: 4px;
+    margin-bottom: 4px;
+    cursor: pointer;
+    margin-left: 900px;
+    border: none;
+    stroke: none;
+}

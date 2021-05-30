@@ -25,26 +25,28 @@ const styles = createStyles({
 
 function FacultyQuestionBox(props) {
     const [questions, setQuestions] = useContext(FacultyQuestionContext);
-    const Id = props.id;
+    // const Id = props.id;
     const qNo = props.index;
-    const currentQuestion = questions[qNo].value;
+    const currentQuestion = questions[qNo];
 
     const [isText, setIsText] = useState(currentQuestion.isText);
+    const [questionText, setQuestionText] = useState(currentQuestion.question);
 
 
     function handleCurrentQuestionChange(event) {
         const value = event.target.value;
+        setQuestionText(value);
         setQuestions((prevQuestions) => {
-            prevQuestions[props.index].value.question = currentQuestion;
-            return (prevQuestions);
-        });
+            prevQuestions[props.index].question = value;
+            return (prevQuestions)
+        })
 
     }
 
     function deleteQuestion() {
         setQuestions(prevQuestions => {
             return prevQuestions.filter((questionItem) => {
-                return questionItem.id !== props.id;
+                return questionItem.questionId !== props.id;
             });
         });
     }
@@ -59,25 +61,29 @@ function FacultyQuestionBox(props) {
         }
         setIsText(bool);
         setQuestions((prevQuestions) => {
-            let question = prevQuestions[qNo].value;
+            let question = prevQuestions[qNo];
             if (bool) {
                 question.options = [];
             } else {
                 question.textAnswer = "";
             }
-            prevQuestions[qNo].value.isText = bool;
+            prevQuestions[qNo].isText = bool;
             return (prevQuestions);
         });
     }
 
     function renderTextBox() {
-        return (<TextBox index={props.index}/>)
+        return (<TextBox
+            key={props.index}
+            index={props.index}/>)
     }
 
     function renderOptions() {
         return (
             <div>
-                <OptionBox index={props.index}/>
+                <OptionBox
+                    key={props.index}
+                    index={props.index}/>
                 <br/>
             </div>
         )
@@ -101,6 +107,7 @@ function FacultyQuestionBox(props) {
                         rowsMin={2}
                         placeholder={"Question " + (qNo + 1)}
                         onChange={handleCurrentQuestionChange}
+                        value={questionText}
                     />
                 </Col>
             </Row>
@@ -108,18 +115,18 @@ function FacultyQuestionBox(props) {
                 <Col className={"radioButtonContainer"}>
                     <RadioGroup aria-label="Type of Answer" row={true} onChange={handleRadio}
                                 value={isText ? "Text" : "Choice"}>
-                            <FormControlLabel
-                                className={"typeOfAnswers"}
-                                id={"choice"}
-                                value="Choice"
-                                control={<StyledRadioButton/>}
-                                label={<Typography style={styles.formControlLabel}>Choice</Typography>}/>
-                            <FormControlLabel
-                                className={"typeOfAnswers"}
-                                id={"text"}
-                                value="Text"
-                                control={<StyledRadioButton/>}
-                                label={<Typography style={styles.formControlLabel}>Text</Typography>}/>
+                        <FormControlLabel
+                            className={"typeOfAnswers"}
+                            id={"choice"}
+                            value="Choice"
+                            control={<StyledRadioButton/>}
+                            label={<Typography style={styles.formControlLabel}>Choice</Typography>}/>
+                        <FormControlLabel
+                            className={"typeOfAnswers"}
+                            id={"text"}
+                            value="Text"
+                            control={<StyledRadioButton/>}
+                            label={<Typography style={styles.formControlLabel}>Text</Typography>}/>
                     </RadioGroup>
                 </Col>
             </Row>

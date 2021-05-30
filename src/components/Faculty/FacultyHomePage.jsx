@@ -1,9 +1,9 @@
 import React from "react";
 import MainPage from "../MainPage/MainPage";
 
-function FacultyHomePage(){
+function FacultyHomePage() {
     return <MainPage
-    user={"Faculty"}/>
+        user={"Faculty"}/>
 }
 
 export default FacultyHomePage;

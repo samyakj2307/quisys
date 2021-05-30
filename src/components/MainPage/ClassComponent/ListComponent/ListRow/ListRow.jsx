@@ -5,15 +5,41 @@ import "./ListRow.css"
 import TimerIcon from '@material-ui/icons/Timer';
 import EventIcon from '@material-ui/icons/Event';
 import ScheduleIcon from '@material-ui/icons/Schedule';
-import {Link} from "react-router-dom";
+import {useHistory} from "react-router-dom";
+import {FacultyQuizContext} from "../../../../../context/FacultyQuizContext";
+import {FacultyQuestionContext} from "../../../../FacultyQuestionPaperPage/FacultyQuestionContext";
 
-import {CurrentFacultyContext} from "../../../../../context/CurrentFacultyContext";
-import {CurrentStudentContext} from "../../../../../context/CurrentStudentContext";
+const axios = require("axios").default;
+
+const baseUrl = "http://localhost:3000";
 
 function ListRow(props) {
 
-    const [currentFacultyDetails, setCurrentFacultyDetails] = useContext(CurrentFacultyContext);
-    const [currentStudentDetails, setCurrentStudentDetails] = useContext(CurrentStudentContext);
+    const [quizDetails, setQuizDetails] = useContext(FacultyQuizContext);
+    const [questions, setQuestions] = useContext(FacultyQuestionContext);
+    const history = useHistory();
+
+    function handleEditQuiz() {
+        axios
+            .get(baseUrl + "/getExamQuestions", {
+                params: {eid: props.examId}
+            })
+            .then(function (response) {
+                console.log(response.data)
+                setQuizDetails(response.data)
+                setQuestions(quizDetails.allQuestions);
+                history.push("/SetQuestionPaper", "Edit");
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+    function handleStartQuiz() {
+        history.push("/GiveExam")
+    }
+
 
     return (
         <div className={"listRowContainer"}>
@@ -38,18 +64,17 @@ function ListRow(props) {
                 <Col className={"buttonContainer"} md={4}>
                     {props.user === "Faculty" ?
                         <Col>
-                            {currentFacultyDetails.classes[0].allExams[0].isCompleted ?
+                            {props.isCompleted ?
                                 <button className={"ListComponentButton"}>Check Answers</button> :
-                                <button className={"ListComponentButton"}> Edit Quiz</button>
+                                <button className={"ListComponentButton"} onClick={handleEditQuiz}> Edit Quiz
+                                </button>
                             }
                         </Col> :
                         <Col>
-                            {currentStudentDetails.classes[0].allExams[0].isChecked ?
+                            {/*TODO Add Is Checked*/}
+                            {props.isCompleted ?
                                 <button className={"ListComponentButton"}>View Marks</button> :
-                                <Link to={"/GiveExam"}>
-                                <button className={"ListComponentButton"}>Start Quiz</button>
-                                </Link>
-
+                                <button className={"ListComponentButton"} onClick={handleStartQuiz}>Start Quiz</button>
                             }
                         </Col>
                     }

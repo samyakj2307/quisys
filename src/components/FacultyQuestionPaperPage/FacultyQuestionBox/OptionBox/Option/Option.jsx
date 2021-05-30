@@ -13,13 +13,13 @@ function Option(props) {
 
 
     //Setting initial value of options as Same as Value in Context;
-    const [currentValue, setCurrentValue] = React.useState(questions[qNo].value.options[optionIndex].value);
+    const [currentValue, setCurrentValue] = React.useState(questions[qNo].options[optionIndex].value);
 
     function handleChange(event) {
         const value = event.target.value;
         setCurrentValue(value);
         setQuestions((prevQuestions) => {
-            prevQuestions[qNo].value.options[optionIndex].value = value;
+            prevQuestions[qNo].options[optionIndex].value = value;
             return (prevQuestions);
         });
 

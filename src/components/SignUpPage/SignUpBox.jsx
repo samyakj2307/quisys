@@ -1,20 +1,18 @@
-import React, {useContext} from "react";
-import googleIcon from '../../images/Vector.png';
+import React from "react";
+import googleIcon from "../../images/Vector.png";
 import {Col, Container, Row} from "react-bootstrap";
-import '../../index.css'
-import {FacultyContext} from "../../context/FacultyContext";
-import {v4 as uuid} from "uuid";
-import  {useHistory} from 'react-router-dom'
-import {StudentContext} from "../../context/StudentContext";
+import "../../index.css";
+import {useHistory} from "react-router-dom";
+
+const axios = require("axios").default;
+
+const baseUrl = "http://localhost:3000";
+
 
 function SignUpBox(props) {
-
     let history = useHistory();
-
-    const [facultyDetails, setFacultyDetails] = useContext(FacultyContext);
-    const [studentDetails, setStudentDetails] = useContext(StudentContext);
-    const user = props.userDetails;  //"Faculty" or "Student"
-    const heading = user + " SignUp"
+    const user = props.userDetails; //"Faculty" or "Student"
+    const heading = user + " SignUp";
     const nameText = user + " Name";
     const emailText = user + " Email";
 
@@ -25,61 +23,55 @@ function SignUpBox(props) {
 
     const [emailIsValid, setEmailIsValid] = React.useState(true);
     const [passwordIsValid, setPasswordIsValid] = React.useState(true);
-    const [repeatPasswordIsValid, setRepeatPasswordIsValid] = React.useState(true);
-
+    const [repeatPasswordIsValid, setRepeatPasswordIsValid] =
+        React.useState(true);
 
     function handleSignUp() {
-        if(inputName===""){
+        if (inputName === "") {
             document.getElementById("nameFieldId").classList.add("errorField");
-        }else if(inputEmail===""){
+        } else if (inputEmail === "") {
             document.getElementById("nameFieldId").classList.remove("errorField");
             document.getElementById("emailFieldId").classList.add("errorField");
-        }
-        else if(inputPassword===""){
+        } else if (inputPassword === "") {
             document.getElementById("nameFieldId").classList.remove("errorField");
             document.getElementById("emailFieldId").classList.remove("errorField");
             document.getElementById("passwordFieldId").classList.add("errorField");
-        }
-        else if(inputRePass===""){
+        } else if (inputRePass === "") {
             document.getElementById("nameFieldId").classList.remove("errorField");
             document.getElementById("emailFieldId").classList.remove("errorField");
             document.getElementById("passwordFieldId").classList.remove("errorField");
             document.getElementById("rePasswordFieldId").classList.add("errorField");
-        }
-        else if(emailIsValid && passwordIsValid && repeatPasswordIsValid) {
+        } else if (emailIsValid && passwordIsValid && repeatPasswordIsValid) {
             if (user === "Faculty") {
-                const tempID = uuid();
-                setFacultyDetails(prevFacultyDetails => {
-                    const newDetail = {
-                        facultyId: tempID,
-                        facultyDetails: {
-                            name: inputName,
-                            email: inputEmail,
-                            password: inputPassword
-                        },
-                        classes: []
-                    }
-                    return [...prevFacultyDetails, newDetail];
-                });
+                axios
+                    .post(baseUrl + "/facultySignUp", {
+                        name: inputName,
+                        email: inputEmail,
+                        password: inputPassword,
+                    })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
                 history.push("/FacultyLogin");
             } else {
-                const tempID = uuid();
-                setStudentDetails(prevStudentDetails => {
-                    const newStudentDetail = {
-                        studentId: tempID,
-                        studentDetails: {
-                            name: inputName,
-                            email: inputEmail,
-                            password: inputPassword
-                        },
-                        classes: []
-                    }
-                    return [...prevStudentDetails, newStudentDetail];
-                });
+                axios
+                    .post(baseUrl + "/studentSignUp", {
+                        name: inputName,
+                        email: inputEmail,
+                        password: inputPassword,
+                    })
+                    .then(function (response) {
+                        console.log(response);
+                    })
+                    .catch(function (error) {
+                        console.log(error);
+                    });
                 history.push("/StudentLogin");
             }
         }
-
     }
 
     function handleInputNameChange(event) {
@@ -108,7 +100,8 @@ function SignUpBox(props) {
     function handleInputPasswordChange(event) {
         const value = event.target.value;
         setInputPassword(value);
-        const passwordPattern = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,40}$";
+        const passwordPattern =
+            "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,40}$";
         if (value.match(passwordPattern)) {
             setPasswordIsValid(true);
             event.target.classList.remove("errorField");
@@ -116,7 +109,6 @@ function SignUpBox(props) {
             setPasswordIsValid(false);
             event.target.classList.add("errorField");
         }
-
     }
 
     function handleInputRePassChange(event) {
@@ -138,9 +130,16 @@ function SignUpBox(props) {
                     <p className={"welcomeText"}>{heading}</p>
                 </Col>
             </Row>
-            <Row style={{textAlign: "center"}} className={"rowClass GoogleIconContainer"}>
+            <Row
+                style={{textAlign: "center"}}
+                className={"rowClass GoogleIconContainer"}
+            >
                 <Col>
-                    <img className={"googleIconImage"} src={googleIcon} alt={"Google Sign Up"}/>
+                    <img
+                        className={"googleIconImage"}
+                        src={googleIcon}
+                        alt={"Google Sign Up"}
+                    />
                 </Col>
             </Row>
             <Row className={"rowClass"}>
@@ -151,7 +150,8 @@ function SignUpBox(props) {
                         type={"name"}
                         placeholder={nameText}
                         onChange={handleInputNameChange}
-                        value={inputName}/>
+                        value={inputName}
+                    />
                 </Col>
             </Row>
             <Row className={"rowClass"}>
@@ -162,19 +162,30 @@ function SignUpBox(props) {
                         type={"email"}
                         placeholder={emailText}
                         onChange={handleInputEmailChange}
-                        value={inputEmail}/>
+                        value={inputEmail}
+                    />
                 </Col>
             </Row>
             <Row className={"rowClass"}>
-                {!emailIsValid &&
-                <Col style={{textAlign: "center"}}>
-                    <div
-                        className={"errorText"}>
-                        Email should be in format of {
-                        user === "Faculty" ? <b><i>abc.xyz@vit.ac.in</i></b> :
-                            <b><i><br/>abc.xyz@vitstudent.ac.in</i></b>}
-                    </div>
-                </Col>}
+                {!emailIsValid && (
+                    <Col style={{textAlign: "center"}}>
+                        <div className={"errorText"}>
+                            Email should be in format of{" "}
+                            {user === "Faculty" ? (
+                                <b>
+                                    <i>abc.xyz@vit.ac.in</i>
+                                </b>
+                            ) : (
+                                <b>
+                                    <i>
+                                        <br/>
+                                        abc.xyz@vitstudent.ac.in
+                                    </i>
+                                </b>
+                            )}
+                        </div>
+                    </Col>
+                )}
             </Row>
             <Row className={"rowClass"}>
                 <Col style={{textAlign: "center"}}>
@@ -184,19 +195,22 @@ function SignUpBox(props) {
                         type={"password"}
                         placeholder={"Password"}
                         onChange={handleInputPasswordChange}
-                        value={inputPassword}/>
+                        value={inputPassword}
+                    />
                 </Col>
             </Row>
             <Row className={"rowClass"}>
-
-                {!passwordIsValid &&
-                <Col style={{textAlign: "center"}}>
-                    <div
-                        className={"errorText"}>
-                        Minimum Length 8 chars having atleast<br/><b><i>[0-9], [a-z], [A-Z], [@#$]</i></b>
-                    </div>
-                </Col>
-                }
+                {!passwordIsValid && (
+                    <Col style={{textAlign: "center"}}>
+                        <div className={"errorText"}>
+                            Minimum Length 8 chars having atleast
+                            <br/>
+                            <b>
+                                <i>[0-9], [a-z], [A-Z], [@#$]</i>
+                            </b>
+                        </div>
+                    </Col>
+                )}
             </Row>
             <Row className={"rowClass"}>
                 <Col style={{textAlign: "center"}}>
@@ -206,31 +220,26 @@ function SignUpBox(props) {
                         type={"password"}
                         placeholder={"Repeat Password"}
                         onChange={handleInputRePassChange}
-                        value={inputRePass}/>
+                        value={inputRePass}
+                    />
                 </Col>
             </Row>
             <Row className={"rowClass"}>
-
-                {!repeatPasswordIsValid &&
-                <Col style={{textAlign: "center"}}>
-                    <div
-                        className={"errorText"}>
-                        Password does not match!
-                    </div>
-                </Col>
-                }
+                {!repeatPasswordIsValid && (
+                    <Col style={{textAlign: "center"}}>
+                        <div className={"errorText"}>Password does not match!</div>
+                    </Col>
+                )}
             </Row>
             <Row className={"rowClass"}>
                 <Col style={{textAlign: "center"}}>
-                    <button
-                        className={"signIn-UpButton"}
-                        onClick={handleSignUp}
-                    >Sign Up
+                    <button className={"signIn-UpButton"} onClick={handleSignUp}>
+                        Sign Up
                     </button>
                 </Col>
             </Row>
         </Container>
-    )
+    );
 }
 
 export default SignUpBox;

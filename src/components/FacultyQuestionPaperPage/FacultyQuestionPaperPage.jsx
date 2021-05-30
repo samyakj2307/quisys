@@ -1,76 +1,164 @@
 import React, {useContext, useState} from "react";
-import {Col, Container, Row} from "react-bootstrap";
+import {Col, Row} from "react-bootstrap";
 import FacultyQuestionBox from "./FacultyQuestionBox/FacultyQuestionBox";
 import "./FacultyQuestionPaperPage.css"
 import plusSign from "../../images/Group 27.svg";
 import {FacultyQuestionContext} from "./FacultyQuestionContext"
 import {v4 as uuid} from "uuid";
 import quisysLogo from "../../images/quisysLogo.png";
+import {SelectedClassContext} from "../../context/SelectedClassContext";
+import {useHistory} from "react-router-dom";
+import {FacultyQuizContext} from "../../context/FacultyQuizContext";
+
+const axios = require("axios").default;
+
+const baseUrl = "http://localhost:3000";
 
 function FacultyQuestionPaperPage() {
     // Imported Questions List from FacultyQuestionContext.js
     const [questions, setQuestions] = useContext(FacultyQuestionContext);
 
-    const [examName, setExamName] = useState("");
-    const [examDate, setExamDate] = useState("");
-    const [examDuration, setExamDuration] = useState("");
-    const [examStartTime, setExamStartTime] = useState("");
-    const [examEndTime, setExamEndTime] = useState("");
+    const [quizDetails, setQuizDetails] = useContext(FacultyQuizContext);
+    //TODO Add Edit QuestionPaper axois Request (if else)
+
+
+    const [examName, setExamName] = useState(quizDetails.examName);
+    const [examDate, setExamDate] = useState(quizDetails.date);
+    const [examDuration, setExamDuration] = useState(quizDetails.duration);
+    const [examStartTime, setExamStartTime] = useState(quizDetails.startTime);
+    const [examEndTime, setExamEndTime] = useState(quizDetails.endTime);
+
+    const [selectedClass, setSelectedClass] = useContext(SelectedClassContext);
+
+    const history = useHistory();
+    console.log(history.location.state)
 
     function handleDateChange(event) {
         const date = event.target.value;
         setExamDate(date);
+        setQuizDetails((prevDetails) => {
+            prevDetails.date = date
+            return (prevDetails)
+        })
     }
 
     function handleDurationChange(event) {
         const duration = event.target.value;
         setExamDuration(duration);
+        setQuizDetails((prevDetails) => {
+            prevDetails.duration = duration
+            return (prevDetails)
+        })
     }
 
     function handleStartTimeChange(event) {
-        const duration = event.target.value;
-        setExamStartTime(duration);
+        const startTime = event.target.value;
+        setExamStartTime(startTime);
+        setQuizDetails((prevDetails) => {
+            prevDetails.startTime = startTime
+            return (prevDetails)
+        })
     }
 
     function handleEndTimeChange(event) {
-        const duration = event.target.value;
-        setExamEndTime(duration);
+        const endTime = event.target.value;
+        setExamEndTime(endTime);
+        setQuizDetails((prevDetails) => {
+            prevDetails.endTime = endTime
+            return (prevDetails)
+        })
     }
 
     function saveQuestionPaper() {
+        // const examDetails = {
+        //     "examName": examName,
+        //     "duration": parseInt(examDuration),
+        //     "date": examDate,
+        //     "startTime": examStartTime,
+        //     "endTime": examEndTime,
+        //     "isCompleted": false,
+        //     "allQuestions": questions
+        // }
+
+        setQuizDetails((prevDetails) => {
+            prevDetails.allQuestions = questions
+            return (prevDetails)
+        })
+
+        if (history.location.state === "New") {
+            axios
+                .post(baseUrl + "/addExam", {
+                    cid: selectedClass.id,
+                    examDetails: quizDetails
+                })
+                .then(function (response) {
+                    console.log(response.status)
+                    console.log(response.data)
+
+                    if (response.status === 200 && response.data.status === "Added class Successfully") {
+                        history.push('/FacultyHomePage');
+
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        } else if (history.location.state === "Edit") {
+            axios
+                .post(baseUrl + "/editExamQuestions", {
+                    eid: quizDetails._id,
+                    examDetails: quizDetails
+                })
+                .then(function (response) {
+                    console.log(response.status)
+                    console.log(response.data)
+
+                    if (response.status === 200 && response.data === "Successfully Updated Exam Details") {
+                        history.push('/FacultyHomePage');
+
+                    }
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+        }
+
     }
 
     // Adding Questions
     function addQuestionBox() {
+        console.log(quizDetails)
         const TempID = uuid();
         setQuestions((prevState) => {
             const optionID = uuid();
             return [...prevState, {
                 questionId: TempID,
-                value: {
-                    question: "",
-                    isText: false,
-                    textAnswer: "",
-                    options: [{optionId: optionID, value: ""}],
-                    correctOption: ""
-                }
+                question: "",
+                isText: false,
+                textAnswer: "",
+                options: [{optionId: optionID, value: ""}],
+                correctOption: ""
             }]
         })
     }
 
     function handleExamNameChange(event) {
-        const value = event.target.value;
-        setExamName(value);
+        const name = event.target.value;
+        setExamName(name);
+        setQuizDetails((prevDetails) => {
+            prevDetails.examName = name
+            return (prevDetails)
+        })
 
     }
 
     return (
         <div className={"mainQuestionContainer"}>
-            <Row className={"examDetails"} >
+            <Row className={"examDetails"}>
                 <Col style={{textAlign: "center"}} md={2}>
-                    <img className={"quisysLogo quisysLogo2"} src={quisysLogo}/>
+                    <img className={"quisysLogo quisysLogo2"} src={quisysLogo} alt={"quisys-logo"}/>
                 </Col>
-                <Col style={{textAlign: "center",padding:"0 5%"}} className={"ExamHeading"} md={8}>
+                <Col style={{textAlign: "center", padding: "0 5%"}} className={"ExamHeading"} md={8}>
                     {examName} Exam
                 </Col>
                 <Col md={2}>
@@ -134,8 +222,9 @@ function FacultyQuestionPaperPage() {
                         questions.map((questionItem, qno) => {
                             return (
                                 <FacultyQuestionBox
-                                    key={questionItem.id}
-                                    id={questionItem.id}
+
+                                    key={questionItem.questionId}
+                                    id={questionItem.questionId}
                                     index={qno}
                                 />
                             )
@@ -162,4 +251,4 @@ function FacultyQuestionPaperPage() {
     )
 }
 
-export default FacultyQuestionPaperPage
+export default FacultyQuestionPaperPage;

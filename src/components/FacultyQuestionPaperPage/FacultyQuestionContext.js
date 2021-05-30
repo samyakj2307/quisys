@@ -6,18 +6,7 @@ export const FacultyQuestionContext = createContext();
 export function QuestionProvider(props) {
     const TempID = uuid();
     const optionID = uuid();
-    const [questions, setQuestions] = useState([
-        {
-            questionId: TempID,
-            value: {
-                question: "",
-                isText: false,
-                textAnswer: "",
-                options: [{optionId: optionID, value: ""}],
-                correctOption: ""
-            }
-        }
-    ]);
+    const [questions, setQuestions] = useState([]);
 
     return <FacultyQuestionContext.Provider value={[questions, setQuestions]}>
         {props.children}

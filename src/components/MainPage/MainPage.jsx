@@ -1,4 +1,4 @@
-import React, {useContext, useState} from 'react';
+import React, {useContext} from 'react';
 import './MainPage.css';
 import {Col, Container, Row} from "react-bootstrap";
 import quisysLogo from "../../images/quisysLogo.png";
@@ -6,18 +6,27 @@ import {useHistory} from 'react-router-dom';
 import PopUp from "./PopUp/PopUp";
 import {LoginContext} from "../../context/LoginContext";
 import ClassComponent from "./ClassComponent/ClassComponent";
-import {CurrentFacultyContext} from "../../context/CurrentFacultyContext";
-import {CurrentStudentContext} from "../../context/CurrentStudentContext";
+import {FacultyDetailsContext} from "../../context/FacultyDetailsContext";
+import {StudentDetailsContext} from "../../context/StudentDetailsContext";
+import {ClassListContext} from "../../context/ClassListContext";
+import LeftAllClassList from "./ClassComponent/LeftAllClassList/LeftAllClassList";
+import {SelectedClassContext} from "../../context/SelectedClassContext";
+
+const axios = require("axios").default;
+
+const baseUrl = "http://localhost:3000";
 
 function MainPage(props) {
     const {Faculty, Student} = useContext(LoginContext);
     const [facultyIsLoggedIn, setFacultyIsLoggedIn] = Faculty;
     const [studentIsLoggedIn, setStudentIsLoggedIn] = Student;
 
-    const [currentFacultyDetails, setCurrentFacultyDetails] = useContext(CurrentFacultyContext);
-    const [currentStudentDetails, setCurrentStudentDetails] = useContext(CurrentStudentContext);
+    const [currentFacultyDetails, setCurrentFacultyDetails] = useContext(FacultyDetailsContext);
+    const [currentStudentDetails, setCurrentStudentDetails] = useContext(StudentDetailsContext);
 
-    const [selectedClassId, setSelectedClassId] = useState("");
+    const [classDetails, setClassDetails] = useContext(ClassListContext);
+
+    const [selectedClass, setSelectedClass] = useContext(SelectedClassContext);
 
     const [modalShow, setModalShow] = React.useState(false);
     const history = useHistory();
@@ -40,17 +49,20 @@ function MainPage(props) {
         <Container className={"Container1"}>
             <Row className={"NavBarContainer"}>
                 <Col className={"LogoContainer"}>
-                    <img className={"quisysLogo"} src={quisysLogo}/>
+                    <img className={"quisysLogo"} src={quisysLogo} alt={"quisys-logo"}/>
+                </Col>
+                <Col>
+                    <p className={"CourseName"}>{selectedClass.className}</p>
                 </Col>
                 <Col style={{textAlign: "right"}}>
                     <div style={{display: "inline-block"}} className={"userDetails"}>
                         {(props.user === "Faculty") ?
-                            currentFacultyDetails.facultyDetails.name :
-                            currentStudentDetails.studentDetails.name}
+                            currentFacultyDetails.name :
+                            currentStudentDetails.name}
                         <br/>
                         {(props.user === "Faculty") ?
-                            currentFacultyDetails.facultyDetails.email :
-                            currentStudentDetails.studentDetails.email}
+                            currentFacultyDetails.email :
+                            currentStudentDetails.email}
                     </div>
                     <div style={{display: "inline-block"}}>
                         <button onClick={logout} className={"LogoutBtn"}>Logout</button>
@@ -69,23 +81,28 @@ function MainPage(props) {
                             <h4 className={"AllClass"}>All Classes</h4>
                         </Col>
                     </Row>
-                    <Row>
-                        <Col>
-                            <a href="">Artificial Intelligence</a>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                            <a href="">IPWT</a>
-                        </Col>
-                    </Row>
+                    {
+                        classDetails.map((facultyClass) => {
+                            return (
+                                <LeftAllClassList
+                                    key={facultyClass._id}
+                                    id={facultyClass._id}
+                                    className={facultyClass.className}
+                                />
+                            )
+                        })
+                    }
                 </Col>
-                <Col md={9} className="PendingQuizzesContainer">
-                    <ClassComponent
-                        user={props.user}
-                        // classId={classIdSelected}
-                    />
-                </Col>
+                {
+                    (selectedClass.id !== "") ?
+                        <Col md={9} className="PendingQuizzesContainer">
+                            <ClassComponent
+                                user={props.user}/>
+                        </Col> :
+                        <Col>
+                            <p className={"CourseName"}>Please Select a Class to Continue!</p>
+                        </Col>
+                }
             </Row>
             <PopUp
                 user={props.user}

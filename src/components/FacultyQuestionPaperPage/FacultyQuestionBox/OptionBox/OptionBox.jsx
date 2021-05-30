@@ -10,7 +10,7 @@ import {uuid} from "uuidv4";
 function OptionBox(props) {
     const [questions, setQuestions] = useContext(FacultyQuestionContext);
     const propQno = props.index;
-    const currentQuestion = questions[propQno].value;
+    const currentQuestion = questions[propQno];
     let currentOptions = currentQuestion.options;
 
     const [options, setOptions] = React.useState(currentOptions);
@@ -19,27 +19,26 @@ function OptionBox(props) {
     function addOption() {
         const tempID = uuid();
         setQuestions((prevQuestion) => {
-            let tempOptions = [...currentOptions, {optionId: tempID, value: ""}]
-            currentQuestion.options = tempOptions;
-            prevQuestion[propQno].value = currentQuestion;
+            currentQuestion.options = [...currentOptions, {optionId: tempID, value: ""}];
+            prevQuestion[propQno] = currentQuestion;
             return prevQuestion;
         });
-        setOptions([...options, {id: tempID, value: ""}])
+        setOptions([...options, {optionId: tempID, value: ""}])
     }
 
     function handleOptionDelete(id) {
 
         setQuestions(prevQuestions => {
-            prevQuestions[propQno].value.options = prevQuestions[propQno].value.options.filter((optionItem, index) => {
-                return optionItem.id !== id;
+            prevQuestions[propQno].options = prevQuestions[propQno].options.filter((optionItem) => {
+                return optionItem.optionId !== id;
             });
             return prevQuestions;
 
         });
 
         setOptions(prevOptions => {
-            return prevOptions.filter((optionItem, index) => {
-                return optionItem.id !== id;
+            return prevOptions.filter((optionItem) => {
+                return optionItem.optionId !== id;
             });
         });
     }
@@ -55,9 +54,9 @@ function OptionBox(props) {
                                 <Row>
                                     <Col>
                                         <Option
-                                            key={currentOption.id}
+                                            key={currentOption.optionId}
                                             qNo={propQno}
-                                            id={currentOption.id}
+                                            id={currentOption.optionId}
                                             index={index}
                                             onDelete={handleOptionDelete}
                                             value={currentOption.value}
@@ -70,7 +69,7 @@ function OptionBox(props) {
                 </Col>
             </Row>
             <Row>
-                <Col style={{marginLeft:"70px"}}>
+                <Col style={{marginLeft: "70px"}}>
                     <button
                         onClick={addOption}
                         className={" addButton addOptionButton"}>
