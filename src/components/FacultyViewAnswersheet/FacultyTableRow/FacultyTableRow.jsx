@@ -13,7 +13,7 @@ function FacultyTableRow(props){
              <td>Not Awarded</td>
              {/*<td>{studentsList.studentAnswerSheet.marks!== undefined ? studentsList.marks : "Not Awarded Yet." }</td>*/}
              <td>
-                 <button className={"checkBtn"}>Check Paper</button>
+                 <button className={"checkBtn"} onClick={verifyAnswers}>Check Paper</button>
              </td>
          </tr>
      )

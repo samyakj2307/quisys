@@ -1,6 +1,7 @@
 import "./FacultyAssignMarks.css";
 import React from "react";
 import {Col, Row} from "react-bootstrap";
+import FacultyAssignRow from "./FacultyAssignRow";
 
 function FacultyAssignMarks() {
     const studentsList =
