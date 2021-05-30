@@ -1,12 +1,13 @@
-body{
-    background-color: #E6EEF8;
-}
-.col1,.col2,.col3 {
+.col1 {
     background-color: white;
     border: 2px solid black;
     margin-top: 20px;
     text-align: center;
     border-radius: 15px;
+}
+
+.col-padding{
+    margin-bottom: 20px;
 }
 .row2{
     background-color: white;

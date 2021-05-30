@@ -6,11 +6,18 @@ import {StudentQuestionAnswerContext} from "../../context/StudentQuestionAnswerC
 import quisysLogo from "../../images/quisysLogo.png"
 import Answer from "./AnswerBox/AnswerBox";
 import Question from "./QuestionBox/QuestionBox";
+import {StudentDetailsContext} from "../../context/StudentDetailsContext";
+import {SelectedQuizContext} from "../../context/SelectedQuizContext(Student)";
 
 function StudentQuestionPaperPage() {
 
     const [questionAnswer, setQuestionAnswer] = useContext(StudentQuestionAnswerContext);
+
     const [currentQuestionNumber, setCurrentQuestionNumber] = useState(0);
+
+    const [currentQuizDetails, setCurrentQuizDetails] = useContext(SelectedQuizContext)
+
+    const [currentStudentDetails, setCurrentStudentDetails] = useContext(StudentDetailsContext);
 
     const questionArray = Array.from({length: questionAnswer.length}, (_, index) => index + 1);
 
@@ -45,10 +52,10 @@ function StudentQuestionPaperPage() {
                     <img className={"quisysLogo"} src={quisysLogo} alt={"quisys-logo"}/>
                 </Col>
                 <Col style={{textAlign: "center"}}>
-                    <p className={"quizName"}>QUIZ-1</p>
+                    <p className={"quizName"}>{currentQuizDetails.examName}</p>
                 </Col>
                 <Col style={{textAlign: "right"}}>
-                    <p className={"userDetails"}>Temp Student <br/> temp.student@vitstudent.ac.in</p>
+                    <p className={"userDetails"}>{currentStudentDetails.name}<br/>{currentStudentDetails.email}</p>
                 </Col>
 
             </Row>

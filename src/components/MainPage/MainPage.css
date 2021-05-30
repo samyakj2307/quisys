@@ -1,18 +1,11 @@
-.Container1 {
-    width: 100vw;
-    height: 100%;
-    margin: auto;
-    padding: 0;
-    text-align: center;
-}
-
 .secondContainer {
     margin-top: 90px;
+    width: 100vw;
 }
 
 /*NavBar*/
 .NavBarContainer {
-    margin: 20px 10px 20px;
+    margin-top: 10px;
 }
 
 .LogoContainer {
@@ -29,26 +22,12 @@
 }
 
 .CourseName {
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 30px;
-    display: inline;
     margin: 0 auto;
+    font-size: 30px;
 }
 
-.userDetails {
-    text-align: right;
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-}
 
 h4 {
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
-    font-weight: normal;
     font-size: 30px;
     text-align: left;
     padding-bottom: 10px;
@@ -56,20 +35,11 @@ h4 {
 
 .AllClass {
     margin-top: 30px;
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
     padding-bottom: 10px;
 }
 
-.PendingQuizzesContainer {
-
-    border-left: 2px solid black;
-    padding-left: 30px;
-
-}
 
 .LogoutBtn {
     background-color: #9575CD;
@@ -77,12 +47,9 @@ h4 {
     border-radius: 10px;
     cursor: pointer;
     padding: 14px;
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
     font-weight: bold;
     font-size: 15px;
     line-height: 18px;
-    text-align: center;
     letter-spacing: 1px;
     color: #FFFFFF;
     margin-left: 10px;
@@ -91,7 +58,7 @@ h4 {
 
 
 .joinClassContainer {
-    text-align: center;
+    text-align: left;
 }
 
 .CreateClass {
@@ -101,8 +68,6 @@ h4 {
     cursor: pointer;
     padding: 15px 20px;
 
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
     font-weight: bold;
     font-size: 15px;
     line-height: 18px;
@@ -118,9 +83,6 @@ h4 {
 
 a {
     margin-top: 30px;
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
-    font-weight: normal;
     font-size: 20px;
     text-align: center;
     padding-bottom: 10px;
@@ -130,9 +92,4 @@ a {
 
 a:hover {
     text-decoration: none;
-}
-
-p{
-    color:black;
-    text-align:left;
 }

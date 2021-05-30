@@ -1,17 +1,10 @@
-body {
-    background-color: #E6EEF8;
-}
+
 
 .PageContainer {
     width: 100%;
     height:100%;
     margin: auto;
     text-align: center;
-}
-
-/*NavBar*/
-.NavBarContainer {
-    margin: 20px 10px 20px;
 }
 
 .quisysLogo {
@@ -27,11 +20,6 @@ body {
     display: inline;
     margin: 0 auto;
 
-}
-
-.userDetails {
-    text-align: right;
-    display: inline;
 }
 
 

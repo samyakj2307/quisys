@@ -29,7 +29,9 @@ function Answer(props) {
     function changeOptionValue(event) {
         const value = event.target.value;
         setQuestionAnswer((prevState) => {
-            prevState[props.questionNo].optionSelected = value;
+            console.log(prevState)
+            prevState[props.questionNo].correctOption = value;
+            //TODO Save Option Value
             return prevState;
         })
 
@@ -44,9 +46,9 @@ function Answer(props) {
                             <FormControlLabel
                                 className={"Options"}
                                 id={index}
-                                value={option}
+                                value={option.value}
                                 control={<StyledOptionRadioButton/>}
-                                label={<Typography style={styles.formControlLabel}>{option}</Typography>}/>
+                                label={<Typography style={styles.formControlLabel}>{option.value}</Typography>}/>
                         </Col>
                     )
 

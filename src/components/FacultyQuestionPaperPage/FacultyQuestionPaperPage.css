@@ -56,16 +56,16 @@ body {
     border: 3px solid #9575CD;
 }
 
-p {
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    color: white;
-    padding: 10px;
-    line-height: normal;
-    text-align: center;
-}
+/*p {*/
+/*    font-family: Montserrat, sans-serif;*/
+/*    font-style: normal;*/
+/*    font-weight: normal;*/
+/*    font-size: 20px;*/
+/*    color: white;*/
+/*    padding: 10px;*/
+/*    line-height: normal;*/
+/*    text-align: center;*/
+/*}*/
 
 .ExamHeading {
     font-family: Montserrat, sans-serif;

@@ -8,6 +8,8 @@ import ScheduleIcon from '@material-ui/icons/Schedule';
 import {useHistory} from "react-router-dom";
 import {FacultyQuizContext} from "../../../../../context/FacultyQuizContext";
 import {FacultyQuestionContext} from "../../../../FacultyQuestionPaperPage/FacultyQuestionContext";
+import {SelectedQuizContext} from "../../../../../context/SelectedQuizContext(Student)";
+import {StudentQuestionAnswerContext} from "../../../../../context/StudentQuestionAnswerContext";
 
 const axios = require("axios").default;
 
@@ -17,6 +19,11 @@ function ListRow(props) {
 
     const [quizDetails, setQuizDetails] = useContext(FacultyQuizContext);
     const [questions, setQuestions] = useContext(FacultyQuestionContext);
+
+    const [currentQuizDetails, setCurrentQuizDetails] = useContext(SelectedQuizContext)
+
+    const [questionAnswer, setQuestionAnswer] = useContext(StudentQuestionAnswerContext);
+
     const history = useHistory();
 
     function handleEditQuiz() {
@@ -37,7 +44,20 @@ function ListRow(props) {
     }
 
     function handleStartQuiz() {
-        history.push("/GiveExam")
+        axios
+            .get(baseUrl + "/getExamQuestions", {
+                params: {eid: props.examId}
+            })
+            .then(function (response) {
+                console.log(response.data)
+                setCurrentQuizDetails(response.data)
+                setQuestionAnswer(response.data.allQuestions)
+                history.push("/GiveExam")
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
     }
 
 
@@ -49,19 +69,19 @@ function ListRow(props) {
                     {props.index + 1}. {props.examName}
 
                 </Col>
-                <Col md={4} className={"DateTime"}>
+                <Col md={5} className={"DateTime"}>
                     <Row>
                         <Col>
                             <TimerIcon/>{props.examDuration} Minutes
-                        </Col>
-                        <Col>
-                            <ScheduleIcon/>{props.examStartTime}-{props.examEndTime}
                             <br/>
                             <EventIcon/>{props.examDate}
                         </Col>
+                        <Col>
+                            <ScheduleIcon/>{props.examStartTime}-{props.examEndTime}
+                        </Col>
                     </Row>
                 </Col>
-                <Col className={"buttonContainer"} md={4}>
+                <Col md={3} style={{textAlign: "center"}}>
                     {props.user === "Faculty" ?
                         <Col>
                             {props.isCompleted ?

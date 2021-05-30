@@ -1,7 +1,13 @@
-body {
+#my-body {
+    font-family: Montserrat, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    display: inline;
+    background-color: #E6EEF8;
     height: 100%;
     width: 100%;
     margin: 0;
+    color:black;
 }
 
 .rowClass {
@@ -24,8 +30,6 @@ body {
 
 .welcomeText {
     text-align: center;
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
     font-weight: bold;
     font-size: 16px;
     line-height: 21px;
@@ -46,9 +50,6 @@ body {
     border: none;
     text-decoration: none;
 
-
-    font-family: Montserrat, serif;
-    font-style: normal;
     font-weight: bold;
     font-size: 14px;
     line-height: 16px;
@@ -80,8 +81,6 @@ body {
     border-radius: 16px;
     border: none;
 
-    font-family: Montserrat, serif;
-    font-style: normal;
     font-weight: bold;
     font-size: 12px;
     line-height: 16px;
@@ -98,8 +97,6 @@ body {
 .linkTextContainer{
     text-align: center;
     margin: 10px;
-    font-family: Montserrat, serif;
-    font-style: normal;
     font-weight: bold;
     font-size: 13px;
     line-height: 20px;
@@ -108,7 +105,7 @@ body {
 
 .linkTextContainer a{
     text-decoration: none;
-    font-family: Montserrat, serif;
+
     font-style: italic;
     font-weight: bold;
     font-size: 13px;
@@ -126,9 +123,13 @@ body {
 }
 
 .errorText {
-    font-family: Montserrat, serif;
-    font-style: normal;
-    font-weight: normal;
     color: crimson;
     font-size: 12px;
 }
+
+
+.userDetails {
+    text-align: right;
+    display: inline;
+}
+

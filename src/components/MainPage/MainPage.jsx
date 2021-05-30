@@ -46,31 +46,34 @@ function MainPage(props) {
     }
 
     return (
-        <Container className={"Container1"}>
+        <Container>
             <Row className={"NavBarContainer"}>
                 <Col className={"LogoContainer"}>
                     <img className={"quisysLogo"} src={quisysLogo} alt={"quisys-logo"}/>
                 </Col>
-                <Col>
+                <Col style={{textAlign: "center"}}>
                     <p className={"CourseName"}>{selectedClass.className}</p>
                 </Col>
-                <Col style={{textAlign: "right"}}>
-                    <div style={{display: "inline-block"}} className={"userDetails"}>
-                        {(props.user === "Faculty") ?
-                            currentFacultyDetails.name :
-                            currentStudentDetails.name}
-                        <br/>
-                        {(props.user === "Faculty") ?
-                            currentFacultyDetails.email :
-                            currentStudentDetails.email}
-                    </div>
-                    <div style={{display: "inline-block"}}>
-                        <button onClick={logout} className={"LogoutBtn"}>Logout</button>
-                    </div>
+                <Col>
+                    <Row>
+                        <Col md={8} style={{textAlign: "right"}}>
+                            {(props.user === "Faculty") ?
+                                currentFacultyDetails.name :
+                                currentStudentDetails.name}
+                            <br/>
+                            {(props.user === "Faculty") ?
+                                currentFacultyDetails.email :
+                                currentStudentDetails.email}
+                        </Col>
+
+                        <Col md={4}>
+                            <button onClick={logout} className={"LogoutBtn"}>Logout</button>
+                        </Col>
+                    </Row>
                 </Col>
             </Row>
             <Row className={"secondContainer"}>
-                <Col md={3} className={"joinClassContainer"}>
+                <Col md={2.5} className={"joinClassContainer"} style={{marginRight:"14px"}}>
                     <Row>
                         <Col>
                             <button className={"CreateClass"} onClick={openPopUp}>New Class</button>
@@ -93,9 +96,11 @@ function MainPage(props) {
                         })
                     }
                 </Col>
+
+                <Col md={0.5} style={{borderLeft: "3px solid black", height: "100vh", textAlign: "center"}}/>
                 {
                     (selectedClass.id !== "") ?
-                        <Col md={9} className="PendingQuizzesContainer">
+                        <Col md={8}>
                             <ClassComponent
                                 user={props.user}/>
                         </Col> :
@@ -103,6 +108,7 @@ function MainPage(props) {
                             <p className={"CourseName"}>Please Select a Class to Continue!</p>
                         </Col>
                 }
+
             </Row>
             <PopUp
                 user={props.user}
