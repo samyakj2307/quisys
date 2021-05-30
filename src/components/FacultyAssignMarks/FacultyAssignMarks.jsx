@@ -1,64 +1,86 @@
 import "./FacultyAssignMarks.css";
-import React from "react";
+import React, {useContext, useState} from "react";
 import {Col, Row} from "react-bootstrap";
 import FacultyAssignRow from "./FacultyAssignRow";
+import {useHistory} from "react-router-dom";
+import {ExamStudentListContext} from "../../context/ExamStudentListContext";
+
+const axios = require("axios").default;
+
+const baseUrl = "http://localhost:3000";
 
 function FacultyAssignMarks() {
-    const studentsList =
-        {
-            "sid": "60b129ce1715820d20f35840",
-            "studentName": "Sambhav Nayak",
-            "studentEmail": "sambhav.n@vitstudent.ac.in",
-            "examName": "IPWT Quiz",
-            "eid": "60b2677f11ce6731a0582ac4",
-            "studentAnswerSheet": [
-                {
-                    "_id": "60b35bdd27c5480af8c1d3e7",
-                    "qid": "60b24566a497103f50b3b4ff",
-                    "answered": "2"
-                },
-                {
-                    "_id": "60b35bdd27c5480af8c1d3e8",
-                    "qid": "60b2677f11ce6731a0582ac7",
-                    "answered": "128 bits"
-                }
-            ],
-            "isExamCompleted": "true"
+    const history = useHistory();
+    const marksList = history.location.state.student;
+    const index = history.location.state.index;
+
+    const [examStudentDetails, setExamStudentDetails] = useContext(ExamStudentListContext)
+
+    const [totalMarks, setTotalMarks] = useState(0)
+
+    function handleMarksChange(value, index) {
+        marksList.studentAnswerSheet[index]["marksAwarded"] = value;
+        let total = 0
+        for (let k = 0; k < marksList.studentAnswerSheet.length; k++) {
+            if (marksList.studentAnswerSheet[k].marksAwarded !== undefined) {
+                total = total + parseInt(marksList.studentAnswerSheet[k].marksAwarded);
+            }
         }
+
+        setTotalMarks(total)
+    }
+
+    function handleSaveMarks() {
+        console.log(marksList)
+        marksList["totalMarks"] = totalMarks
+        axios
+            .post(baseUrl + "/verifiedResponses", marksList)
+            .then(function (response) {
+                console.log(response.data)
+                setExamStudentDetails((prevState) => {
+                    prevState[index] = marksList
+                    return prevState
+                })
+                history.push("/ExamStudentList");
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
 
 
     return (
         <div className={"container"}>
-            <Row className={" col1"}>
-                <Col className={"col-md-4"}>
-                    <h3>19BDS0141</h3>
+            <Row className={"col1 col3"} style={{textAlign: "center"}}>
+                <Col>
+                    <h3>{marksList.studentName}</h3>
                 </Col>
-                <Col className={"col-md-4"}>
-                    <h3>QUIZ-1</h3>
+                <Col>
+                    <h3>{marksList.examName}</h3>
                 </Col>
-                <Col className={"col-md-4"}>
-                    <label htmlFor="total">
-                        <h3>Total:-</h3>
-                    </label>
-                    <input type="text" id="total" name="total"/>
+                <Col>
+                    <h3>Total=[{totalMarks}]</h3>
                 </Col>
             </Row>
 
 
-            {/*{*/}
-            {/*    marksList.map((student) => {*/}
-            {/*        return (*/}
-            {/*            <FacultyAssignRow*/}
-            {/*                name={student.name}*/}
-            {/*                email={student.email}*/}
-            {/*                marks={student.marks}*/}
-            {/*            />*/}
-            {/*        )*/}
-            {/*    })*/}
-            {/*}*/}
+            {
+                marksList.studentAnswerSheet.map((question, index) => {
+
+                    return (
+                        <FacultyAssignRow
+                            key={question._id}
+                            index={index}
+                            question={question}
+                            handleMarksChange={handleMarksChange}
+                        />
+                    )
+                })
+            }
             <Row className={" row row3"}>
                 <Col className={"col-md-12"}>
-                    <button className={"saveBtn"}>Save</button>
+                    <button className={"saveBtn"} onClick={handleSaveMarks}>Save</button>
                 </Col>
             </Row>
         </div>

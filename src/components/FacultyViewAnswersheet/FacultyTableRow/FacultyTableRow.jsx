@@ -1,22 +1,25 @@
-import React, {useContext, useState} from "react";
+import React from "react";
+import {useHistory} from "react-router-dom";
 
-function FacultyTableRow(props){
-    console.log(props)
-    function verifyAnswers(){
-       const VA=props.student.studentAnswerSheet
-        console.log(VA)
+function FacultyTableRow(props) {
+
+    const history = useHistory();
+
+    function handleVerifyAnswers() {
+        history.push("/VerifyAnswers", {student:props.student,index:props.index})
     }
-     return(
-         <tr>
-             <td>{props.student.studentName}</td>
-             <td>{props.student.studentEmail}</td>
-             <td>Not Awarded</td>
-             {/*<td>{studentsList.studentAnswerSheet.marks!== undefined ? studentsList.marks : "Not Awarded Yet." }</td>*/}
-             <td>
-                 <button className={"checkBtn"} onClick={verifyAnswers}>Check Paper</button>
-             </td>
-         </tr>
-     )
+
+    return (
+        <tr>
+            <td>{props.student.studentName}</td>
+            <td>{props.student.studentEmail}</td>
+            <td>{props.student.totalMarks === undefined ? "Not Awarded" : props.student.totalMarks}</td>
+            {/*<td>{studentsList.studentAnswerSheet.marks!== undefined ? studentsList.marks : "Not Awarded Yet." }</td>*/}
+            <td>
+                <button className={"checkBtn"} onClick={handleVerifyAnswers}>Check Paper</button>
+            </td>
+        </tr>
+    )
 }
 
 export default FacultyTableRow;

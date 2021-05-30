@@ -12,5 +12,16 @@
 }
 .Options:hover{
     border:2px solid #9575CD;
-
 }
+
+.questionContainer{
+    background: #FFFFFF;
+    border-radius: 10px;
+    width: 80%;
+    margin: 10px;
+    padding: 10px;;
+    font-size: 15px;
+    line-height: 18px;
+    color: #000000;
+}
+

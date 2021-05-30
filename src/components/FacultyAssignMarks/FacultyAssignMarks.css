@@ -6,10 +6,21 @@
     border-radius: 15px;
 }
 
-.col-padding{
-    margin-bottom: 20px;
+.col2 {
+    padding-left: 25px;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
-.row2{
+
+.col3 {
+    padding: 10px 0;
+}
+
+.col-padding {
+    margin-bottom: 15px;
+}
+
+.row2 {
     background-color: white;
     border: 2px solid black;
     margin-top: 20px;

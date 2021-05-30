@@ -10,6 +10,9 @@ import {FacultyQuizContext} from "../../../../../context/FacultyQuizContext";
 import {FacultyQuestionContext} from "../../../../FacultyQuestionPaperPage/FacultyQuestionContext";
 import {SelectedQuizContext} from "../../../../../context/SelectedQuizContext(Student)";
 import {StudentQuestionAnswerContext} from "../../../../../context/StudentQuestionAnswerContext";
+import {StudentAnswersheetContext} from "../../../../../context/StudentAnswersheetContext";
+import {StudentDetailsContext} from "../../../../../context/StudentDetailsContext";
+import {ExamStudentListContext} from "../../../../../context/ExamStudentListContext";
 
 const axios = require("axios").default;
 
@@ -23,6 +26,13 @@ function ListRow(props) {
     const [currentQuizDetails, setCurrentQuizDetails] = useContext(SelectedQuizContext)
 
     const [questionAnswer, setQuestionAnswer] = useContext(StudentQuestionAnswerContext);
+
+    const [studentAnswerSheet, setStudentAnswerSheet] = useContext(StudentAnswersheetContext);
+
+    // Current Student Details
+    const [currentStudentDetails, setCurrentStudentDetails] = useContext(StudentDetailsContext);
+
+    const [examStudentDetails, setExamStudentDetails] = useContext(ExamStudentListContext)
 
     const history = useHistory();
 
@@ -49,15 +59,59 @@ function ListRow(props) {
                 params: {eid: props.examId}
             })
             .then(function (response) {
-                console.log(response.data)
                 setCurrentQuizDetails(response.data)
                 setQuestionAnswer(response.data.allQuestions)
+                let studentAnswerSheet = []
+                for (let i = 0; i < response.data.allQuestions.length; i++) {
+                    const questions = response.data.allQuestions[i];
+                    questions.qid = questions._id
+                    questions.answered = ""
+                    const {correctOption, _id, isText, textAnswer, options, ...currentQuestion} = questions
+                    studentAnswerSheet = [...studentAnswerSheet, currentQuestion]
+                }
+
+                setStudentAnswerSheet({
+                    sid: currentStudentDetails._id,
+                    studentName: currentStudentDetails.name,
+                    studentEmail: currentStudentDetails.email,
+                    examName: props.examName,
+                    eid: props.examId,
+                    studentAnswerSheet: studentAnswerSheet
+                })
                 history.push("/GiveExam")
 
             })
             .catch(function (error) {
                 console.log(error);
             });
+    }
+
+    function handleCheckPaper(){
+        axios
+            .get(baseUrl + "/getVerifiedResponses", {
+                params: {
+                     eid:props.examId
+                },
+            })
+            .then(function (response) {
+                console.log(response);
+                setExamStudentDetails(response.data)
+                history.push("/ExamStudentList")
+            })
+    }
+
+    function isQuizOver(){
+        let bool = false;
+        for(let i=0;i<currentStudentDetails.allExamsCompleted.length;i++){
+            console.log(props.examId)
+            if(props.examId===currentStudentDetails.allExamsCompleted[i]){
+                console.log("Hello")
+                bool = true;
+                break;
+            }
+        }
+        return bool
+
     }
 
 
@@ -85,14 +139,14 @@ function ListRow(props) {
                     {props.user === "Faculty" ?
                         <Col>
                             {props.isCompleted ?
-                                <button className={"ListComponentButton"}>Check Answers</button> :
+                                <button className={"ListComponentButton"} onClick={handleCheckPaper}>Check Answers</button> :
                                 <button className={"ListComponentButton"} onClick={handleEditQuiz}> Edit Quiz
                                 </button>
                             }
                         </Col> :
                         <Col>
                             {/*TODO Add Is Checked*/}
-                            {props.isCompleted ?
+                            {isQuizOver() ?
                                 <button className={"ListComponentButton"}>View Marks</button> :
                                 <button className={"ListComponentButton"} onClick={handleStartQuiz}>Start Quiz</button>
                             }

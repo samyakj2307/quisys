@@ -31,7 +31,6 @@ function FacultyQuestionPaperPage() {
     const [selectedClass, setSelectedClass] = useContext(SelectedClassContext);
 
     const history = useHistory();
-    console.log(history.location.state)
 
     function handleDateChange(event) {
         const date = event.target.value;

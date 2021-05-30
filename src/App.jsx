@@ -25,6 +25,10 @@ import {SelectedClassContextProvider} from "./context/SelectedClassContext";
 import {FacultyQuizContextProvider} from "./context/FacultyQuizContext";
 import {QuestionProvider} from "./components/FacultyQuestionPaperPage/FacultyQuestionContext";
 import {SelectedQuizContextProvider} from "./context/SelectedQuizContext(Student)";
+import {StudentAnswersheetContextProvider} from "./context/StudentAnswersheetContext";
+import {ExamStudentListContextProvider} from "./context/ExamStudentListContext";
+import FacultyViewAnswersheet from "./components/FacultyViewAnswersheet/FacultyViewAnswersheet";
+import FacultyAssignMarks from "./components/FacultyAssignMarks/FacultyAssignMarks";
 
 
 function App() {
@@ -45,73 +49,99 @@ function App() {
 
                                     <SelectedQuizContextProvider>
                                         <QuestionAnswerProvider>
+                                            <StudentAnswersheetContextProvider>
+                                                <ExamStudentListContextProvider>
 
-                                            <QuestionProvider>
+                                                    <QuestionProvider>
 
-                                                <Switch>
+                                                        <Switch>
 
-                                                    {/*HomePage*/}
-                                                    <Route exact path={"/"} component={HomePage}/>
+                                                            {/*HomePage*/}
+                                                            <Route exact path={"/"} component={HomePage}/>
 
-                                                    {/*FacultyLogin*/}
-                                                    <Route exact path="/FacultyLogin">
-                                                        {facultyIsLoggedIn ? (
-                                                            <Redirect to="/FacultyHomePage"/>
-                                                        ) : (
-                                                            <FacultyLogin/>
-                                                        )}
-                                                    </Route>
+                                                            {/*FacultyLogin*/}
+                                                            <Route exact path="/FacultyLogin">
+                                                                {facultyIsLoggedIn ? (
+                                                                    <Redirect to="/FacultyHomePage"/>
+                                                                ) : (
+                                                                    <FacultyLogin/>
+                                                                )}
+                                                            </Route>
 
-                                                    {/*Faculty SignUp*/}
-                                                    <Route exact path={"/FacultySignUp"} component={FacultySignUp}/>
+                                                            {/*Faculty SignUp*/}
+                                                            <Route exact path={"/FacultySignUp"}
+                                                                   component={FacultySignUp}/>
 
-                                                    {/*Faculty Set Question Paper*/}
-                                                    <Route exact path="/SetQuestionPaper">
-                                                        {facultyIsLoggedIn ? (
-                                                            <FacultyQuestionPaperPage/>
-                                                        ) : (
-                                                            <Redirect to="/FacultyLogin"/>
-                                                        )}
-                                                    </Route>
+                                                            {/*Faculty Set Question Paper*/}
+                                                            <Route exact path="/SetQuestionPaper">
+                                                                {facultyIsLoggedIn ? (
+                                                                    <FacultyQuestionPaperPage/>
+                                                                ) : (
+                                                                    <Redirect to="/FacultyLogin"/>
+                                                                )}
+                                                            </Route>
 
-                                                    {/*StudentLogin*/}
-                                                    <Route exact path="/StudentLogin">
-                                                        {studentIsLoggedIn ? (
-                                                            <Redirect to="/StudentHomePage"/>
-                                                        ) : (
-                                                            <StudentLogin/>
-                                                        )}
-                                                    </Route>
+                                                            {/*StudentLogin*/}
+                                                            <Route exact path="/StudentLogin">
+                                                                {studentIsLoggedIn ? (
+                                                                    <Redirect to="/StudentHomePage"/>
+                                                                ) : (
+                                                                    <StudentLogin/>
+                                                                )}
+                                                            </Route>
 
-                                                    {/*Student SignUp*/}
-                                                    <Route exact path={"/StudentSignUp"} component={StudentSignUp}/>
+                                                            {/*Student SignUp*/}
+                                                            <Route exact path={"/StudentSignUp"}
+                                                                   component={StudentSignUp}/>
 
-                                                    {/*Student Give Question Paper*/}
-                                                    <Route exact path="/GiveExam">
-                                                        {studentIsLoggedIn ? (
-                                                            <StudentQuestionPaperPage/>
-                                                        ) : (
-                                                            <Redirect to="/StudentLogin"/>
-                                                        )}
-                                                    </Route>
-                                                    {/*Faculty HomePage*/}
-                                                    <Route exact path="/FacultyHomePage">
-                                                        {facultyIsLoggedIn ? (
-                                                            <FacultyHomePage/>
-                                                        ) : (
-                                                            <Redirect to="/FacultyLogin"/>
-                                                        )}
-                                                    </Route>
-                                                    {/*Student Homepage*/}
-                                                    <Route exact path="/StudentHomePage">
-                                                        {studentIsLoggedIn ? (
-                                                            <StudentHomePage/>
-                                                        ) : (
-                                                            <Redirect to="/StudentLogin"/>
-                                                        )}
-                                                    </Route>
-                                                </Switch>
-                                            </QuestionProvider>
+                                                            {/*Student Give Question Paper*/}
+                                                            <Route exact path="/GiveExam">
+                                                                {studentIsLoggedIn ? (
+                                                                    <StudentQuestionPaperPage/>
+                                                                ) : (
+                                                                    <Redirect to="/StudentLogin"/>
+                                                                )}
+                                                            </Route>
+                                                            {/*Faculty HomePage*/}
+                                                            <Route exact path="/FacultyHomePage">
+                                                                {facultyIsLoggedIn ? (
+                                                                    <FacultyHomePage/>
+                                                                ) : (
+                                                                    <Redirect to="/FacultyLogin"/>
+                                                                )}
+                                                            </Route>
+                                                            {/*Student Homepage*/}
+                                                            <Route exact path="/StudentHomePage">
+                                                                {studentIsLoggedIn ? (
+                                                                    <StudentHomePage/>
+                                                                ) : (
+                                                                    <Redirect to="/StudentLogin"/>
+                                                                )}
+                                                            </Route>
+
+                                                            {/*ViewAllStudentExamList*/}
+                                                            <Route exact path="/ExamStudentList">
+                                                                {facultyIsLoggedIn ? (
+                                                                    <FacultyViewAnswersheet/>
+                                                                ) : (
+                                                                    <Redirect to="/FacultyLogin"/>
+                                                                )}
+                                                            </Route>
+
+                                                            {/*VerifyAnswers*/}
+                                                            <Route exact path="/VerifyAnswers">
+                                                                {facultyIsLoggedIn ? (
+                                                                    <FacultyAssignMarks/>
+                                                                ) : (
+                                                                    <Redirect to="/FacultyLogin"/>
+                                                                )}
+                                                            </Route>
+                                                        </Switch>
+                                                    </QuestionProvider>
+
+                                                </ExamStudentListContextProvider>
+
+                                            </StudentAnswersheetContextProvider>
 
                                         </QuestionAnswerProvider>
 

@@ -1,10 +1,11 @@
 import React, {useContext, useState} from 'react';
-import './AnswerBox.css';
-import {Col} from "react-bootstrap";
+import './QuestionAnswerSection.css';
 import {FormControlLabel, RadioGroup, TextareaAutosize, Typography} from "@material-ui/core";
 import {createStyles} from "@material-ui/core/styles";
 import StyledOptionRadioButton from "./StyledOptionRadioButton";
 import {StudentQuestionAnswerContext} from "../../../context/StudentQuestionAnswerContext";
+import {StudentAnswersheetContext} from "../../../context/StudentAnswersheetContext";
+import Options from "./Options";
 
 const styles = createStyles({
     formControlLabel: {
@@ -20,36 +21,44 @@ const styles = createStyles({
 });
 
 
-function Answer(props) {
+function QuestionAnswerSection(props) {
 
+
+    //Only Questions
     const [questionAnswer, setQuestionAnswer] = useContext(StudentQuestionAnswerContext);
+
+    const [studentAnswerSheet, setStudentAnswerSheet] = useContext(StudentAnswersheetContext);
+
     const [textAnswer, setTextAnswer] = useState(questionAnswer[props.questionNo].textAnswer);
 
 
     function changeOptionValue(event) {
         const value = event.target.value;
         setQuestionAnswer((prevState) => {
+            prevState[props.questionNo].selectedOption = value;
             console.log(prevState)
-            prevState[props.questionNo].correctOption = value;
             //TODO Save Option Value
             return prevState;
+        })
+
+        setStudentAnswerSheet((prevState) => {
+            prevState.studentAnswerSheet[props.questionNo].answered = value
+            return prevState
         })
 
     }
 
     function renderOptions() {
         return (
-            <RadioGroup aria-label="Type of Answer" className={"OptionsContainer"} onChange={changeOptionValue}>
+            <RadioGroup aria-label="Type of Answer" className={"OptionsContainer"} onChange={changeOptionValue}
+                        value={questionAnswer[props.questionNo].selectedOption}>
                 {props.options.map((option, index) => {
                     return (
-                        <Col key={index}>
-                            <FormControlLabel
-                                className={"Options"}
-                                id={index}
-                                value={option.value}
-                                control={<StyledOptionRadioButton/>}
-                                label={<Typography style={styles.formControlLabel}>{option.value}</Typography>}/>
-                        </Col>
+                        <Options
+                            key={index}
+                            index={index}
+                            optionValue={option.value}
+                        />
                     )
 
                 })}
@@ -83,9 +92,12 @@ function Answer(props) {
 
     return (
         <div>
-            {props.isTextField ? renderTextField() : renderOptions()}
+            <div className={"questionContainer"}>
+                {props.question}
+            </div>
+            {(props.isTextField) ? renderTextField() : renderOptions()}
         </div>);
 
 }
 
-export default Answer;
+export default QuestionAnswerSection;
