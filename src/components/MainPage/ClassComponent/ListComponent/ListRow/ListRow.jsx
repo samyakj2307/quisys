@@ -86,32 +86,105 @@ function ListRow(props) {
             });
     }
 
-    function handleCheckPaper(){
+    function handleViewMarks() {
         axios
             .get(baseUrl + "/getVerifiedResponses", {
                 params: {
-                     eid:props.examId
+                    eid: props.examId
                 },
             })
             .then(function (response) {
-                console.log(response);
+                console.log(response.data);
+                let student = {};
+                let index = 0;
+                for (let i = 0; i < response.data.length; i++) {
+                    if (response.data[i].sid === currentStudentDetails._id) {
+                        student = response.data[i]
+                        index = i
+                    }
+                }
+                history.push("/VerifyAnswers", {student: student, index: index, user: props.user});
+            })
+
+    }
+
+    function handleCheckPaper() {
+        axios
+            .get(baseUrl + "/getVerifiedResponses", {
+                params: {
+                    eid: props.examId
+                },
+            })
+            .then(function (response) {
+                console.log(response.data);
+                for (let i = 0; i < response.data.length; i++) {
+                    if (response.data[i].totalMarks === undefined) {
+                        response.data[i]["totalMarks"] = 0
+                        console.log("Inside if");
+                        console.log(response.data);
+                    }
+                }
                 setExamStudentDetails(response.data)
-                history.push("/ExamStudentList")
+                history.push("/ExamStudentList", props.user);
             })
     }
 
-    function isQuizOver(){
+    function isQuizOver() {
         let bool = false;
-        for(let i=0;i<currentStudentDetails.allExamsCompleted.length;i++){
-            console.log(props.examId)
-            if(props.examId===currentStudentDetails.allExamsCompleted[i]){
-                console.log("Hello")
+        for (let i = 0; i < currentStudentDetails.allExamsCompleted.length; i++) {
+            if (props.examId === currentStudentDetails.allExamsCompleted[i]) {
                 bool = true;
                 break;
             }
         }
         return bool
 
+    }
+
+    function checkTime() {
+        const today = new Date();
+        const dd = today.getDate();
+        const mm = today.getMonth() + 1;
+        const yyyy = today.getFullYear();
+
+        const hours = today.getHours()
+        const minutes = today.getMinutes()
+        const seconds = today.getSeconds()
+
+        var isDateSame = false;
+        var isTimeInRange = false;
+
+        var examDate = props.examDate.split("-")
+        var examDateInt = []
+        for (let i = 0; i < examDate.length; i++) {
+            examDateInt = [...examDateInt, parseInt(examDate[i])]
+        }
+        if (dd === examDateInt[2] && mm === examDateInt[1] && yyyy === examDateInt[0]) {
+            isDateSame = true;
+        }
+
+        var startTime = props.examStartTime.split(":")
+        var startTimeInt = []
+        for (let i = 0; i < startTime.length; i++) {
+            startTimeInt = [...startTimeInt, parseInt(startTime[i])]
+        }
+
+        var endTime = props.examEndTime.split(":")
+        var endTimeInt = []
+        for (let i = 0; i < endTime.length; i++) {
+            endTimeInt = [...endTimeInt, parseInt(endTime[i])]
+        }
+
+
+        if (hours >= startTimeInt[0] && hours <= endTimeInt[0] && minutes >= startTimeInt[1] && minutes <= endTimeInt[1]) {
+            isTimeInRange = true;
+        }
+
+        if (isDateSame && isTimeInRange) {
+            return <button className={"ListComponentButton"} onClick={handleStartQuiz}>Start Quiz</button>
+        } else {
+            return <h5>Not Yet Started</h5>
+        }
     }
 
 
@@ -139,7 +212,8 @@ function ListRow(props) {
                     {props.user === "Faculty" ?
                         <Col>
                             {props.isCompleted ?
-                                <button className={"ListComponentButton"} onClick={handleCheckPaper}>Check Answers</button> :
+                                <button className={"ListComponentButton"} onClick={handleCheckPaper}>Check
+                                    Answers</button> :
                                 <button className={"ListComponentButton"} onClick={handleEditQuiz}> Edit Quiz
                                 </button>
                             }
@@ -147,8 +221,10 @@ function ListRow(props) {
                         <Col>
                             {/*TODO Add Is Checked*/}
                             {isQuizOver() ?
-                                <button className={"ListComponentButton"}>View Marks</button> :
-                                <button className={"ListComponentButton"} onClick={handleStartQuiz}>Start Quiz</button>
+                                <button className={"ListComponentButton"} onClick={handleViewMarks}>View
+                                    Marks</button> :
+                                checkTime()
+
                             }
                         </Col>
                     }

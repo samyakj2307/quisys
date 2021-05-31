@@ -75,6 +75,10 @@ function QuestionAnswerSection(props) {
             prevState[props.questionNo].textAnswer = value;
             return (prevState);
         });
+        setStudentAnswerSheet((prevState) => {
+            prevState.studentAnswerSheet[props.questionNo].answered = value
+            return prevState
+        })
     }
 
     function renderTextField() {

@@ -1,0 +1,19 @@
+.progressStyle {
+    border: 2px solid #6ABAD3;
+    height: 22px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.labelStyle {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #3DA6C6 0%, #48ABC9 17.71%, #6ABAD3 56.77%, rgba(154, 209, 225, 0.55208) 99.98%, rgba(198, 229, 238, 0.311172) 99.99%, rgba(255, 255, 255, 0) 100%);
+    border-radius: 9px;
+}
+
+
+

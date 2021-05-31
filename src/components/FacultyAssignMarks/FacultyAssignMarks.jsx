@@ -11,6 +11,7 @@ const baseUrl = "http://localhost:3000";
 
 function FacultyAssignMarks() {
     const history = useHistory();
+    const user = history.location.state.user;
     const marksList = history.location.state.student;
     const index = history.location.state.index;
 
@@ -80,7 +81,12 @@ function FacultyAssignMarks() {
             }
             <Row className={" row row3"}>
                 <Col className={"col-md-12"}>
-                    <button className={"saveBtn"} onClick={handleSaveMarks}>Save</button>
+                    {user === "Faculty" &&
+                    <button
+                        className={"saveBtn"}
+                        onClick={handleSaveMarks}>Save
+                    </button>
+                    }
                 </Col>
             </Row>
         </div>

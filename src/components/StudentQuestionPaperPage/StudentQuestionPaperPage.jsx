@@ -9,6 +9,7 @@ import {StudentDetailsContext} from "../../context/StudentDetailsContext";
 import {SelectedQuizContext} from "../../context/SelectedQuizContext(Student)";
 import {StudentAnswersheetContext} from "../../context/StudentAnswersheetContext";
 import {useHistory} from "react-router-dom";
+import Timer from "./Timer/Timer";
 
 const axios = require("axios").default;
 
@@ -33,6 +34,7 @@ function StudentQuestionPaperPage() {
 
     const history = useHistory();
 
+
     function handleNext() {
         if (currentQuestionNumber < (questionAnswer.length - 1)) {
             setCurrentQuestionNumber(prevState => {
@@ -42,12 +44,11 @@ function StudentQuestionPaperPage() {
     }
 
     function handleSubmit() {
-        console.log(studentAnswerSheet)
         axios
             .post(baseUrl + "/submitExam", studentAnswerSheet)
             .then(function (response) {
-                console.log(response)
-                 history.push("/StudentHomepage");
+                console.log(response.data)
+                history.push("/StudentHomePage");
 
             })
             .catch(function (error) {
@@ -63,11 +64,11 @@ function StudentQuestionPaperPage() {
         }
     }
 
-    // function goToQuestion(event) {
-    //     const value = event.target.id;
-    //     let qNo = value - 1;
-    //     setCurrentQuestionNumber(qNo)
-    // }
+    function goToQuestion(event) {
+        const value = event.target.id;
+        let qNo = value - 1;
+        setCurrentQuestionNumber(qNo)
+    }
 
 
     return (
@@ -87,9 +88,8 @@ function StudentQuestionPaperPage() {
             <Row className={"MainContainer"}>
                 <Col md={3} className={"TimerQuestionNumber"}>
                     <Row>
-                        <Col>
-                            <h4>TIMER SECTION</h4>
-                        </Col>
+                        <Timer
+                            handleSubmitAction={handleSubmit}/>
                     </Row>
                     <Row className={"questionNumbersContainer"}>
                         <Col style={{textAlign: "left"}}>{questionArray.map(number => {
@@ -97,7 +97,7 @@ function StudentQuestionPaperPage() {
                                         key={number}
                                         id={number}
                                         className={"questionNumbers"}
-                                        // onClick={goToQuestion}
+                                        onClick={goToQuestion}
                                     >
                                         {number}
                                     </button>
@@ -126,7 +126,7 @@ function StudentQuestionPaperPage() {
                         <Col>
                             <Row>
                                 <Col>
-                                    {/*<button onClick={handlePrevious}>Previous</button>*/}
+                                    <button onClick={handlePrevious}>Previous</button>
                                 </Col>
                                 <Col>
                                     {currentQuestionNumber !== (questionAnswer.length - 1) ?

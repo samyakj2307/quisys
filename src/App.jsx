@@ -130,11 +130,7 @@ function App() {
 
                                                             {/*VerifyAnswers*/}
                                                             <Route exact path="/VerifyAnswers">
-                                                                {facultyIsLoggedIn ? (
-                                                                    <FacultyAssignMarks/>
-                                                                ) : (
-                                                                    <Redirect to="/FacultyLogin"/>
-                                                                )}
+                                                                <FacultyAssignMarks/>
                                                             </Route>
                                                         </Switch>
                                                     </QuestionProvider>

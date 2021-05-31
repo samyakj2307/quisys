@@ -6,7 +6,12 @@ function FacultyTableRow(props) {
     const history = useHistory();
 
     function handleVerifyAnswers() {
-        history.push("/VerifyAnswers", {student:props.student,index:props.index})
+        for (let i = 0; i < props.student.studentAnswerSheet.length; i++) {
+            if(props.student.studentAnswerSheet[i]["marksAwarded"] === undefined){
+                props.student.studentAnswerSheet[i]["marksAwarded"]=0
+            }
+        }
+        history.push("/VerifyAnswers", {student:props.student,index:props.index,user:props.user})
     }
 
     return (
@@ -14,7 +19,6 @@ function FacultyTableRow(props) {
             <td>{props.student.studentName}</td>
             <td>{props.student.studentEmail}</td>
             <td>{props.student.totalMarks === undefined ? "Not Awarded" : props.student.totalMarks}</td>
-            {/*<td>{studentsList.studentAnswerSheet.marks!== undefined ? studentsList.marks : "Not Awarded Yet." }</td>*/}
             <td>
                 <button className={"checkBtn"} onClick={handleVerifyAnswers}>Check Paper</button>
             </td>
