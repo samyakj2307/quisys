@@ -41,8 +41,6 @@ function MainPage(props) {
     } else {
       setStudentIsLoggedIn(false);
     }
-    //TODO check if wanna use useHistory()
-    // history.push('/');
   }
 
   function openPopUp() {

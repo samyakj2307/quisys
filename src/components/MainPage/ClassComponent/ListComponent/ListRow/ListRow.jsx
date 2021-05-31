@@ -257,7 +257,6 @@ function ListRow(props) {
             </Col>
           ) : (
             <Col>
-              {/*TODO Add Is Checked*/}
               {isQuizOver() ? (
                 <button
                   className={"ListComponentButton"}

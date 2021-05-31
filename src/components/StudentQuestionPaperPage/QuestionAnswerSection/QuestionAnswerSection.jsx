@@ -44,7 +44,6 @@ function QuestionAnswerSection(props) {
     setQuestionAnswer((prevState) => {
       prevState[props.questionNo].selectedOption = value;
       console.log(prevState);
-      //TODO Save Option Value
       return prevState;
     });
 

@@ -19,7 +19,6 @@ function FacultyQuestionPaperPage() {
   const [questions, setQuestions] = useContext(FacultyQuestionContext);
 
   const [quizDetails, setQuizDetails] = useContext(FacultyQuizContext);
-  //TODO Add Edit QuestionPaper axois Request (if else)
 
   const [examName, setExamName] = useState(quizDetails.examName);
   const [examDate, setExamDate] = useState(quizDetails.date);
