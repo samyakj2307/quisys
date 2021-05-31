@@ -1,27 +1,26 @@
-.OptionsContainer{
-    margin: 20px;
+.OptionsContainer {
+  margin: 20px;
 }
 
-.Options{
-    background: #FFFFFF;
-    border-radius: 10px;
-    margin: 7px 0;
+.Options {
+  background: #ffffff;
+  border-radius: 10px;
+  margin: 7px 0;
 
-    width: 65%;
-    border:2px solid #FFFFFF;
+  width: 65%;
+  border: 2px solid #ffffff;
 }
-.Options:hover{
-    border:2px solid #9575CD;
-}
-
-.questionContainer{
-    background: #FFFFFF;
-    border-radius: 10px;
-    width: 80%;
-    margin: 10px;
-    padding: 10px;;
-    font-size: 15px;
-    line-height: 18px;
-    color: #000000;
+.Options:hover {
+  border: 2px solid #9575cd;
 }
 
+.questionContainer {
+  background: #ffffff;
+  border-radius: 10px;
+  width: 80%;
+  margin: 10px;
+  padding: 10px;
+  font-size: 15px;
+  line-height: 18px;
+  color: #000000;
+}

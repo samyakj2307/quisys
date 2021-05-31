@@ -1,11 +1,15 @@
-import React, {createContext, useState} from "react";
+import React, { createContext, useState } from "react";
 
 export const SelectedQuizContext = createContext();
 
 export function SelectedQuizContextProvider(props) {
-    const [currentQuizDetails, setCurrentQuizDetails] = useState({})
+  const [currentQuizDetails, setCurrentQuizDetails] = useState({});
 
-    return <SelectedQuizContext.Provider value={[currentQuizDetails, setCurrentQuizDetails]}>
-        {props.children}
+  return (
+    <SelectedQuizContext.Provider
+      value={[currentQuizDetails, setCurrentQuizDetails]}
+    >
+      {props.children}
     </SelectedQuizContext.Provider>
+  );
 }

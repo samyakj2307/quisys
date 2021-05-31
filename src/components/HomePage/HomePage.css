@@ -1,80 +1,76 @@
 .backgroundDivisionHomePage {
-    z-index: -1;
-    height: 100vh;
-    background-image: url("../../images/backgroundImage.png");
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    overflow: hidden;
+  z-index: -1;
+  height: 100vh;
+  background-image: url("../../images/backgroundImage.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
 
-    padding: 0;
-    margin: 0;
-
+  padding: 0;
+  margin: 0;
 }
 
 .mainDivisionHomePage {
-    margin: 0;
-    padding: 50px;
-    z-index: 2;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0);
-    backdrop-filter: blur(5px);
-    text-align: center;
+  margin: 0;
+  padding: 50px;
+  z-index: 2;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(5px);
+  text-align: center;
 }
 
-.buttonContainerHomePage{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-
+.buttonContainerHomePage {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
-Container{
-    height: 100%;
+Container {
+  height: 100%;
 }
 
 .HomePageButton {
-    width: 337px;
-    height: 63px;
-    left: 408px;
-    top: 319px;
-    border-radius: 100px;
-    background: rgba(149, 117, 205, 0.77);
-    border: none;
-    margin-top: 25px;
-    cursor: pointer;
+  width: 337px;
+  height: 63px;
+  left: 408px;
+  top: 319px;
+  border-radius: 100px;
+  background: rgba(149, 117, 205, 0.77);
+  border: none;
+  margin-top: 25px;
+  cursor: pointer;
 
-    font-family: Montserrat, serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 30px;
-    line-height: 37px;
-    color: #FFFFFF;
-
+  font-family: Montserrat, serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 37px;
+  color: #ffffff;
 }
 
 button:hover {
-    opacity: 0.75;
+  opacity: 0.75;
 }
 
 button:active {
-    outline: none;
-    border: none;
+  outline: none;
+  border: none;
 }
 
 button:focus {
-    outline: 0;
+  outline: 0;
 }
 
 img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 286px;
-    height: 96px;
-    left: 433px;
-    top: 51px;
-    border-radius: 21px;
-
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 286px;
+  height: 96px;
+  left: 433px;
+  top: 51px;
+  border-radius: 21px;
 }

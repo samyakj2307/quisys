@@ -1,95 +1,89 @@
 .secondContainer {
-    margin-top: 90px;
-    width: 100vw;
+  margin-top: 90px;
+  width: 100vw;
 }
 
 /*NavBar*/
 .NavBarContainer {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .LogoContainer {
-    text-align: left;
+  text-align: left;
 }
 
 .quisysLogo {
-    width: 150px;
-    height: 55.5px;
-    top: 3px;
-    left: 10px;
-    display: inline;
-
+  width: 150px;
+  height: 55.5px;
+  top: 3px;
+  left: 10px;
+  display: inline;
 }
 
 .CourseName {
-    margin: 0 auto;
-    font-size: 30px;
+  margin: 0 auto;
+  font-size: 30px;
 }
 
-
 h4 {
-    font-size: 30px;
-    text-align: left;
-    padding-bottom: 10px;
+  font-size: 30px;
+  text-align: left;
+  padding-bottom: 10px;
 }
 
 .AllClass {
-    margin-top: 30px;
-    font-weight: bold;
-    font-size: 25px;
-    padding-bottom: 10px;
+  margin-top: 30px;
+  font-weight: bold;
+  font-size: 25px;
+  padding-bottom: 10px;
 }
-
 
 .LogoutBtn {
-    background-color: #9575CD;
-    border: 0;
-    border-radius: 10px;
-    cursor: pointer;
-    padding: 14px;
-    font-weight: bold;
-    font-size: 15px;
-    line-height: 18px;
-    letter-spacing: 1px;
-    color: #FFFFFF;
-    margin-left: 10px;
-
+  background-color: #9575cd;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 14px;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin-left: 10px;
 }
 
-
 .joinClassContainer {
-    text-align: left;
+  text-align: left;
 }
 
 .CreateClass {
-    background-color: #9575CD;
-    border: 0;
-    border-radius: 10px;
-    cursor: pointer;
-    padding: 15px 20px;
+  background-color: #9575cd;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  padding: 15px 20px;
 
-    font-weight: bold;
-    font-size: 15px;
-    line-height: 18px;
-    letter-spacing: 1px;
-    color: #FFFFFF;
-    margin-top: 10px;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 18px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  margin-top: 10px;
 }
 
-.NewQuizButton{
-
-    margin-bottom: 10px;
+.NewQuizButton {
+  margin-bottom: 10px;
 }
 
 a {
-    margin-top: 30px;
-    font-size: 20px;
-    text-align: center;
-    padding-bottom: 10px;
-    text-decoration: none;
-    color: inherit;
+  margin-top: 30px;
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 10px;
+  text-decoration: none;
+  color: inherit;
 }
 
 a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }

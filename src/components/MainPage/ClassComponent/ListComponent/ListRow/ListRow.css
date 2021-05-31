@@ -1,43 +1,43 @@
-.listRowContainer{
-    background: #FFFFFF;
-    border-radius: 10px;
-    padding: 10px 10px;
-    margin-bottom: 10px;
-    margin-top: 12px;
-    width: 100%;
+.listRowContainer {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 10px 10px;
+  margin-bottom: 10px;
+  margin-top: 12px;
+  width: 100%;
 }
-.buttonContainer{
-    text-align: right;
-    padding-top: 15px;
+.buttonContainer {
+  text-align: right;
+  padding-top: 15px;
 }
 
-.ListComponentButton{
-    background: #9574CD;
-    /*box-shadow: -4px -4px 12px rgba(253, 255, 255, 0.8), 4px 4px 12px rgba(187, 195, 206, 0.6);*/
-    border-radius: 10px;
-    border: none;
-    padding: 10px;
-    margin-right: 10px;
+.ListComponentButton {
+  background: #9574cd;
+  /*box-shadow: -4px -4px 12px rgba(253, 255, 255, 0.8), 4px 4px 12px rgba(187, 195, 206, 0.6);*/
+  border-radius: 10px;
+  border: none;
+  padding: 10px;
+  margin-right: 10px;
 
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 15px;
-    line-height: 18px;
-    text-align: center;
-    letter-spacing: 1px;
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 15px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 1px;
 
-    color: #FFFFFF;
+  color: #ffffff;
 }
-.DateTime{
-    border-left: 1px dotted black;
-    border-right:1px dotted black;
+.DateTime {
+  border-left: 1px dotted black;
+  border-right: 1px dotted black;
 }
-.SubjectRowNames{
-    text-align: left;
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 18px;
-    padding-left:35px;
+.SubjectRowNames {
+  text-align: left;
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  padding-left: 35px;
 }

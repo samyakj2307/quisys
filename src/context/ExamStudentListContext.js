@@ -1,11 +1,15 @@
-import React, {createContext, useState} from "react";
+import React, { createContext, useState } from "react";
 
 export const ExamStudentListContext = createContext();
 
 export function ExamStudentListContextProvider(props) {
-    const [examStudentDetails, setExamStudentDetails] = useState([])
+  const [examStudentDetails, setExamStudentDetails] = useState([]);
 
-    return <ExamStudentListContext.Provider value={[examStudentDetails, setExamStudentDetails]}>
-        {props.children}
+  return (
+    <ExamStudentListContext.Provider
+      value={[examStudentDetails, setExamStudentDetails]}
+    >
+      {props.children}
     </ExamStudentListContext.Provider>
+  );
 }

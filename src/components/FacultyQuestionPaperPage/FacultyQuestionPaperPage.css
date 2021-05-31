@@ -1,59 +1,60 @@
 body {
-    background-color: #E6EEF8;
+  background-color: #e6eef8;
 }
 
 .mainQuestionContainer {
-    text-align: center;
+  text-align: center;
 }
 
 .facultyQuestionBoxContainer {
-    margin-left: auto;
-    margin-right: auto;
-    text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
-
 .addButton {
-    background: #E6EEF8;
-    border: 4px solid #9575CD;
-    box-sizing: border-box;
-    box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.56), inset 4px 4px 12px rgba(187, 195, 206, 0.6), inset -4px -4px 12px rgba(253, 255, 255, 0.8);
-    cursor: pointer;
+  background: #e6eef8;
+  border: 4px solid #9575cd;
+  box-sizing: border-box;
+  box-shadow: inset 1px 1px 0 rgba(255, 255, 255, 0.56),
+    inset 4px 4px 12px rgba(187, 195, 206, 0.6),
+    inset -4px -4px 12px rgba(253, 255, 255, 0.8);
+  cursor: pointer;
 }
 
 .facultyAddButton {
-    padding: 0;
-    margin-top: 40px;
-    transform: rotate(45deg);
-    border-radius: 0 20px 20px 20px;
+  padding: 0;
+  margin-top: 40px;
+  transform: rotate(45deg);
+  border-radius: 0 20px 20px 20px;
 }
 
 .facultyAddButton img {
-    width: 50px;
-    height: 50px;
-    transform: rotate(-45deg);
-    padding: 7px;
+  width: 50px;
+  height: 50px;
+  transform: rotate(-45deg);
+  padding: 7px;
 }
 
 .quizDataInput {
-    border: 2px solid #9575CD;
-    margin: 10px 20px 10px;
-    padding: 10px;
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 20px;
-    letter-spacing: 1px;
-    color: black;
+  border: 2px solid #9575cd;
+  margin: 10px 20px 10px;
+  padding: 10px;
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  letter-spacing: 1px;
+  color: black;
 }
 
 .quizDataInput::placeholder {
-    color: #90A4AE;
+  color: #90a4ae;
 }
 
 .quizDataInput:focus {
-    outline: none;
-    border: 3px solid #9575CD;
+  outline: none;
+  border: 3px solid #9575cd;
 }
 
 /*p {*/
@@ -68,54 +69,52 @@ body {
 /*}*/
 
 .ExamHeading {
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
-    font-weight: bolder;
-    font-size: 30px;
-    margin-top: 30px;
-    letter-spacing: 1px;
-    color: white;
-    border-bottom:2px solid white;
-
-
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: bolder;
+  font-size: 30px;
+  margin-top: 30px;
+  letter-spacing: 1px;
+  color: white;
+  border-bottom: 2px solid white;
 }
 
-.InputLabel{
-    color: white;
-    font-size: 20px;
+.InputLabel {
+  color: white;
+  font-size: 20px;
 }
 
 .examDetails {
-    background-color: #9574CD;
+  background-color: #9574cd;
 }
 
 .durationBox {
-    width: 200px;
+  width: 200px;
 }
 
 .saveQuestionPaper {
-    background-color: #9575CD;
-    border: 0;
-    border-radius: 10px;
+  background-color: #9575cd;
+  border: 0;
+  border-radius: 10px;
 
-    margin: 70px 0 40px;
-    padding: 20px 40px;
+  margin: 70px 0 40px;
+  padding: 20px 40px;
 
-    cursor: pointer;
+  cursor: pointer;
 
-    font-family: Montserrat, sans-serif;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 25px;
-    line-height: 18px;
-    text-align: center;
-    letter-spacing: 1px;
-    color: #FFFFFF;
+  font-family: Montserrat, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 25px;
+  line-height: 18px;
+  text-align: center;
+  letter-spacing: 1px;
+  color: #ffffff;
 }
-#examDate{
-    width:230px;
+#examDate {
+  width: 230px;
 }
-.quisysLogo2{
-    margin-left:10px;
-    margin-top:10px;
+.quisysLogo2 {
+  margin-left: 10px;
+  margin-top: 10px;
 }

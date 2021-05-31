@@ -1,11 +1,13 @@
-import React, {createContext, useState} from "react";
+import React, { createContext, useState } from "react";
 
 export const QuizListContext = createContext();
 
 export function QuizListContextProvider(props) {
-    const [quizDetails, setQuizDetails] = useState([])
+  const [quizDetails, setQuizDetails] = useState([]);
 
-    return <QuizListContext.Provider value={[quizDetails, setQuizDetails]}>
-        {props.children}
+  return (
+    <QuizListContext.Provider value={[quizDetails, setQuizDetails]}>
+      {props.children}
     </QuizListContext.Provider>
+  );
 }
