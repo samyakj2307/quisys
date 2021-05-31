@@ -17,7 +17,7 @@ function FacultyAssignMarks() {
 
     const [examStudentDetails, setExamStudentDetails] = useContext(ExamStudentListContext)
 
-    const [totalMarks, setTotalMarks] = useState(0)
+    const [totalMarks, setTotalMarks] = useState(marksList.totalMarks)
 
     function handleMarksChange(value, index) {
         marksList.studentAnswerSheet[index]["marksAwarded"] = value;
@@ -75,6 +75,7 @@ function FacultyAssignMarks() {
                             index={index}
                             question={question}
                             handleMarksChange={handleMarksChange}
+                            user={user}
                         />
                     )
                 })

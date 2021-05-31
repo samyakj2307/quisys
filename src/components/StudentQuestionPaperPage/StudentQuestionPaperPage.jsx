@@ -133,7 +133,7 @@ function StudentQuestionPaperPage() {
                                         <button onClick={handleNext} id={"next"}>Save & Next</button> :
                                         <button onClick={handleSubmit} id={"next"}>Submit</button>
                                     }
-                                    {/*TODO make a submit button at the end*/}
+
                                 </Col>
                             </Row>
                         </Col>
